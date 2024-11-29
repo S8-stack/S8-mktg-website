@@ -5,9 +5,13 @@ import { ModalBox } from "./ModalBox.js";
  * 
  * @param {*} pagePathname 
  */
-export const boot = function (pagePathname, hasCookiesModalBox = false) {
+export const boot = function (props) {
 
     /* <structure> */
+
+    const pagePathname = props.page;
+    const hasCookiesModalBox = props.hasCookiesModalBox ? props.hasCookiesModalBox : false;
+    const iconPathname = props.iconPathname;
 
     const bodyNode = document.body;
 
@@ -74,7 +78,7 @@ window.WEB_PAGE = WEB_PAGE;
 
 
 
-export const createSpinner = function () {
+export const createSpinner = function (iconPathname) {
 
     const node = document.createElement("div");
     node.className = "boot-loader";

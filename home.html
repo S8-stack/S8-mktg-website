@@ -12,6 +12,10 @@
 	window.boot = boot;
 </script>
 </head>
-<body onload="boot('/platform.js')">
+<body onload="boot({
+	page : '/home.js',
+	hasCookiesModalBox : true, 
+	icon : '/assets/logos/S8-logo-v4-256px.png'
+})">
 </body>
 </html>
