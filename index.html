@@ -4,7 +4,7 @@
 <title>AlphaVentor</title>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="shortcut icon" href="favicon.ico" type="image/png">
+<link rel="icon" type="image/x-icon" href="/favicon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="aero/boot.css" />
 <script type="module">
@@ -12,6 +12,10 @@
 	window.boot = boot;
 </script>
 </head>
-<body onload="boot('/home.js', true)">
+<body onload="boot({
+	page : '/home.js',
+	hasCookiesModalBox : true, 
+	icon : '/assets/logos/S8-logo-v4-256px.png'
+})">
 </body>
 </html>
