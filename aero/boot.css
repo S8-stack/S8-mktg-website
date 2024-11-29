@@ -67,7 +67,7 @@ body {
 .boot-embedded-icon {
 	width: 128px;
 	height: 128px;
-	background-image: url('/assets/logos/logo-256px-white.png');
+	background-image: url('/assets/logos/S8-logo-v4-256px.png');
 	background-position: center;
 	background-size: contain;
 }
@@ -134,18 +134,18 @@ body {
 
 @keyframes color {
 	100%, 0% {
-		stroke: #ffffff;
+		stroke: rgb(255, 73, 218);
 	}
 
 	40% {
-		stroke: #2df2c1;
+		stroke: #f22d8c;
 	}
 
 	66% {
-		stroke: #0fda75;
+		stroke: #7f0fda;
 	}
 
 	80%, 90% {
-		stroke: #4252e0;
+		stroke: #f9c909;
 	}
 }

@@ -5,10 +5,11 @@ import { page, header, slide, footer, movie, grid, gridCard } from './aero/aero.
 export const WEB_PAGE = page({
     hasCookiesModalBox : true,
     header: header({
-        logo: "logos/logo-small-black.png",
-        menus: ["Platform", "Engineering", "Stack", "Contact"],
-        hrefs: ["/platform.html", "/engineering.html", "/stack.html", "/contact.html"],
-        selected: "Platform"
+        theme: "dark",
+        logo: "assets/logos/S8-logo-v4-256px.png",
+        menus: ["Home", "Core", "Packages", "Team"],
+        hrefs: ["/home.html", "/core.html", "/packages.html", "/team.html"],
+        selected: "Home"
     }),
     elements: [
         slide("prime", {
