@@ -68,7 +68,7 @@ body {
 .boot-embedded-icon {
 	width: 128px;
 	height: 128px;
-	background-image: url('/assets/logos/S8-logo-v4-256px.png');
+	background-image: url('/logos/S8-logo-v4-256px.png');
 	background-position: center;
 	background-size: contain;
 }

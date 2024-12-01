@@ -1,4 +1,4 @@
-import { AeroComponent } from "./AeroComponent.js";
+import { AeroElement } from "./AeroElement.js";
 
 
 
@@ -29,7 +29,7 @@ const CONTENT = `
 </div>`;
 
 
-export class AeroFooter extends AeroComponent {
+export class Footer extends AeroElement {
 
   /** @type{HTMLElement} */
   footerNode;
@@ -40,19 +40,33 @@ export class AeroFooter extends AeroComponent {
   constructor(props) {
     super();
     this.props = props;
-
-
   }
 
-  initializeNodes(handler, state) {
+  /**
+    * 
+    * @param {WebPage} page 
+    * @returns {HTMLElement}
+    */
+  build(page) {
+
+    /* CSS requirements */
+    page.css_requireStylesheet("aero/Footer.css");
+
+    /* build nodes */
     this.footerNode = document.createElement('footer');
     this.footerNode.classList.add('aero-footer');
     this.footerNode.innerHTML = CONTENT;
+    //this.draw();
+
+    /* return wrapper node */
     return this.footerNode;
   }
 
-
-  render() {
+  /**
+    * 
+    * @param {WebPage} page 
+    */
+  render(page) {
 
   }
 

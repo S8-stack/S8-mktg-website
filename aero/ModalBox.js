@@ -1,8 +1,8 @@
 
-import { AeroComponent } from "./AeroComponent.js";
+import { AeroElement } from "./AeroElement.js";
 
 
-export class ModalBox extends AeroComponent {
+export class ModalBox extends AeroElement {
 
 
 

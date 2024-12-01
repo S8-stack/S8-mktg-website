@@ -1,4 +1,4 @@
-import { AeroComponent } from "./AeroComponent.js";
+import { AeroElement } from "./AeroElement.js";
 import { LoadHandler } from "./aero.js";
 
 
@@ -36,7 +36,7 @@ import { LoadHandler } from "./aero.js";
 
 
 
-export class AeroGrid extends AeroComponent {
+export class AeroGrid extends AeroElement {
 
     /** @type {HTMLElement } */
     sectionNode;
@@ -49,14 +49,14 @@ export class AeroGrid extends AeroComponent {
     deckNode;
 
 
-     /** @type{boolean} */
-     hasBackgroundImage = false;
+    /** @type{boolean} */
+    hasBackgroundImage = false;
 
-     /** @type{boolean} */
-     isBackgroundImageLoaded = false;
- 
-     /** @type{string} */
-     backgroundImagePath;
+    /** @type{boolean} */
+    isBackgroundImageLoaded = false;
+
+    /** @type{string} */
+    backgroundImagePath;
 
     constructor(type, props) {
         super();
@@ -70,7 +70,7 @@ export class AeroGrid extends AeroComponent {
      * @param {*} state 
      * @returns 
      */
-    initializeNodes(handler, state){
+    initializeNodes(handler, state) {
         this.sectionNode = document.createElement("section");
         this.sectionNode.classList.add("aero-grid");
 
@@ -88,7 +88,7 @@ export class AeroGrid extends AeroComponent {
                 let backgroundImagePath = backgroundParam.substring(4, n);
                 this.sectionNode.classList.add("background-pic");
                 handler.loadBackgroundImage(this.sectionNode, backgroundImagePath);
-                
+
             }
             else {
                 switch (backgroundParam) {
@@ -144,41 +144,41 @@ export class AeroGrid extends AeroComponent {
 }
 
 
-export class AeroGridCard extends AeroComponent {
+export class AeroGridCard extends AeroElement {
 
-     /** @type {HTMLDivElement } */
-     cardNode;
+    /** @type {HTMLDivElement } */
+    cardNode;
 
-     type;
- 
-     props;
- 
-     /** @type {HTMLDivElement} */
-     assetNode;
+    type;
+
+    props;
+
+    /** @type {HTMLDivElement} */
+    assetNode;
 
 
-       /** @type{boolean} */
-       hasBackgroundImage = false;
+    /** @type{boolean} */
+    hasBackgroundImage = false;
 
-       /** @type{boolean} */
-       isBackgroundImageLoaded = false;
-   
-       /** @type{string} */
-       backgroundImagePath;
- 
-     constructor(type, props) {
-         super();
-         this.type = type;
-         this.props = props;
-     }
+    /** @type{boolean} */
+    isBackgroundImageLoaded = false;
 
-     /**
-      * 
-      * @param {LoadHandler} handler 
-      * @param {*} state 
-      * @returns 
-      */
-     initializeNodes(handler, state){
+    /** @type{string} */
+    backgroundImagePath;
+
+    constructor(type, props) {
+        super();
+        this.type = type;
+        this.props = props;
+    }
+
+    /**
+     * 
+     * @param {LoadHandler} handler 
+     * @param {*} state 
+     * @returns 
+     */
+    initializeNodes(handler, state) {
         this.cardNode = document.createElement("div");
         this.cardNode.classList.add("aero-grid-card");
 

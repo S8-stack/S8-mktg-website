@@ -1,6 +1,6 @@
-import { AeroComponent } from "./AeroComponent.js";
+import { AeroElement } from "./AeroElement.js";
 
-import { AeroWebPage } from "./AeroWebPage.js";
+import { WebPage } from "./WebPage.js";
 import { LoadHandler } from "./aero.js";
 import { createSpinner } from "./boot.js";
 
@@ -41,7 +41,7 @@ import { createSpinner } from "./boot.js";
 export const LOW_RESOLUTION_TAG = "-low";
 export const HIGH_RESOLUTION_TAG = "-high";
 
-export class AeroMovie extends AeroComponent {
+export class AeroMovie extends AeroElement {
 
     /** @type {HTMLElement } */
     sectionNode;

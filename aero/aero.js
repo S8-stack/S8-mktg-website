@@ -1,22 +1,25 @@
-import { AeroDeck } from "./AeroDeck.js";
-import { AeroFooter } from "./AeroFooter.js";
+
+import { AeroElement } from "./AeroElement.js";
+
+import { Deck } from "./Deck.js";
+import { Footer } from "./Footer.js";
 import { AeroGrid, AeroGridCard } from "./AeroGrid.js";
-import { AeroHeader } from "./AeroHeader.js";
+import { Header } from "./Header.js";
 import { AeroMovie } from "./AeroMovie.js";
-import { AeroSlide } from "./AeroSlide.js";
-import { AeroWebPage } from "./AeroWebPage.js";
+import { Slide } from "./Slide.js";
+import { WebPage } from "./WebPage.js";
 
 
-export const page = function (props) {
-    return new AeroWebPage(props);
+export const page = function (elements, props) {
+    return new WebPage(elements, props);
 }
 
 export const header = function (props) {
-    return new AeroHeader(props);
+    return new Header(props);
 }
 
 export const slide = function (type, props) {
-    return new AeroSlide(type, props);
+    return new Slide(type, props);
 }
 
 export const movie = function (type, props) {
@@ -24,7 +27,7 @@ export const movie = function (type, props) {
 }
 
 export const deck = function (props) {
-    return new AeroDeck(props);
+    return new Deck(props);
 }
 
 export const grid = function (type, props) {
@@ -36,7 +39,7 @@ export const gridCard = function (type, props) {
 }
 
 export const footer = function (props) {
-    return new AeroFooter(props);
+    return new Footer(props);
 }
 
 
@@ -78,29 +81,6 @@ export class LoadHandler {
         }
     }
 
-    loadBackgroundImage(target, pathname){
-
-        /* generate an id for this loading operation */
-        const id = this.generateId();
-        
-        /* register it */
-        this.registerLoading(id);
-
-        const backgroundImageBuffer = new Image();
-        
-        const _this = this;
-        backgroundImageBuffer.onload = function () {
-            
-            /* assign image from buffer */
-            target.style.backgroundImage = `url(${backgroundImageBuffer.src})`;
-
-            /* notify handler */
-            _this.notifyCompleted(id);
-        };
-
-        /* trigger loading */
-        backgroundImageBuffer.src = pathname;
-    }
 
     listenCompleted(onLoaded) {
         if (this.resources.size == 0) {
@@ -114,38 +94,6 @@ export class LoadHandler {
 
 
 
-
-export const CSS_FILENAMES = [
-    "aero/AeroDeck.css",
-    "aero/AeroFooter.css",
-    "aero/AeroGrid.css",
-    "aero/AeroMovie.css",
-    "aero/AeroHeader.css",
-    "aero/AeroSlide.css",
-    "aero/AeroWebPage.css",
-    "aero/ModalBox.css"
-];
-
-
-/**
- * 
- * @param {LoadHandler} handler 
- */
-export function CSS_loadStylesheets(handler) {
-    CSS_FILENAMES.forEach(filename => {
-        handler.registerLoading(filename);
-
-        /** @type{HTMLLinkElement} */
-        const linkNode = document.createElement("link");
-
-        linkNode.addEventListener("load", () => handler.notifyCompleted(filename));
-
-        linkNode.type = "text/css";
-        linkNode.rel = "stylesheet";
-        linkNode.href = filename;
-        document.head.appendChild(linkNode);
-    });
-}
 
 
 

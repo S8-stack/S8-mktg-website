@@ -1,12 +1,12 @@
-import { AeroComponent } from "./AeroComponent.js";
+import { AeroElement } from "./AeroElement.js";
 
-import { AeroWebPage } from "./AeroWebPage.js";
+import { WebPage } from "./WebPage.js";
 
 
 /**
  * aero-deck
  */
-export class AeroDeck extends AeroComponent {
+export class Deck extends AeroElement {
 
     /** @type {HTMLElement } */
     sectionNode;
@@ -19,18 +19,17 @@ export class AeroDeck extends AeroComponent {
     }
 
 
-    initializeNodes(){
-        
-    }
+    /**
+     * 
+     * @param {WebPage} page 
+     * @returns {HTMLElement}
+     */
+    build(page) {
 
-    render() {
-        if (!this.isInitialized) {
-            this.draw();
-            this.isInitialized = true;
-        }
-    }
+        /* CSS requirements */
+        page.css_requireStylesheet("aero/Deck.css");
 
-    draw() {
+        /* build nodes */
         this.sectionNode = document.createElement("section");
         this.sectionNode.classList.add("aero-deck");
 
@@ -42,20 +41,26 @@ export class AeroDeck extends AeroComponent {
 
             this.sectionNode.appendChild(cardSpaceNode);
         });
-	}
 
-    getEnveloppe() {
+        /* return wrapper node */
         return this.sectionNode;
     }
 
 
     /**
      * 
-     * @param {AeroWebPage} page 
+     * @param {WebPage} page 
      */
-    link(page) {
-        this.page = page;
-        page.import_CSS("aero/AeroDeck.css");
+    render(page) {
+        if (!this.isInitialized) {
+            this.draw();
+            this.isInitialized = true;
+        }
+    }
+
+
+    getEnveloppe() {
+        return this.sectionNode;
     }
 
 

@@ -1,4 +1,5 @@
-import { AeroComponent } from "./AeroComponent.js";
+import { AeroElement } from "./AeroElement.js";
+import { WebPage } from "./WebPage.js";
 import { clearChildNodes } from "./aero.js";
 
 /*
@@ -9,7 +10,7 @@ export const HREF = ["/index.html", "/technology.html", "/applications.html", "/
 /**
  * 
  */
-export class AeroHeader extends AeroComponent {
+export class Header extends AeroElement {
 
     /** @type{HTMLHeadElement} */
     headerNode;
@@ -42,12 +43,23 @@ export class AeroHeader extends AeroComponent {
 
     }
 
-    initializeNodes(handler, state) {
+    /**
+     * 
+     * @param {WebPage} page 
+     * @returns {HTMLElement}
+     */
+    build(page) {
+
+        /* CSS requirements */
+        page.css_requireStylesheet("aero/Header.css");
+
+        /* build nodes */
         this.headerNode = document.createElement('header');
         this.headerNode.setAttribute("theme", this.props.theme);
-        this.isLandscape = state.isLandscape;
+        this.isLandscape = page.isLandscape;
         this.draw();
 
+        /* return wrapper node */
         return this.headerNode;
     }
 
@@ -57,9 +69,14 @@ export class AeroHeader extends AeroComponent {
 
     load() { /* nothing to load here */ }
 
-    render(state) {
-        if (state.isLandscape != this.isLandscape) { // repaint
-            this.isLandscape = state.isLandscape;
+    /**
+     * 
+     * @param {WebPage} page 
+     * @returns {}
+     */
+    render(page) {
+        if (page.isLandscape != this.isLandscape) { // repaint
+            this.isLandscape = page.isLandscape;
             clearChildNodes(this.headerNode);
             this.draw();
         }
@@ -81,7 +98,7 @@ export class AeroHeader extends AeroComponent {
         let menuLogoNode = document.createElement("div");
         menuLogoNode.classList.add("menu-logo");
         let frontImgNode = document.createElement("img");
-        frontImgNode.src = `logos/logo-small-${this.flatColor}.png`;
+        frontImgNode.src = `logos/S8-logo-v4-256px.png`;
         frontImgNode.alt = "logo";
         menuLogoNode.appendChild(frontImgNode);
         this.headerNode.appendChild(menuLogoNode);

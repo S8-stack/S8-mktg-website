@@ -1,5 +1,5 @@
-import { AeroComponent } from "./AeroComponent.js";
-import { LoadHandler } from "./aero.js";
+import { AeroElement } from "./AeroElement.js";
+import { WebPage } from "./WebPage.js";
 
 
 
@@ -39,7 +39,7 @@ import { LoadHandler } from "./aero.js";
 export const LOW_RESOLUTION_TAG = "-low";
 export const HIGH_RESOLUTION_TAG = "-high";
 
-export class AeroSlide extends AeroComponent {
+export class Slide extends AeroElement {
 
     /** @type {HTMLElement } */
     sectionNode;
@@ -77,17 +77,22 @@ export class AeroSlide extends AeroComponent {
 
     /**
      * 
-     * @param {LoadHandler} handler 
-     * @returns 
+     * @param {WebPage} handler 
+     * @returns {HTMLElement}
      */
-    initializeNodes(handler){
+    build(page) {
+
+        /* CSS requirements */
+        page.css_requireStylesheet("aero/Slide.css");
+
+        /* build nodes */
         this.sectionNode = document.createElement("section");
         this.sectionNode.classList.add("aero-slide");
 
         this.setType(this.type);
         this.setTheme(this.props.theme ? this.props.theme : "light");
 
-        if(this.props.arrangement){ this.setArrangement(this.props.arrangement); }
+        if (this.props.arrangement) { this.setArrangement(this.props.arrangement); }
 
         /* <background> */
         if (this.props.background != undefined) {
@@ -98,7 +103,7 @@ export class AeroSlide extends AeroComponent {
                 let n = backgroundParam.length;
                 let backgroundImagePath = backgroundParam.substring(4, n);
                 this.sectionNode.classList.add("background-pic");
-                handler.loadBackgroundImage(this.sectionNode, backgroundImagePath);
+                this.loadBackgroundImage(this.sectionNode, backgroundImagePath, () => this.render(page));
             }
             else {
                 switch (backgroundParam) {
@@ -153,13 +158,15 @@ export class AeroSlide extends AeroComponent {
         if (this.props.asset != undefined) {
             let assetNode = document.createElement("div");
             assetNode.classList.add("aero-slide-picture");
-            if(this.props.assetAspectRatio){ assetNode.style.aspectRatio = this.props.assetAspectRatio; }
+            if (this.props.assetAspectRatio) { assetNode.style.aspectRatio = this.props.assetAspectRatio; }
             let assetImagePath = this.props.asset;
-            handler.loadBackgroundImage(assetNode, assetImagePath);
+            this.loadBackgroundImage(assetNode, assetImagePath, () => {});
             this.sectionNode.appendChild(assetNode);
         }
         /* </assset> */
 
+
+        /* return wrapper node */
         return this.sectionNode;
     }
 
@@ -179,28 +186,14 @@ export class AeroSlide extends AeroComponent {
 
     /**
      * 
-     * @param {LoadHandler} handler 
+     * @param {WebPage} page 
      */
-    load(handler) {
-        const _this = this;
-        if (this.hasBackgroundImage) {
-           
-        }
-
-        /* <asset> */
-        if (this.hasAssetImage) {
-         
-        }
-        /* </assset> */
-
-    }
-
-    render(state) {
+    render(page) {
         if (!this.isInitialized) {
             this.draw();
             this.isInitialized = true;
         }
-        else if (this.isInitialized && state.imageResolution == 1) {
+        else if (this.isInitialized && page.imageResolution == 1) {
             this.redrawHighRes();
         }
     }

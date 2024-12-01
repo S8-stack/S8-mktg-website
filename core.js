@@ -2,16 +2,15 @@
 import { page, header, slide, footer, movie, grid, gridCard } from './aero/aero.js';
 
 
-export const WEB_PAGE = page({
-    hasCookiesModalBox : true,
-    header: header({
-        theme: "light",
-        logo: "assets/logos/S8-logo-v4-256px.png",
-        menus: ["Home", "Core", "Packages", "Team"],
-        hrefs: ["/home.html", "/core.html", "/packages.html", "/team.html"],
-        selected: "Core"
-    }),
-    elements: [
+export const WEB_PAGE = page(
+    [
+        header({
+            theme: "light",
+            logo: "assets/logos/S8-logo-v4-256px.png",
+            menus: ["Home", "Core", "Packages", "Team"],
+            hrefs: ["/home.html", "/core.html", "/packages.html", "/team.html"],
+            selected: "Core"
+        }),
         slide("prime", {
             theme: "light", background: "white",
             title: `<b>Showcase</b> your technical objects <b>anywhere</b>`,
@@ -27,7 +26,10 @@ export const WEB_PAGE = page({
             paragraph: `Delivering a great product is an achievement. Seamlessly integrate in your customers assemblies is 
             paramount, like going from good to unavoidable.`,
             asset: "assets/slides/slide04.png"
-        })
+        }),
+        footer()
     ],
-    footer: footer()
-});
+    {
+        hasCookiesModalBox: true,
+    }
+);

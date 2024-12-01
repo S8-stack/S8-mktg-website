@@ -2,16 +2,15 @@
 import { page, header, slide, footer, movie, grid, gridCard } from './aero/aero.js';
 
 
-export const WEB_PAGE = page({
-    hasCookiesModalBox : true,
-    header: header({
-        theme: "dark",
-        logo: "assets/logos/S8-logo-v4-256px.png",
-        menus: ["Home", "Core", "Packages", "Team"],
-        hrefs: ["/home.html", "/core.html", "/packages.html", "/team.html"],
-        selected: "Packages"
-    }),
-    elements: [
+export const WEB_PAGE = page(
+    [
+        header({
+            theme: "dark",
+            logo: "assets/logos/S8-logo-v4-256px.png",
+            menus: ["Home", "Core", "Packages", "Team"],
+            hrefs: ["/home.html", "/core.html", "/packages.html", "/team.html"],
+            selected: "Packages"
+        }),
         slide("prime", {
             theme: "dark", background: "black",
             title: `<b>Built-in</b> engineering capabilities`,
@@ -20,6 +19,7 @@ export const WEB_PAGE = page({
             reducing the development time and platform integration`,
             asset: "assets/turbos/SiTyphoon-config-low.png"
         }),
+        /*
         slide("prime", {
             theme: "dark",
             background: "pic:assets/backgrounds/skies-background-01-low.jpg",
@@ -76,6 +76,7 @@ export const WEB_PAGE = page({
             subtitle: `CFD for advanced turbo-units`,
             paragraph: `With a comprehensive know-how in aerodynamics, AlphaVentor is able to support custom turbomachines development`,
         }),
+        
         grid("light", {
             theme: "light", 
             background: "white",
@@ -98,6 +99,10 @@ export const WEB_PAGE = page({
                 })
             ]
         })
+        */
+        footer()
     ],
-    footer: footer()
-});
+    {
+        hasCookiesModalBox: true,
+    }
+);
