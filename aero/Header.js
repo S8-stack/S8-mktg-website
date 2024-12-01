@@ -98,7 +98,7 @@ export class Header extends AeroElement {
         let menuLogoNode = document.createElement("div");
         menuLogoNode.classList.add("menu-logo");
         let frontImgNode = document.createElement("img");
-        frontImgNode.src = `logos/S8-logo-v4-256px.png`;
+        frontImgNode.src = this.props.logo;
         frontImgNode.alt = "logo";
         menuLogoNode.appendChild(frontImgNode);
         this.headerNode.appendChild(menuLogoNode);
@@ -134,7 +134,7 @@ export class Header extends AeroElement {
         let menuLogoNode = document.createElement("div");
         menuLogoNode.classList.add("menu-logo");
         let frontImgNode = document.createElement("img");
-        frontImgNode.src = `logos/logo-small-${this.flatColor}.png`;
+        frontImgNode.src = this.props.logo;
         frontImgNode.alt = "logo";
         menuLogoNode.appendChild(frontImgNode);
         iconsWrapperNode.appendChild(menuLogoNode);

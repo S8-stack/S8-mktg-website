@@ -51,6 +51,10 @@ export class WebPage {
     constructor(elements, props) {
         this.elements = elements;
         this.props = props;
+
+        
+        /* CSS requirements */
+        this.css_requireStylesheet("aero/ModalBox.css");
     }
 
 

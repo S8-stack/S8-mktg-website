@@ -6,7 +6,7 @@ export const WEB_PAGE = page(
     [
         header({
             theme: "dark",
-            logo: "assets/logos/S8-logo-v4-256px.png",
+            logo: "logos/S8-logo-v4-256px.png",
             menus: ["Home", "Core", "Packages", "Team"],
             hrefs: ["/home.html", "/core.html", "/packages.html", "/team.html"],
             selected: "Packages"
