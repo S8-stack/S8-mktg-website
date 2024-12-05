@@ -1,4 +1,5 @@
 import { AeroElement } from "./AeroElement.js";
+import { AeroUtilities } from "./AeroUtilities.js";
 import { WebPage } from "./WebPage.js";
 
 
@@ -103,7 +104,7 @@ export class Slide extends AeroElement {
                 let n = backgroundParam.length;
                 let backgroundImagePath = backgroundParam.substring(4, n);
                 this.sectionNode.classList.add("background-pic");
-                this.loadBackgroundImage(this.sectionNode, backgroundImagePath, () => this.render(page));
+                AeroUtilities.loadBackgroundImage(this.sectionNode, backgroundImagePath, () => this.render(page));
             }
             else {
                 switch (backgroundParam) {
@@ -160,7 +161,7 @@ export class Slide extends AeroElement {
             assetNode.classList.add("aero-slide-picture");
             if (this.props.assetAspectRatio) { assetNode.style.aspectRatio = this.props.assetAspectRatio; }
             let assetImagePath = this.props.asset;
-            this.loadBackgroundImage(assetNode, assetImagePath, () => {});
+            AeroUtilities.loadBackgroundImage(assetNode, assetImagePath, () => {});
             this.sectionNode.appendChild(assetNode);
         }
         /* </assset> */

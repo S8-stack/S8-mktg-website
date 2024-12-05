@@ -1,5 +1,8 @@
 import { AeroElement } from "./AeroElement.js";
+import { WebPage } from "./WebPage.js";
 import { LoadHandler } from "./aero.js";
+
+import { AeroUtilities } from "./AeroUtilities.js";
 
 
 
@@ -36,7 +39,7 @@ import { LoadHandler } from "./aero.js";
 
 
 
-export class AeroGrid extends AeroElement {
+export class Grid extends AeroElement {
 
     /** @type {HTMLElement } */
     sectionNode;
@@ -64,13 +67,19 @@ export class AeroGrid extends AeroElement {
         this.props = props;
     }
 
+
     /**
      * 
-     * @param {LoadHandler} handler 
+     * @param {WebPage} page 
      * @param {*} state 
      * @returns 
      */
-    initializeNodes(handler, state) {
+    build(page) {
+
+        /* CSS requirements */
+        page.css_requireStylesheet("aero/Grid.css");
+
+         /* build nodes */
         this.sectionNode = document.createElement("section");
         this.sectionNode.classList.add("aero-grid");
 
@@ -87,7 +96,7 @@ export class AeroGrid extends AeroElement {
                 let n = backgroundParam.length;
                 let backgroundImagePath = backgroundParam.substring(4, n);
                 this.sectionNode.classList.add("background-pic");
-                handler.loadBackgroundImage(this.sectionNode, backgroundImagePath);
+                AeroUtilities.loadBackgroundImage(this.sectionNode, backgroundImagePath);
 
             }
             else {
@@ -107,9 +116,7 @@ export class AeroGrid extends AeroElement {
         this.deckNode = document.createElement("div");
         this.deckNode.classList.add("aero-grid-deck");
 
-        this.props.cards.forEach(card => {
-            this.deckNode.appendChild(card.initializeNodes(handler, state));
-        });
+        this.props.cards.forEach(card =>  this.deckNode.appendChild(card.build(page)));
 
         this.sectionNode.appendChild(this.deckNode);
 
@@ -140,11 +147,10 @@ export class AeroGrid extends AeroElement {
 
     }
 
-
 }
 
 
-export class AeroGridCard extends AeroElement {
+export class GridCard extends AeroElement {
 
     /** @type {HTMLDivElement } */
     cardNode;
@@ -178,10 +184,9 @@ export class AeroGridCard extends AeroElement {
      * @param {*} state 
      * @returns 
      */
-    initializeNodes(handler, state) {
+    build(page) {
         this.cardNode = document.createElement("div");
         this.cardNode.classList.add("aero-grid-card");
-
 
 
         /* <background> */
@@ -193,7 +198,7 @@ export class AeroGridCard extends AeroElement {
                 let n = backgroundParam.length;
                 let backgroundImagePath = backgroundParam.substring(4, n);
                 this.cardNode.classList.add("background-pic");
-                handler.loadBackgroundImage(this.cardNode, backgroundImagePath);
+                AeroUtilities.loadBackgroundImage(this.cardNode, backgroundImagePath);
             }
             else {
                 switch (backgroundParam) {

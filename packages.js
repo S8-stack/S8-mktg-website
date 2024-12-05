@@ -76,18 +76,35 @@ export const WEB_PAGE = page(
             subtitle: `CFD for advanced turbo-units`,
             paragraph: `With a comprehensive know-how in aerodynamics, AlphaVentor is able to support custom turbomachines development`,
         }),
-        
+        */
         grid("light", {
             theme: "light", 
             background: "white",
             cards : [
                 gridCard("light", {
                     theme: "light", 
-                    background: "pic:assets/images/casing00.png",
+                    background: "pic:assets/atoms/beryllium.png",
+
                 }),
                 gridCard("light", {
                     theme: "light", 
-                    background: "pic:assets/aircrafts/evtol-cruise-low.png",
+                    background: "pic:assets/atoms/beryllium.png",
+                }),
+                gridCard("light", {
+                    theme: "light", 
+                    background: "blue",
+                }),
+                gridCard("light", {
+                    theme: "light", 
+                    background: "white",
+                }),
+                gridCard("light", {
+                    theme: "light", 
+                    background: "pic:assets/atoms/beryllium.png",
+                }),
+                gridCard("light", {
+                    theme: "light", 
+                    background: "pic:assets/atoms/beryllium.png",
                 }),
                 gridCard("light", {
                     theme: "light", 
@@ -98,8 +115,7 @@ export const WEB_PAGE = page(
                     background: "white",
                 })
             ]
-        })
-        */
+        }),
         footer()
     ],
     {

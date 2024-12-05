@@ -3,7 +3,7 @@ import { AeroElement } from "./AeroElement.js";
 
 import { Deck } from "./Deck.js";
 import { Footer } from "./Footer.js";
-import { AeroGrid, AeroGridCard } from "./AeroGrid.js";
+import { Grid, GridCard } from "./Grid.js";
 import { Header } from "./Header.js";
 import { AeroMovie } from "./AeroMovie.js";
 import { Slide } from "./Slide.js";
@@ -31,11 +31,11 @@ export const deck = function (props) {
 }
 
 export const grid = function (type, props) {
-    return new AeroGrid(type, props);
+    return new Grid(type, props);
 }
 
 export const gridCard = function (type, props) {
-    return new AeroGridCard(type, props);
+    return new GridCard(type, props);
 }
 
 export const footer = function (props) {
