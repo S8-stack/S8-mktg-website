@@ -39,7 +39,7 @@ import { AeroUtilities } from "./AeroUtilities.js";
 
 
 
-export class Grid extends AeroElement {
+export class SquareGrid extends AeroElement {
 
     /** @type {HTMLElement } */
     sectionNode;
@@ -77,11 +77,11 @@ export class Grid extends AeroElement {
     build(page) {
 
         /* CSS requirements */
-        page.css_requireStylesheet("aero/Grid.css");
+        page.css_requireStylesheet("aero/SquareGrid.css");
 
         /* build nodes */
         this.sectionNode = document.createElement("section");
-        this.sectionNode.classList.add("aero-grid");
+        this.sectionNode.classList.add("square-grid-wrapper");
 
         this.setType(this.type);
         this.setTheme(this.props.theme ? this.props.theme : "light");
@@ -101,7 +101,7 @@ export class Grid extends AeroElement {
         /* <deck> */
 
         this.deckNode = document.createElement("div");
-        this.deckNode.classList.add("aero-grid-deck");
+        this.deckNode.classList.add("square-grid-deck");
 
         this.props.cards.forEach(card => this.deckNode.appendChild(card.build(page)));
 
@@ -137,7 +137,7 @@ export class Grid extends AeroElement {
 }
 
 
-export class GridCard extends AeroElement {
+export class SquareGridCard extends AeroElement {
 
     /** @type {HTMLDivElement } */
     cardNode;
@@ -159,9 +159,10 @@ export class GridCard extends AeroElement {
     /** @type{string} */
     backgroundImagePath;
 
-    constructor(type, props) {
+    constructor(type, size, props) {
         super();
         this.type = type;
+        this.size = size;
         this.props = props;
     }
 
@@ -173,8 +174,8 @@ export class GridCard extends AeroElement {
      */
     build(page) {
         this.cardNode = document.createElement("div");
-        this.cardNode.classList.add("aero-grid-card");
-
+        this.cardNode.classList.add("square-grid-card");
+        this.cardNode.setAttribute("size", this.size);
 
         /* <background> */
         if (this.props.backgroundImage) {

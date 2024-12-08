@@ -1,5 +1,5 @@
 
-import { page, header, slide, footer, movie, grid, gridCard } from './aero/aero.js';
+import { page, header, slide, footer, movie, grid, gridCard, sqGrid, sqGridCard } from './aero/aero.js';
 
 
 export const WEB_PAGE = page(
@@ -77,42 +77,79 @@ export const WEB_PAGE = page(
             paragraph: `With a comprehensive know-how in aerodynamics, AlphaVentor is able to support custom turbomachines development`,
         }),
         */
+        sqGrid("light", {
+            theme: "light", 
+            backgroundColor: "white",
+            cards : [
+                sqGridCard("light", "std", {
+                    theme: "light", 
+                    backgroundImage: "assets/backgrounds/minimalism-01.jpg",
+                }),
+                sqGridCard("light", "std", {
+                    theme: "light", 
+                    backgroundImage: "assets/backgrounds/minimalism-02.jpg",
+                }),
+                sqGridCard("light", "std", {
+                    theme: "light", 
+                    backgroundImage: "assets/backgrounds/minimalism-03.jpg",
+                }),
+                sqGridCard("light", "std", {
+                    theme: "light", 
+                    backgroundColor: "white",
+                }),
+                sqGridCard("light", "std", {
+                    theme: "light", 
+                    backgroundImage: "assets/atoms/beryllium.png",
+                }),
+                sqGridCard("light", "std", {
+                    theme: "light", 
+                    backgroundImage: "assets/atoms/beryllium.png",
+                }),
+                sqGridCard("light", "std", {
+                    theme: "light", 
+                    backgroundColor: "blue",
+                }),
+                sqGridCard("light", "std", {
+                    theme: "light", 
+                    backgroundColor: "white",
+                })
+            ]
+        }),
         grid("light", {
             theme: "light", 
-            background: "white",
+            backgroundColor: "rgb(128,128,128)",
             cards : [
                 gridCard("light", {
                     theme: "light", 
-                    background: "pic:assets/atoms/beryllium.png",
-
+                    backgroundImage: "assets/backgrounds/minimalism-01.jpg",
                 }),
                 gridCard("light", {
                     theme: "light", 
-                    background: "pic:assets/atoms/beryllium.png",
+                    backgroundImage: "assets/backgrounds/minimalism-02.jpg",
                 }),
                 gridCard("light", {
                     theme: "light", 
-                    background: "blue",
+                    backgroundImage: "assets/backgrounds/minimalism-03.jpg",
                 }),
                 gridCard("light", {
                     theme: "light", 
-                    background: "white",
+                    backgroundColor: "white",
                 }),
                 gridCard("light", {
                     theme: "light", 
-                    background: "pic:assets/atoms/beryllium.png",
+                    backgroundImage: "assets/atoms/beryllium.png",
                 }),
                 gridCard("light", {
                     theme: "light", 
-                    background: "pic:assets/atoms/beryllium.png",
+                    backgroundImage: "assets/atoms/beryllium.png",
                 }),
                 gridCard("light", {
                     theme: "light", 
-                    background: "blue",
+                    backgroundColor: "blue",
                 }),
                 gridCard("light", {
                     theme: "light", 
-                    background: "white",
+                    backgroundColor: "white",
                 })
             ]
         }),

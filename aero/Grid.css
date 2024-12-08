@@ -310,44 +310,16 @@ div.aero-grid-metrics-item-parameter {
 
 
 /* <backgrounds> */
-div[class^="background-"] {
+.background-color {
 	background-repeat: no-repeat;
 }
 
-.background-white {
-	background-color: white;
-}
-
-.background-blue {
-	background-color: blue;
-}
-
-.background-teal {
-	background-color: teal;
-}
-
-.background-black {
-	background-color: black;
-}
-
-.background-grey64 {
-	background-color: rgb(64, 64, 64);
-}
-
-.background-grey128 {
-	background-color: rgb(128, 128, 128);
-}
-
-.background-grey192 {
-	background-color: rgb(192, 192, 192);
-}
 
 .background-pic {
+	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
 }
-
-
 /* </backgrounds> */
 
 .aero-grid-deck {
@@ -367,8 +339,9 @@ div[class^="background-"] {
 .aero-grid-card {
     width: 240px;
 	aspect-ratio: 2.5 / 3.5;
-    border: solid 1px #d6d6d6;
+    border: none;
     border-radius: 16px;
+	box-shadow: 0px 0px 8px rgba(75, 75, 75, 0.532);
 }
 
 
