@@ -89,7 +89,7 @@ export const WEB_PAGE = page(
                     theme: "light", 
                     backgroundImage: "assets/backgrounds/minimalism-02.jpg",
                 }),
-                sqGridCard("light", "std", {
+                sqGridCard("light", "large-horizontal", {
                     theme: "light", 
                     backgroundImage: "assets/backgrounds/minimalism-03.jpg",
                 }),
@@ -101,7 +101,19 @@ export const WEB_PAGE = page(
                     theme: "light", 
                     backgroundImage: "assets/atoms/beryllium.png",
                 }),
+                sqGridCard("light", "large-vertical", {
+                    theme: "light", 
+                    backgroundImage: "assets/atoms/beryllium.png",
+                }),
                 sqGridCard("light", "std", {
+                    theme: "light", 
+                    backgroundColor: "blue",
+                }),
+                sqGridCard("light", "std", {
+                    theme: "light", 
+                    backgroundColor: "white",
+                }),
+                sqGridCard("light", "large-square", {
                     theme: "light", 
                     backgroundImage: "assets/atoms/beryllium.png",
                 }),
