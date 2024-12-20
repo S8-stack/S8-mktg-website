@@ -110,7 +110,7 @@ export class Header extends AeroElement {
         /* </nav> */
 
         /* <login-icon> */
-        this.headerNode.appendChild(this.buildLoginNode());
+        //this.headerNode.appendChild(this.buildLoginNode());
         /* </login-icon> */
     }
 
@@ -155,7 +155,7 @@ export class Header extends AeroElement {
         }, false);
 
         /* <login-icon> */
-        iconsWrapperNode.appendChild(this.buildLoginNode());
+        //iconsWrapperNode.appendChild(this.buildLoginNode());
         /* </login-icon> */
     }
 

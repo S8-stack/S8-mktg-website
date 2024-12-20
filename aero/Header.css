@@ -148,6 +148,7 @@ header[theme = "dark"] {
 		display: inline-block;
 		vertical-align: top;
 		display: flex;
+		height: 64px;
 	}
 
 	.menu-handler {
@@ -172,7 +173,7 @@ header[theme = "dark"] {
 	}
 
 	.menu-logo>img {
-		margin: 3px 0px 0px 0px;
+		margin: 4px 0px 0px 0px;
 		width: 56px;
 	}
 

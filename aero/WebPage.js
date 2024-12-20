@@ -82,9 +82,10 @@ export class WebPage {
 
 
         /* orientation */
-        let _this = this;
+        const page = this;
         this.orientationObserver.addEventListener("change", function (event) {
-            _this.render();
+            page.isLandscape = page.orientationObserver.matches;
+            page.render();
         }, false);
 
 
