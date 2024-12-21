@@ -78,89 +78,131 @@ export const WEB_PAGE = page(
         }),
         */
         sqGrid("light", {
-            theme: "light", 
+            theme: "light",
             backgroundColor: "white",
-            cards : [
+            cards: [
                 sqGridCard("light", "std", {
-                    theme: "light", 
-                    backgroundImage: "assets/backgrounds/minimalism-01.jpg",
+                    theme: "light",
+                    backgroundImage: "assets/cards/core-arch-silicon/background.jpg",
+                    group: "core.arch.silicon",
+                    title: "Light Threads",
+                    paragraph: "Async tasks made easy",
+                    links: [
+                        {
+                            icon: "/icons/folder.svg",
+                            text: "repo",
+                            url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
+                        },
+                        {
+                            icon: "/icons/left-circled-arrow.svg",
+                            text: "example",
+                            url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
+                        },
+                        {
+                            icon: "/icons/coding.svg",
+                            text: "doc",
+                            url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
+                        }
+                    ]
                 }),
                 sqGridCard("light", "std", {
-                    theme: "light", 
-                    backgroundImage: "assets/backgrounds/minimalism-02.jpg",
+                    theme: "dark",
+                    backgroundImage: "assets/cards/core-io-xml/background.jpg",
+                    group: "core.io.xml",
+                    title: "XML Parsing. Stable & Secured.",
+                    paragraph: "Async tasks made easy",
+                    links: [
+                        {
+                            icon: "/icons/folder.svg",
+                            text: "repo",
+                            url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
+                        },
+                        {
+                            icon: "/icons/left-circled-arrow.svg",
+                            text: "example",
+                            url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
+                        },
+                        {
+                            icon: "/icons/coding.svg",
+                            text: "doc",
+                            url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
+                        }
+                    ]
                 }),
                 sqGridCard("light", "large-horizontal", {
-                    theme: "light", 
-                    backgroundImage: "assets/backgrounds/minimalism-03.jpg",
+                    theme: "light",
+                    backgroundImage: "/assets/backgrounds/minimalism-03.jpg",
                 }),
                 sqGridCard("light", "std", {
-                    theme: "light", 
+                    theme: "light",
                     backgroundColor: "white",
                 }),
                 sqGridCard("light", "std", {
-                    theme: "light", 
+                    theme: "light",
                     backgroundImage: "assets/atoms/beryllium.png",
                 }),
                 sqGridCard("light", "large-vertical", {
-                    theme: "light", 
+                    theme: "light",
                     backgroundImage: "assets/atoms/beryllium.png",
                 }),
                 sqGridCard("light", "std", {
-                    theme: "light", 
+                    theme: "light",
                     backgroundColor: "blue",
                 }),
                 sqGridCard("light", "std", {
-                    theme: "light", 
+                    theme: "light",
                     backgroundColor: "white",
                 }),
                 sqGridCard("light", "large-square", {
-                    theme: "light", 
+                    theme: "light",
                     backgroundImage: "assets/atoms/beryllium.png",
                 }),
-                sqGridCard("light", "std", {
-                    theme: "light", 
+                sqGridCard("dark", "std", {
+                    theme: "dark",
                     backgroundColor: "blue",
+                    group: "core.io",
+                    title: "Light Threads"
                 }),
                 sqGridCard("light", "std", {
-                    theme: "light", 
+                    theme: "light",
                     backgroundColor: "white",
                 })
             ]
         }),
         grid("light", {
-            theme: "light", 
+            theme: "light",
             backgroundColor: "rgb(128,128,128)",
-            cards : [
+            cards: [
                 gridCard("light", {
-                    theme: "light", 
+                    theme: "light",
                     backgroundImage: "assets/backgrounds/minimalism-01.jpg",
                 }),
                 gridCard("light", {
-                    theme: "light", 
+                    theme: "light",
                     backgroundImage: "assets/backgrounds/minimalism-02.jpg",
                 }),
                 gridCard("light", {
-                    theme: "light", 
+                    theme: "light",
                     backgroundImage: "assets/backgrounds/minimalism-03.jpg",
                 }),
                 gridCard("light", {
-                    theme: "light", 
+                    theme: "light",
                     backgroundColor: "white",
                 }),
                 gridCard("light", {
-                    theme: "light", 
+                    theme: "light",
                     backgroundImage: "assets/atoms/beryllium.png",
                 }),
                 gridCard("light", {
-                    theme: "light", 
+                    theme: "light",
                     backgroundImage: "assets/atoms/beryllium.png",
                 }),
                 gridCard("light", {
-                    theme: "light", 
+                    theme: "light",
                     backgroundColor: "blue",
                 }),
                 gridCard("light", {
-                    theme: "light", 
+                    theme: "light",
                     backgroundColor: "white",
                 })
             ]

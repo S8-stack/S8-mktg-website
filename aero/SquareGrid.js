@@ -3,6 +3,7 @@ import { WebPage } from "./WebPage.js";
 import { LoadHandler } from "./aero.js";
 
 import { AeroUtilities } from "./AeroUtilities.js";
+import { Icon } from "./Icon.js";
 
 
 
@@ -188,6 +189,39 @@ export class SquareGridCard extends AeroElement {
         }
         /* </background> */
 
+        /* <group> */
+        if (this.props.group) {
+            const groupNode = document.createElement("div");
+            groupNode.classList.add("square-grid-card-group");
+            groupNode.innerHTML = this.props.group;
+            this.cardNode.appendChild(groupNode);
+        }
+        /* </group> */
+
+         /* <title> */
+         if (this.props.title) {
+            const titleNode = document.createElement("h1");
+            titleNode.innerHTML = this.props.title;
+            this.cardNode.appendChild(titleNode);
+        }
+        /* </title> */
+
+         /* <paragraph> */
+         if (this.props.paragraph) {
+            const paragraphNode = document.createElement("p");
+            paragraphNode.innerHTML = this.props.paragraph;
+            this.cardNode.appendChild(paragraphNode);
+        }
+        /* </paragraph> */
+
+        /* <links> */
+        if (this.props.links) {
+            this.props.links.forEach(link => {
+                this.cardNode.appendChild(this.buildLinkNode(link.icon, link.text, link.url));
+            });
+        }
+        /* </links> */
+
 
         this.setType(this.type);
         this.setTheme(this.props.theme ? this.props.theme : "light");
@@ -205,5 +239,22 @@ export class SquareGridCard extends AeroElement {
     }
 
 
+    buildLinkNode(pic, txt, url){
+        const linkNode = document.createElement("div");
+        linkNode.classList.add("square-grid-card-link");
+
+        const linkIcon = new Icon(pic, { width : 24, height : 24});
+        linkIcon.build();
+        linkIcon.getEnvelope().classList.add("square-grid-card-link-pic");
+        linkNode.appendChild(linkIcon.getEnvelope());
+        
+        const linkTextNode = document.createElement("a");
+        linkTextNode.classList.add("square-grid-card-link-text");
+        linkTextNode.innerHTML = txt;
+        linkTextNode.href = url;
+        linkNode.appendChild(linkTextNode);
+
+        return linkNode;
+    }
 
 }
