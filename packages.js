@@ -130,8 +130,47 @@ export const WEB_PAGE = page(
                     ]
                 }),
                 sqGridCard("light", "large-horizontal", {
-                    theme: "light",
-                    backgroundImage: "/assets/backgrounds/minimalism-03.jpg",
+                    theme: "dark",
+                    backgroundImage: "/assets/cards/core-bohr-neodymium/background.jpg",
+                    group: "core.bohr.neodymium",
+                    title: "Versionable Object Graph Serial format",
+                    paragraph: "Xenon is the default implementation of the S8 API.",
+                    links: [
+                        {
+                            icon: "/icons/folder.svg",
+                            text: "repo",
+                            url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
+                        },
+                        {
+                            icon: "/icons/left-circled-arrow.svg",
+                            text: "example",
+                            url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
+                        }
+                    ]
+                }),
+                sqGridCard("light", "std", {
+                    theme: "dark",
+                    backgroundImage: "assets/cards/core-web-xenon/background.png",
+                    group: "core.web.xenon",
+                    title: "The Base Server",
+                    paragraph: "Xenon is the default implementation of the S8 API.",
+                    links: [
+                        {
+                            icon: "/icons/folder.svg",
+                            text: "repo",
+                            url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
+                        },
+                        {
+                            icon: "/icons/left-circled-arrow.svg",
+                            text: "example",
+                            url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
+                        },
+                        {
+                            icon: "/icons/coding.svg",
+                            text: "doc",
+                            url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
+                        }
+                    ]
                 }),
                 sqGridCard("light", "std", {
                     theme: "light",
