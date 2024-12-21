@@ -135,6 +135,35 @@ export const WEB_PAGE = page(
                         }
                     ]
                 }),
+                sqGridCard("light", "large-square", {
+                    theme: "light",
+                    backgroundImage: "/assets/cards/core-bohr/background.jpg",
+                    group: "core.bohr",
+                    h1: "BOHR : The Ubiquitous data format",
+                    paragraph: `<span>BOHR (initially Binary Object for HTTP Request) is binary stream format that 
+                    makes mulitpart, zipping, versioning and much more seamless integrated.
+                    \n
+                    BOHR protocol can be used for:
+                    </span>
+                    <li>
+                    <ul><b>Persistency</b><span>: for storage of complex Graph objects, including the serialization of
+                    many data structure.</span></ul>
+                     <ul><b>Stream to Front</b><span>: for storage of complex Graph objects, including the serialization of
+                    many data structure.</span></ul>
+                    </li>`,
+                    links: [
+                        {
+                            icon: "/icons/folder.svg",
+                            text: "repo",
+                            url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
+                        },
+                        {
+                            icon: "/icons/left-circled-arrow.svg",
+                            text: "example",
+                            url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
+                        }
+                    ]
+                }),
                 sqGridCard("light", "large-horizontal", {
                     theme: "dark",
                     backgroundImage: "/assets/cards/core-bohr-neodymium/background.jpg",
@@ -188,6 +217,25 @@ export const WEB_PAGE = page(
                         {
                             icon: "/icons/coding.svg",
                             text: "doc",
+                            url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
+                        }
+                    ]
+                }),
+                sqGridCard("light", "large-horizontal", {
+                    theme: "dark",
+                    backgroundImage: "/assets/cards/core-bohr-neon/background.jpg",
+                    group: "core.bohr.neon",
+                    h1: "Handle front like a desktop window",
+                    paragraph: "Neon is the radical front simplification.",
+                    links: [
+                        {
+                            icon: "/icons/folder.svg",
+                            text: "repo",
+                            url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
+                        },
+                        {
+                            icon: "/icons/left-circled-arrow.svg",
+                            text: "example",
                             url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
                         }
                     ]

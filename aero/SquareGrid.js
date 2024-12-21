@@ -218,8 +218,9 @@ export class SquareGridCard extends AeroElement {
          /* <paragraph> */
          if (this.props.paragraph) {
             const paragraphNode = document.createElement("p");
-            paragraphNode.classList.add("square-grid-mobile-hideable");
-            paragraphNode.innerHTML = this.props.paragraph;
+            //paragraphNode.classList.add("square-grid-mobile-hideable");
+            let text = this.props.paragraph.replaceAll('\n', '<br/>'); 
+            paragraphNode.innerHTML = text;
             this.cardNode.appendChild(paragraphNode);
         }
         /* </paragraph> */
@@ -272,5 +273,5 @@ export class SquareGridCard extends AeroElement {
 
         return linkNode;
     }
-
 }
+
