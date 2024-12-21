@@ -150,6 +150,20 @@ export const WEB_PAGE = page(
                 }),
                 sqGridCard("light", "std", {
                     theme: "dark",
+                    backgroundImage: "assets/cards/core-bohr-lithium/background.jpg",
+                    group: "core.bohr.lithium",
+                    title: "The fast rev",
+                    paragraph: "Async tasks made easy",
+                    links: [
+                        {
+                            icon: "/icons/left-circled-arrow.svg",
+                            text: "example",
+                            url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
+                        }
+                    ]
+                }),
+                sqGridCard("light", "std", {
+                    theme: "dark",
                     backgroundImage: "assets/cards/core-web-xenon/background.png",
                     group: "core.web.xenon",
                     title: "The Base Server",
