@@ -1,6 +1,6 @@
 /** */
 
-@media (orientation : landscape) {
+@media (width >= 520px) {
 
 	.square-grid-wrapper {
 		top: 0px;
@@ -24,7 +24,7 @@
 }
 
 
-@media (orientation : portrait) {
+@media (width < 520px) {
 
 	.square-grid-wrapper {
 		top: 0px;
@@ -38,9 +38,9 @@
 		display: grid;
 		/* flex-direction: row; */
 		/* flex-wrap: wrap; */
-		grid-template-columns: repeat(auto-fill, calc(50vw - 24px));
-		grid-template-rows: repeat(auto-fill, calc(50vw - 24px));
-		grid-gap: 16px 16px;
+		grid-template-columns: repeat(auto-fill, 44vw);
+		grid-template-rows: repeat(auto-fill, 44vw);
+		grid-gap: 4vw 4vw;
 		grid-auto-flow: row dense;
 		width: 100%;
 		justify-content: center;
@@ -70,18 +70,31 @@
 	font-weight: bold;
 }
 
+
+.square-grid-card h2 {
+	font-size: 18px;
+	padding: 2px 0px;
+	margin: 6px 0px 4px 8px;
+	width: fit-content;
+	font-weight: bold;
+}
+
 .square-grid-card p {
-	font-size: 16px;
+	font-size: 14px;
 	padding: 0px;
-	margin: 8px 0px 4px 8px;
+	margin: 4px 0px 4px 8px;
 	width: fit-content;
 }
 
 
 
-@media (width <= 1250px) {
+@media (width <= 520px) {
 	.square-grid-card h1 {
-		font-size: 18px;
+		font-size: 20px;
+	}
+	.square-grid-card h2 {
+		font-size: 16px;
+		font-weight: normal;
 	}
 	.square-grid-card p {
 		font-size: 12px;
@@ -91,7 +104,7 @@
 
 /* <size> */
 
-@media (orientation = landscape) {
+@media (width >= 520px) {
 	.square-grid-card[size="std"] {
 		grid-column: auto / span 1;
 		grid-row: auto / span 1;
@@ -121,34 +134,34 @@
 	}
 }
 
-@media (orientation : portrait) {
+@media (width < 520px) {
 
 	.square-grid-card[size="std"] {
 		grid-column: auto / span 1;
 		grid-row: auto / span 1;
-		width: calc(50vw - 24px);
-		height: calc(50vw - 24px);
+		width: 44vw;
+		height: 44vw;
 	}
 
 	.square-grid-card[size="large-horizontal"] {
 		grid-column: auto / span 2;
 		grid-row: auto / span 1;
-		width: calc(100vw - 32px);
-		height: calc(50vw - 24px);
+		width: 92vw;
+		height: 44vw;
 	}
 
 	.square-grid-card[size="large-vertical"] {
 		grid-column: auto / span 1;
 		grid-row: auto / span 2;
-		width: calc(50vw - 24px);
-		height: calc(100vw - 32px);
+		width: 44vw;
+		height: 92vw;
 	}
 
 	.square-grid-card[size="large-square"] {
 		grid-column: auto / span 2;
 		grid-row: auto / span 2;
-		width: calc(100vw - 32px);
-		height: calc(100vw - 32px);
+		width: 92vw;
+		height: 92vw;
 	}
 }
 
@@ -195,15 +208,10 @@
 
 .square-grid-card[theme="light"] h1 {
 	color: rgb(36, 36, 36);
-	/* text-shadow: 0px 1px 8px white; */
-	/*background-color: rgba(255, 255, 255, 0.36);*/
-	border-radius: 4px;
 }
-
 
 .square-grid-card[theme="light"] h2 {
 	color: rgb(36, 36, 36);
-	background-color: rgb(196, 196, 196);
 }
 
 .square-grid-card[theme="light"] p {
@@ -286,14 +294,6 @@
 }
 
 
-.square-grid-card[theme="light"] h1 {
-	color: black;
-}
-
-.square-grid-card[theme="dark"] h1 {
-	color: white;
-}
-
 .square-grid-card-pic {
 	width: 128px;
 }
@@ -309,6 +309,16 @@
 
 /* <create-card> */
 
+
+/* <mobile-hideable> */
+
+@media (width <= 520px) {
+	.square-grid-mobile-hideable {
+		display: none;
+	}
+}
+
+/* </mobile-hideable> */
 
 .square-grid-card-create-header {
 	font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;

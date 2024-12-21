@@ -198,17 +198,27 @@ export class SquareGridCard extends AeroElement {
         }
         /* </group> */
 
-         /* <title> */
-         if (this.props.title) {
-            const titleNode = document.createElement("h1");
-            titleNode.innerHTML = this.props.title;
-            this.cardNode.appendChild(titleNode);
+        /* <h1-title> */
+         if (this.props.h1) {
+            const headerNode = document.createElement("h1");
+            headerNode.innerHTML = this.props.h1;
+            this.cardNode.appendChild(headerNode);
         }
-        /* </title> */
+        /* </h1-title> */
+
+         /* <h2-title> */
+         if (this.props.h2) {
+            const headerNode = document.createElement("h2");
+            //headerNode.classList.add("square-grid-mobile-hideable");
+            headerNode.innerHTML = this.props.h2;
+            this.cardNode.appendChild(headerNode);
+        }
+        /* </h2-title> */
 
          /* <paragraph> */
          if (this.props.paragraph) {
             const paragraphNode = document.createElement("p");
+            paragraphNode.classList.add("square-grid-mobile-hideable");
             paragraphNode.innerHTML = this.props.paragraph;
             this.cardNode.appendChild(paragraphNode);
         }
@@ -217,7 +227,12 @@ export class SquareGridCard extends AeroElement {
         /* <links> */
         if (this.props.links) {
             this.props.links.forEach(link => {
-                this.cardNode.appendChild(this.buildLinkNode(link.icon, link.text, link.url));
+                this.cardNode.appendChild(
+                    this.buildLinkNode(
+                        link.icon, 
+                        link.text, 
+                        link.url, 
+                        link.isMobileHideable ? link.isMobileHideable : false));
             });
         }
         /* </links> */
@@ -239,9 +254,10 @@ export class SquareGridCard extends AeroElement {
     }
 
 
-    buildLinkNode(pic, txt, url){
+    buildLinkNode(pic, txt, url, isMobileHideable){
         const linkNode = document.createElement("div");
         linkNode.classList.add("square-grid-card-link");
+        if(isMobileHideable){ linkNode.classList.add("square-grid-mobile-hideable"); }
 
         const linkIcon = new Icon(pic, { width : 24, height : 24});
         linkIcon.build();

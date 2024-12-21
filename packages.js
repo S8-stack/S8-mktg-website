@@ -85,23 +85,26 @@ export const WEB_PAGE = page(
                     theme: "light",
                     backgroundImage: "assets/cards/core-arch-silicon/background.jpg",
                     group: "core.arch.silicon",
-                    title: "Light Threads",
-                    paragraph: "Async tasks made easy",
+                    h1: "Light Threads",
+                    h2: "Async tasks made easy",
+                    paragraph: "Silicon module brings",
                     links: [
                         {
                             icon: "/icons/folder.svg",
                             text: "repo",
-                            url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
+                            url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java",
+                            isMobileHideable : true
                         },
                         {
                             icon: "/icons/left-circled-arrow.svg",
                             text: "example",
-                            url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
+                            url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java",
                         },
                         {
                             icon: "/icons/coding.svg",
                             text: "doc",
-                            url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
+                            url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java",
+                            isMobileHideable : true
                         }
                     ]
                 }),
@@ -109,13 +112,15 @@ export const WEB_PAGE = page(
                     theme: "dark",
                     backgroundImage: "assets/cards/core-io-xml/background.jpg",
                     group: "core.io.xml",
-                    title: "XML Parsing. Stable & Secured.",
+                    h1: "XML Parsing",
+                    h2: "Stable & Secured",
                     paragraph: "Async tasks made easy",
                     links: [
                         {
                             icon: "/icons/folder.svg",
                             text: "repo",
-                            url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
+                            url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java",
+                            isMobileHideable : true
                         },
                         {
                             icon: "/icons/left-circled-arrow.svg",
@@ -125,7 +130,8 @@ export const WEB_PAGE = page(
                         {
                             icon: "/icons/coding.svg",
                             text: "doc",
-                            url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
+                            url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java",
+                            isMobileHideable : true
                         }
                     ]
                 }),
@@ -133,7 +139,7 @@ export const WEB_PAGE = page(
                     theme: "dark",
                     backgroundImage: "/assets/cards/core-bohr-neodymium/background.jpg",
                     group: "core.bohr.neodymium",
-                    title: "Versionable Object Graph Serial format",
+                    h1: "Versionable Object Graph Serial format",
                     paragraph: "Xenon is the default implementation of the S8 API.",
                     links: [
                         {
@@ -152,7 +158,7 @@ export const WEB_PAGE = page(
                     theme: "dark",
                     backgroundImage: "assets/cards/core-bohr-lithium/background.jpg",
                     group: "core.bohr.lithium",
-                    title: "The fast rev",
+                    h1: "The fast rev",
                     paragraph: "Async tasks made easy",
                     links: [
                         {
@@ -166,7 +172,7 @@ export const WEB_PAGE = page(
                     theme: "dark",
                     backgroundImage: "assets/cards/core-web-xenon/background.png",
                     group: "core.web.xenon",
-                    title: "The Base Server",
+                    h1: "The Base Server",
                     paragraph: "Xenon is the default implementation of the S8 API.",
                     links: [
                         {
