@@ -198,45 +198,13 @@ export class SquareGridCard extends AeroElement {
         }
         /* </group> */
 
-        /* <h1-title> */
-         if (this.props.h1) {
-            const headerNode = document.createElement("h1");
-            headerNode.innerHTML = this.props.h1;
-            this.cardNode.appendChild(headerNode);
-        }
-        /* </h1-title> */
-
-         /* <h2-title> */
-         if (this.props.h2) {
-            const headerNode = document.createElement("h2");
-            //headerNode.classList.add("square-grid-mobile-hideable");
-            headerNode.innerHTML = this.props.h2;
-            this.cardNode.appendChild(headerNode);
-        }
-        /* </h2-title> */
-
-         /* <paragraph> */
-         if (this.props.paragraph) {
-            const paragraphNode = document.createElement("p");
-            //paragraphNode.classList.add("square-grid-mobile-hideable");
-            let text = this.props.paragraph.replaceAll('\n', '<br/>'); 
-            paragraphNode.innerHTML = text;
-            this.cardNode.appendChild(paragraphNode);
-        }
-        /* </paragraph> */
-
-        /* <links> */
-        if (this.props.links) {
-            this.props.links.forEach(link => {
-                this.cardNode.appendChild(
-                    this.buildLinkNode(
-                        link.icon, 
-                        link.text, 
-                        link.url, 
-                        link.isMobileHideable ? link.isMobileHideable : false));
+        /* <elements> */
+        if (this.props.elements) {
+            this.props.elements.forEach(element => {
+                this.cardNode.appendChild(element.build(page));
             });
         }
-        /* </links> */
+        /* </elements> */
 
 
         this.setType(this.type);
@@ -253,25 +221,139 @@ export class SquareGridCard extends AeroElement {
     setTheme(theme) {
         this.cardNode.setAttribute("theme", theme);
     }
+}
 
+export class SquareGridCardElement {
+    constructor(props) {
+        this.props = props;
 
-    buildLinkNode(pic, txt, url, isMobileHideable){
-        const linkNode = document.createElement("div");
-        linkNode.classList.add("square-grid-card-link");
-        if(isMobileHideable){ linkNode.classList.add("square-grid-mobile-hideable"); }
-
-        const linkIcon = new Icon(pic, { width : 24, height : 24});
-        linkIcon.build();
-        linkIcon.getEnvelope().classList.add("square-grid-card-link-pic");
-        linkNode.appendChild(linkIcon.getEnvelope());
-        
-        const linkTextNode = document.createElement("a");
-        linkTextNode.classList.add("square-grid-card-link-text");
-        linkTextNode.innerHTML = txt;
-        linkTextNode.href = url;
-        linkNode.appendChild(linkTextNode);
-
-        return linkNode;
+        this.isMobileHideable = props.isMobileHideable ? props.isMobileHideable : false;
     }
 }
 
+
+
+
+export class SquareGridCardH1 extends SquareGridCardElement {
+
+    constructor(props) {
+        super(props);
+        this.txt = props.txt;
+    }
+
+    build(page) {
+        const headerNode = document.createElement("h1");
+        headerNode.innerHTML = this.txt;
+        return this.headerNode = headerNode;
+    }
+}
+
+
+export class SquareGridCardH2 extends SquareGridCardElement {
+
+    constructor(props) {
+        super(props);
+        this.txt = props.txt;
+    }
+
+    build(page) {
+        const headerNode = document.createElement("h2");
+        headerNode.innerHTML = this.txt;
+        return this.headerNode = headerNode;
+    }
+}
+
+
+
+export class SquareGridCardParagraph extends SquareGridCardElement {
+
+    constructor(props) {
+        super(props);
+
+        this.txt = props.txt;
+    }
+
+    /**
+     * 
+     * @param {WebPage} page 
+     */
+    build(page) {
+        const pNode = document.createElement("p");
+        pNode.innerHTML = this.txt;
+        return  this.pNode = pNode;
+    }
+}
+
+
+
+export class SquareGridCardPoint extends SquareGridCardElement {
+
+    constructor(props) {
+        super(props);
+
+        this.iconPathname = props.icon;
+        this.text = props.text;
+    }
+
+    /**
+     * 
+     * @param {WebPage} page 
+     */
+    build(page) {
+        const pointNode = document.createElement("div");
+        pointNode.classList.add("square-grid-card-point");
+        if (this.isMobileHideable) { pointNode.classList.add("square-grid-mobile-hideable"); }
+
+        const linkIcon = new Icon(this.iconPathname, { width: 32, height: 32 });
+        linkIcon.build();
+        linkIcon.getEnvelope().classList.add("square-grid-card-point-icon");
+        pointNode.appendChild(linkIcon.getEnvelope());
+
+        const textNode = document.createElement("span");
+        textNode.classList.add("square-grid-card-point-text");
+        textNode.innerHTML = this.text;
+        pointNode.appendChild(textNode);
+
+        this.linkNode = pointNode;
+
+        return this.linkNode;
+    }
+}
+
+export class SquareGridCardLink extends SquareGridCardElement {
+
+    constructor(props) {
+        super(props);
+
+        this.iconPathname = props.icon;
+        this.text = props.text;
+        this.url = props.url;
+    }
+
+    /**
+     * 
+     * @param {WebPage} page 
+     */
+    build(page) {
+        const linkNode = document.createElement("div");
+        linkNode.classList.add("square-grid-card-link");
+        if (this.isMobileHideable) { linkNode.classList.add("square-grid-mobile-hideable"); }
+
+        const linkIcon = new Icon(this.iconPathname, { width: 24, height: 24 });
+        linkIcon.build();
+        linkIcon.getEnvelope().classList.add("square-grid-card-link-pic");
+        linkNode.appendChild(linkIcon.getEnvelope());
+
+        const linkTextNode = document.createElement("a");
+        linkTextNode.classList.add("square-grid-card-link-text");
+        linkTextNode.innerHTML = this.text;
+        linkTextNode.href = this.url;
+        linkNode.appendChild(linkTextNode);
+
+        this.linkNode = linkNode;
+
+        return this.linkNode;
+    }
+
+
+}

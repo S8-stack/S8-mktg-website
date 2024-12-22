@@ -294,9 +294,32 @@
 }
 
 
-.square-grid-card-pic {
-	width: 128px;
+.square-grid-card-point {
+	font-size: 14px;
+	padding: 8px 16px 8px 8px;
+	margin: 4px;
+	width: fit-content;
+	display: flex;
+	flex-direction: row;
+	align-items: start;
+	gap: 16px;
 }
+
+.square-grid-card-point-icon {
+	width: 32px;
+	height: 32px;
+	margin: 0px;
+	padding: 0px;
+	background-size: auto;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.square-grid-card-point-text {
+	border-left: solid 1px rgba(44, 44, 44, 0.906);
+	padding-left: 8px;
+}
+
 
 
 .square-grid-card[theme="light"] .square-grid-card-pic>svg {

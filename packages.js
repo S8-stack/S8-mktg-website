@@ -1,5 +1,5 @@
 
-import { page, header, slide, footer, movie, grid, gridCard, sqGrid, sqGridCard } from './aero/aero.js';
+import { page, header, slide, footer, movie, grid, gridCard, sqGrid, sqGridCard, sqGridCardH1, sqGridCardH2, sqGridCardLink, sqGridCardParagraph, sqGridCardPoint } from './aero/aero.js';
 
 
 export const WEB_PAGE = page(
@@ -85,159 +85,167 @@ export const WEB_PAGE = page(
                     theme: "light",
                     backgroundImage: "assets/cards/core-arch-silicon/background.jpg",
                     group: "core.arch.silicon",
-                    h1: "Light Threads",
-                    h2: "Async tasks made easy",
-                    paragraph: "Silicon module brings",
-                    links: [
-                        {
+                    elements: [
+                        sqGridCardH1({ txt: "Light Threads" }),
+                        sqGridCardH2({ txt: "Async tasks made easy" }),
+                        sqGridCardParagraph({
+                            txt: "Silicon module brings"
+                        }),
+                        sqGridCardLink({
                             icon: "/icons/folder.svg",
                             text: "repo",
                             url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java",
-                            isMobileHideable : true
-                        },
-                        {
+                            isMobileHideable: true
+                        }),
+                        sqGridCardLink({
                             icon: "/icons/left-circled-arrow.svg",
                             text: "example",
                             url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java",
-                        },
-                        {
+                        }),
+                        sqGridCardLink({
                             icon: "/icons/coding.svg",
                             text: "doc",
                             url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java",
-                            isMobileHideable : true
-                        }
+                            isMobileHideable: true
+                        })
                     ]
                 }),
                 sqGridCard("light", "std", {
                     theme: "dark",
                     backgroundImage: "assets/cards/core-io-xml/background.jpg",
                     group: "core.io.xml",
-                    h1: "XML Parsing",
-                    h2: "Stable & Secured",
-                    paragraph: "Async tasks made easy",
-                    links: [
-                        {
+                    elements: [
+                        sqGridCardH1({ txt: "XML Parsing" }),
+                        sqGridCardH2({ txt: "Stable & Secured" }),
+                        sqGridCardParagraph({ txt: "Async tasks made easy" }),
+                        sqGridCardLink({
                             icon: "/icons/folder.svg",
                             text: "repo",
                             url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java",
-                            isMobileHideable : true
-                        },
-                        {
+                            isMobileHideable: true
+                        }),
+                        sqGridCardLink({
                             icon: "/icons/left-circled-arrow.svg",
                             text: "example",
                             url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
-                        },
-                        {
+                        }),
+                        sqGridCardLink({
                             icon: "/icons/coding.svg",
                             text: "doc",
                             url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java",
-                            isMobileHideable : true
-                        }
+                            isMobileHideable: true
+                        })
                     ]
                 }),
                 sqGridCard("light", "large-square", {
                     theme: "light",
                     backgroundImage: "/assets/cards/core-bohr/background.jpg",
                     group: "core.bohr",
-                    h1: "BOHR : The Ubiquitous data format",
-                    paragraph: `<span>BOHR (initially Binary Object for HTTP Request) is binary stream format that 
+                    elements: [
+                        sqGridCardH1({ txt: "BOHR : The Ubiquitous data format" }),
+                        sqGridCardParagraph({
+                            txt: `<span>BOHR (initially Binary Object for HTTP Request) is binary stream format that 
                     makes mulitpart, zipping, versioning and much more seamless integrated.
-                    \n
-                    BOHR protocol can be used for:
-                    </span>
-                    <li>
-                    <ul><b>Persistency</b><span>: for storage of complex Graph objects, including the serialization of
-                    many data structure.</span></ul>
-                     <ul><b>Stream to Front</b><span>: for storage of complex Graph objects, including the serialization of
-                    many data structure.</span></ul>
-                    </li>`,
-                    links: [
-                        {
+                    BOHR protocol can be used for:`}),
+                        sqGridCardPoint({
+                            icon: "/icons/server.svg",
+                            text: `<b>Persistency</b>: for storage of complex Graph objects, including the serialization of
+                    many data structure.`
+                        }),
+                        sqGridCardPoint({
+                            icon: "/icons/flow.svg",
+                            text: `<b>Stream to Front</b>: This is the key to send compelx structure to front with 
+                            extremely tight data frame: every single object sent to front is part of graph wehere every 
+                            node is identified. Therefore, any modification of the screen does not need any reload of 
+                            previously transmitted objects.`
+                        }),
+                        sqGridCardLink({
                             icon: "/icons/folder.svg",
                             text: "repo",
                             url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
-                        },
-                        {
+                        }),
+                        sqGridCardLink({
                             icon: "/icons/left-circled-arrow.svg",
                             text: "example",
                             url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
-                        }
+                        })
                     ]
                 }),
                 sqGridCard("light", "large-horizontal", {
                     theme: "dark",
                     backgroundImage: "/assets/cards/core-bohr-neodymium/background.jpg",
                     group: "core.bohr.neodymium",
-                    h1: "Versionable Object Graph Serial format",
-                    paragraph: "Xenon is the default implementation of the S8 API.",
-                    links: [
-                        {
+                    elements: [
+                        sqGridCardH1({ txt: "Versionable Object Graph Serial format" }),
+                        sqGridCardParagraph({ txt: "Xenon is the default implementation of the S8 API." }),
+
+                        sqGridCardLink({
                             icon: "/icons/folder.svg",
                             text: "repo",
                             url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
-                        },
-                        {
+                        }),
+                        sqGridCardLink({
                             icon: "/icons/left-circled-arrow.svg",
                             text: "example",
                             url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
-                        }
+                        }),
                     ]
                 }),
                 sqGridCard("light", "std", {
                     theme: "dark",
                     backgroundImage: "assets/cards/core-bohr-lithium/background.jpg",
                     group: "core.bohr.lithium",
-                    h1: "The fast rev",
-                    paragraph: "Async tasks made easy",
-                    links: [
-                        {
+                    elements: [
+                        sqGridCardH1({ txt: "The fast rev" }),
+                        sqGridCardParagraph({ txt: "Async tasks made easy" }),
+                        sqGridCardLink({
                             icon: "/icons/left-circled-arrow.svg",
                             text: "example",
                             url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
-                        }
+                        })
                     ]
                 }),
                 sqGridCard("light", "std", {
                     theme: "dark",
                     backgroundImage: "assets/cards/core-web-xenon/background.png",
                     group: "core.web.xenon",
-                    h1: "The Base Server",
-                    paragraph: "Xenon is the default implementation of the S8 API.",
-                    links: [
-                        {
+                    elements: [
+                        sqGridCardH1({ txt: "The Base Server" }),
+                        sqGridCardParagraph({ txt: "Xenon is the default implementation of the S8 API." }),
+                        sqGridCardLink({
                             icon: "/icons/folder.svg",
                             text: "repo",
                             url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
-                        },
-                        {
+                        }),
+                        sqGridCardLink({
                             icon: "/icons/left-circled-arrow.svg",
                             text: "example",
                             url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
-                        },
-                        {
+                        }),
+                        sqGridCardLink({
                             icon: "/icons/coding.svg",
                             text: "doc",
                             url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
-                        }
+                        })
                     ]
                 }),
                 sqGridCard("light", "large-horizontal", {
                     theme: "dark",
                     backgroundImage: "/assets/cards/core-bohr-neon/background.jpg",
                     group: "core.bohr.neon",
-                    h1: "Handle front like a desktop window",
-                    paragraph: "Neon is the radical front simplification.",
-                    links: [
-                        {
+                    elements: [
+                        sqGridCardH1({ txt: "Handle front like a desktop window" }),
+                        sqGridCardParagraph({ txt: "Neon is the radical front simplification." }),
+                        sqGridCardLink({
                             icon: "/icons/folder.svg",
                             text: "repo",
                             url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
-                        },
-                        {
+                        }),
+                        sqGridCardLink({
                             icon: "/icons/left-circled-arrow.svg",
                             text: "example",
                             url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
-                        }
+                        })
                     ]
                 }),
                 sqGridCard("light", "std", {
