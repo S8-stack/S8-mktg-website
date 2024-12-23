@@ -139,7 +139,7 @@ export const WEB_PAGE = page(
                 }),
                 sqGridCard("light", "large-square", {
                     theme: "light",
-                    backgroundImage: "/assets/cards/core-bohr/background.jpg",
+                    backgroundImage: "/assets/cards/core-bohr/background-3.jpg",
                     group: "core.bohr",
                     elements: [
                         sqGridCardH1({ txt: "BOHR : The Ubiquitous data format" }),
