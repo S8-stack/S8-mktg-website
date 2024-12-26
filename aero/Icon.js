@@ -18,7 +18,7 @@ export class Icon {
 
         this.wrapperNode = document.createElement("div");
 
-        AeroUtilities.sendRequest_HTTP_GET(this.pathname, "text", responseText => {
+        AeroUtilities.getResourceFromOrigin(this.pathname, "text", responseText => {
             this.wrapperNode.innerHTML = responseText;
             let svgNode = this.wrapperNode.getElementsByTagName("svg")[0];
             svgNode.setAttribute("width", this.width);

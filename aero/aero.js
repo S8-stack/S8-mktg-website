@@ -9,6 +9,7 @@ import { AeroMovie } from "./AeroMovie.js";
 import { Slide } from "./Slide.js";
 import { WebPage } from "./WebPage.js";
 import { SquareGrid, SquareGridCard, SquareGridCardH1, SquareGridCardH2, SquareGridCardLink, SquareGridCardParagraph, SquareGridCardPoint } from "./SquareGrid.js";
+import { CodeBlock } from "./CodeBlock.js";
 
 
 export const page = function (elements, props) {
@@ -68,6 +69,11 @@ export const sqGridCardPoint = function (props) {
 
 export const sqGridCardLink = function (props) {
     return new SquareGridCardLink(props);
+}
+
+
+export const codeBlock = function (source) {
+    return new CodeBlock(source);
 }
 
 

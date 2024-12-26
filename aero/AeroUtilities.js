@@ -30,6 +30,10 @@ export const AeroUtilities = {
     },
 
 
+    getResourceFromOrigin : function(requestPath, responseType, responseCallback){
+        this.sendRequest_HTTP_GET(window.location.origin + requestPath, responseType, responseCallback);
+    },
+
 
 
     /**
@@ -40,24 +44,23 @@ export const AeroUtilities = {
      */
     sendRequest_HTTP_GET : function(requestPath, responseType, responseCallback) {
 
-
-        const origin = window.location.origin;
-
         /**
                 * Relies on browser cache for speeding things up
                 */
         let xhr = new XMLHttpRequest();
 
         // first line
-        xhr.open("GET", origin + requestPath, true);
+        xhr.open("GET", requestPath, true);
         xhr.responseType = responseType;
 
         // headers
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.setRequestHeader('Access-Control-Allow-Origin', "*");
         xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+        xhr.setRequestHeader('Access-Control-Allow-Methods', 'X-Requested-With');
         xhr.setRequestHeader('Access-Control-Allow-Headers', 'Cookie, Content-Type, Authorization, Content-Length, X-Requested-With');
         xhr.setRequestHeader('Access-Control-Expose-Headers', 'Set-Cookie, X-Powered-By');
+
 
         let _this = this;
         // Hook the event that gets called as the request progresses

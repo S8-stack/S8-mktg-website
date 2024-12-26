@@ -26,4 +26,7 @@
 	<x-filter cache="PRODUCTION" frag-length="65536">
 		<pattern>**.fsh</pattern>
 	</x-filter>
+	<x-filter cache="PRODUCTION" frag-length="65536">
+		<pattern>**.java</pattern>
+	</x-filter>
 </sources>

@@ -1,5 +1,5 @@
 
-import { page, header, slide, footer, movie, grid, gridCard, sqGrid, sqGridCard, sqGridCardH1, sqGridCardH2, sqGridCardLink, sqGridCardParagraph, sqGridCardPoint } from './aero/aero.js';
+import { page, header, slide, footer, movie, grid, gridCard, sqGrid, sqGridCard, sqGridCardH1, sqGridCardH2, sqGridCardLink, sqGridCardParagraph, sqGridCardPoint, codeBlock } from './aero/aero.js';
 
 
 export const WEB_PAGE = page(
@@ -19,64 +19,7 @@ export const WEB_PAGE = page(
             reducing the development time and platform integration`,
             asset: "assets/turbos/SiTyphoon-config-low.png"
         }),
-        /*
-        slide("prime", {
-            theme: "dark",
-            background: "pic:assets/backgrounds/skies-background-01-low.jpg",
-            title: `Qx-ng-aircrafts`,
-            subtitle: `Blade element analysis: A powerful tool for the low-latitude economy`,
-            paragraph: `Blade element analyis is especially powerful when it comes to calculate quickly 
-            -and accurately- the power/torque of propellers (whether thrusters or pushers) for the analysis
-            of take-off capabilities, entire flight analysis. They offer near instant alternative to CFD and 
-            can therefore be easily integrated into repeatable routines that require speed and stability.`,
-            asset: "assets/aircrafts/evtol-taking-off05-low.png"
-        }),
-        slide("prime", {
-            theme: "light",
-            background: "white",
-            title: `Thermodynamics`,
-            subtitle: `The foundation layer for process engineering`,
-            paragraph: `Being able to compute the thermodynamics properties of process gas (water, steam, natural gas, 
-                refrigerants, thermal oil) is at the heart of many common simulations of equipment. It is more specifically 
-                useful when it comes to predict the behaviour of fluid handling equipement in a specific customer case, be it a 
-                pump, a valve, a turbine or a compressor.`,
-            asset: "assets/applications/power-plant00.png",
-        }),
-        slide("prime", {
-            theme: "light",
-            background: "pic:assets/applications/meshing.png",
-            title: `Thermodynamics`,
-            subtitle: `The foundation layer for process engineering`,
-            paragraph: `Being able to compute the thermodynamics properties of process gas (water, steam, natural gas, 
-                refrigerants, thermal oil) is at the heart of many common simulations of equipment. It is more specifically 
-                useful when it comes to predict the behaviour of fluid handling equipement in a specific customer case, be it a 
-                pump, a valve, a turbine or a compressor.`
-        }),
-        slide("prime", {
-            theme: "dark", background: "black",
-            metrics: [
-                {
-                    number: "4600", unit: "kg",
-                    parameter: "Max Take-off thrust",
-                },
-                {
-                    modifier: ">", number: "450", unit: "km/h",
-                    parameter: "Max speed"
-                }
-            ]
-        }),
-        slide("prime", {
-           
-            title: `Opening a new area for eVTOL`,
-            subtitle: `Thrust up to 46kN`,
-            
-        }),
-        slide("paragraph", {
-            theme: "dark", background: "pic:assets/capabilities/CFD-Screenshot-02.jpg",
-            subtitle: `CFD for advanced turbo-units`,
-            paragraph: `With a comprehensive know-how in aerodynamics, AlphaVentor is able to support custom turbomachines development`,
-        }),
-        */
+        codeBlock("/snippets/S8Snippet02.java"),
         sqGrid("light", {
             theme: "light",
             backgroundColor: "white",
@@ -142,7 +85,8 @@ export const WEB_PAGE = page(
                     backgroundImage: "/assets/cards/core-bohr/background-3.jpg",
                     group: "core.bohr",
                     elements: [
-                        sqGridCardH1({ txt: "BOHR : The Ubiquitous data format" }),
+                        sqGridCardH1({ txt: "BOHR" }),
+                        sqGridCardH2({ txt: "The Ubiquitous data format" }),
                         sqGridCardParagraph({
                             txt: `<span>BOHR (initially Binary Object for HTTP Request) is binary stream format that 
                     makes mulitpart, zipping, versioning and much more seamless integrated.
