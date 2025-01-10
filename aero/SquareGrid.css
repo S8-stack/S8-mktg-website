@@ -219,15 +219,7 @@
 	/*text-shadow: 0px 0px 4px white;*/
 }
 
-.square-grid-card[theme="light"] a {
-	color: rgb(36, 36, 36);
-	/*text-shadow: 0px 0px 4px white;*/
-}
 
-.square-grid-card[theme="light"] svg {
-	stroke: black;
-	fill: black;
-}
 
 .square-grid-card[theme="dark"] {
 	border-color: rgb(80, 80, 80);
@@ -245,15 +237,6 @@
 	color: white;
 }
 
-.square-grid-card[theme="dark"] a {
-	color: white;
-}
-
-.square-grid-card[theme="dark"] svg {
-	stroke: white;
-	fill: white;
-}
-
 /* </theme> */
 
 
@@ -266,14 +249,26 @@
 	width: fit-content;
 }
 
+/* <link> */
 .square-grid-card-link {
+	color: white;
 	font-size: 14px;
-	/*padding: 8px 0px;*/
-	margin: 8px;
-	width: fit-content;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
+	font-weight: bold;
+    padding: 4px 12px 4px 4px;
+    margin: 16px 8px 8px 8px;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+	background-color: #3862fbca;
+	/*background-image: linear-gradient(to right, #3525e5 0%, #3525e5  20%, #b214d2 100%);*/
+	border-radius: 20px;
+	cursor: pointer;
+	box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.367);
+}
+
+.square-grid-card-link:hover {
+	background-color: #476bed;
 }
 
 .square-grid-card-link-pic {
@@ -286,13 +281,30 @@
 	background-repeat: no-repeat;
 }
 
+.square-grid-card-link-pic > svg {
+	stroke: #ffffff;
+	fill: #ffffff;
+}
 
 .square-grid-card-link-text {
 	padding-bottom: 2px;
 	font-size: 14px;
 	margin-left: 8px;
+	color: #ffffff;
 }
 
+
+
+.square-grid-card-link:hover > .square-grid-card-link-pic >svg {
+	stroke: white;
+	fill: white;
+}
+
+.square-grid-card-link:hover > .square-grid-card-link-text{
+	color: white;
+}
+
+/* </link> */
 
 .square-grid-card-point {
 	font-size: 14px;
@@ -315,6 +327,17 @@
 	background-repeat: no-repeat;
 }
 
+
+.square-grid-card[theme="light"] .square-grid-card-point-icon>svg {
+	fill: black;
+	stroke: black;
+}
+
+.square-grid-card[theme="dark"] .square-grid-card-point-icon>svg {
+	fill: white;
+	stroke: white;
+}
+
 .square-grid-card-point-text {
 	border-left: solid 1px rgba(44, 44, 44, 0.906);
 	padding-left: 8px;
@@ -322,13 +345,6 @@
 
 
 
-.square-grid-card[theme="light"] .square-grid-card-pic>svg {
-	fill: black;
-}
-
-.square-grid-card[theme="dark"] .square-grid-card-pic>svg {
-	fill: white;
-}
 
 /* <create-card> */
 

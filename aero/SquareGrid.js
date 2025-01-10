@@ -189,14 +189,7 @@ export class SquareGridCard extends AeroElement {
         }
         /* </background> */
 
-        /* <group> */
-        if (this.props.group) {
-            const groupNode = document.createElement("div");
-            groupNode.classList.add("square-grid-card-group");
-            groupNode.innerHTML = this.props.group;
-            this.cardNode.appendChild(groupNode);
-        }
-        /* </group> */
+
 
         /* <elements> */
         if (this.props.elements) {
@@ -233,6 +226,25 @@ export class SquareGridCardElement {
 
 
 
+
+
+export class SquareGridCardGroup extends SquareGridCardElement {
+
+    constructor(props) {
+        super(props);
+    }
+
+    build(page) {
+        /* <group> */
+
+        const groupNode = document.createElement("div");
+        groupNode.classList.add("square-grid-card-group");
+        groupNode.innerHTML = this.props.txt;
+
+        /* </group> */
+        return this.groupNode = groupNode;
+    }
+}
 
 export class SquareGridCardH1 extends SquareGridCardElement {
 
@@ -280,7 +292,7 @@ export class SquareGridCardParagraph extends SquareGridCardElement {
     build(page) {
         const pNode = document.createElement("p");
         pNode.innerHTML = this.txt;
-        return  this.pNode = pNode;
+        return this.pNode = pNode;
     }
 }
 
@@ -344,11 +356,12 @@ export class SquareGridCardLink extends SquareGridCardElement {
         linkIcon.getEnvelope().classList.add("square-grid-card-link-pic");
         linkNode.appendChild(linkIcon.getEnvelope());
 
-        const linkTextNode = document.createElement("a");
-        linkTextNode.classList.add("square-grid-card-link-text");
-        linkTextNode.innerHTML = this.text;
-        linkTextNode.href = this.url;
-        linkNode.appendChild(linkTextNode);
+        const spanNode = document.createElement("span");
+        spanNode.classList.add("square-grid-card-link-text");
+        spanNode.innerHTML = this.text;
+        linkNode.appendChild(spanNode);
+
+        linkNode.addEventListener("click", () => {window.location = this.url; }, false);
 
         this.linkNode = linkNode;
 

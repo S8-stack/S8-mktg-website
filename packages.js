@@ -1,5 +1,5 @@
 
-import { page, header, slide, footer, movie, grid, gridCard, sqGrid, sqGridCard, sqGridCardH1, sqGridCardH2, sqGridCardLink, sqGridCardParagraph, sqGridCardPoint, codeBlock } from './aero/aero.js';
+import { page, header, slide, footer, movie, grid, gridCard, sqGrid, sqGridCard, sqGridCardH1, sqGridCardH2, sqGridCardLink, sqGridCardParagraph, sqGridCardPoint, codeBlock, sqGridCardGroup } from './aero/aero.js';
 
 
 export const WEB_PAGE = page(
@@ -27,17 +27,12 @@ export const WEB_PAGE = page(
                 sqGridCard("light", "std", {
                     theme: "light",
                     backgroundImage: "assets/cards/core-arch-silicon/background.jpg",
-                    group: "core.arch.silicon",
                     elements: [
+                        sqGridCardGroup({ txt: "core.arch.silicon"}),
                         sqGridCardH1({ txt: "Light Threads" }),
                         sqGridCardH2({ txt: "Async tasks made easy" }),
                         sqGridCardParagraph({
-                            txt: "Silicon module brings"
-                        }),
-                        sqGridCardLink({
-                            icon: "/icons/folder.svg",
-                            text: "repo",
-                            url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java",
+                            txt: "Silicon module brings",
                             isMobileHideable: true
                         }),
                         sqGridCardLink({
@@ -56,8 +51,8 @@ export const WEB_PAGE = page(
                 sqGridCard("light", "std", {
                     theme: "dark",
                     backgroundImage: "assets/cards/core-io-xml/background.jpg",
-                    group: "core.io.xml",
                     elements: [
+                        sqGridCardGroup({ txt: "core.io.xml"}),
                         sqGridCardH1({ txt: "XML Parsing" }),
                         sqGridCardH2({ txt: "Stable & Secured" }),
                         sqGridCardParagraph({ txt: "Async tasks made easy" }),
@@ -83,8 +78,8 @@ export const WEB_PAGE = page(
                 sqGridCard("light", "large-square", {
                     theme: "light",
                     backgroundImage: "/assets/cards/core-bohr/background-3.jpg",
-                    group: "core.bohr",
                     elements: [
+                        sqGridCardGroup({ txt: "core.bohr"}),
                         sqGridCardH1({ txt: "BOHR" }),
                         sqGridCardH2({ txt: "The Ubiquitous data format" }),
                         sqGridCardParagraph({
@@ -118,11 +113,10 @@ export const WEB_PAGE = page(
                 sqGridCard("light", "large-horizontal", {
                     theme: "dark",
                     backgroundImage: "/assets/cards/core-bohr-neodymium/background.jpg",
-                    group: "core.bohr.neodymium",
                     elements: [
+                        sqGridCardGroup({ txt: "core.bohr.neodymium"}),
                         sqGridCardH1({ txt: "Versionable Object Graph Serial format" }),
                         sqGridCardParagraph({ txt: "Xenon is the default implementation of the S8 API." }),
-
                         sqGridCardLink({
                             icon: "/icons/folder.svg",
                             text: "repo",
@@ -138,8 +132,8 @@ export const WEB_PAGE = page(
                 sqGridCard("light", "std", {
                     theme: "dark",
                     backgroundImage: "assets/cards/core-bohr-lithium/background.jpg",
-                    group: "core.bohr.lithium",
                     elements: [
+                        sqGridCardGroup({ txt: "core.bohr.lithium"}),
                         sqGridCardH1({ txt: "The fast rev" }),
                         sqGridCardParagraph({ txt: "Async tasks made easy" }),
                         sqGridCardLink({
@@ -152,8 +146,8 @@ export const WEB_PAGE = page(
                 sqGridCard("light", "std", {
                     theme: "dark",
                     backgroundImage: "assets/cards/core-web-xenon/background.png",
-                    group: "core.web.xenon",
                     elements: [
+                        sqGridCardGroup({ txt: "core.web.xenon"}),
                         sqGridCardH1({ txt: "The Base Server" }),
                         sqGridCardParagraph({ txt: "Xenon is the default implementation of the S8 API." }),
                         sqGridCardLink({
@@ -176,8 +170,8 @@ export const WEB_PAGE = page(
                 sqGridCard("light", "large-horizontal", {
                     theme: "dark",
                     backgroundImage: "/assets/cards/core-bohr-neon/background.jpg",
-                    group: "core.bohr.neon",
                     elements: [
+                        sqGridCardGroup({ txt: "core.bohr.neon"}),
                         sqGridCardH1({ txt: "Handle front like a desktop window" }),
                         sqGridCardParagraph({ txt: "Neon is the radical front simplification." }),
                         sqGridCardLink({
