@@ -37,7 +37,7 @@
 
 div.aero-slide-picture {
 	padding: 0px;
-	background-size: contain;
+	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
 	z-index: 2;

@@ -57,12 +57,6 @@ export const WEB_PAGE = page(
                         sqGridCardH2({ txt: "Stable & Secured" }),
                         sqGridCardParagraph({ txt: "Async tasks made easy" }),
                         sqGridCardLink({
-                            icon: "/icons/folder.svg",
-                            text: "repo",
-                            url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java",
-                            isMobileHideable: true
-                        }),
-                        sqGridCardLink({
                             icon: "/icons/left-circled-arrow.svg",
                             text: "example",
                             url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
@@ -97,11 +91,6 @@ export const WEB_PAGE = page(
                             extremely tight data frame: every single object sent to front is part of graph wehere every 
                             node is identified. Therefore, any modification of the screen does not need any reload of 
                             previously transmitted objects.`
-                        }),
-                        sqGridCardLink({
-                            icon: "/icons/folder.svg",
-                            text: "repo",
-                            url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
                         }),
                         sqGridCardLink({
                             icon: "/icons/left-circled-arrow.svg",

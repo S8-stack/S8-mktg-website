@@ -1,0 +1,35 @@
+.aero-background-gradient-light0012 {
+    background:
+        radial-gradient(circle farthest-side at 50% 180%, white 15%, transparent 20%),
+        radial-gradient(closest-corner at 121% 84%, #ef5d5d 190%, transparent 307%),
+        radial-gradient(closest-side at 40% 77%, #fff64d 76%, transparent 185%),
+        linear-gradient(#9933ff 10%, transparent);
+}
+
+.aero-background-gradient-light0016 {
+    background:
+        linear-gradient(142deg, transparent, white),
+        linear-gradient(108deg, red, transparent),
+        linear-gradient(45deg, #fff722, #ff26f9);
+
+}
+
+
+
+.aero-background-gradient-dark0014 {
+    background:
+        radial-gradient(circle farthest-side at 50% 180%, rgb(85, 85, 85) 15%, transparent 20%),
+        radial-gradient(closest-corner at 121% 84%, #96125f 190%, transparent 307%),
+        radial-gradient(closest-side at 40% 77%, #908912 76%, transparent 185%),
+        linear-gradient(#5f209f 10%, transparent);
+}
+
+.aero-background-gradient-dark0016 {
+    background: linear-gradient(108deg, #05050e, transparent), linear-gradient(45deg, #FFF72D, #262bff);
+}
+
+
+
+.aero-background-gradient-light-tile00 {
+    background: linear-gradient(108deg, #fae7eb, white);
+}

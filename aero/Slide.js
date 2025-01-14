@@ -85,6 +85,7 @@ export class Slide extends AeroElement {
 
         /* CSS requirements */
         page.css_requireStylesheet("aero/Slide.css");
+        page.css_requireStylesheet("aero/gradient-backgrounds.css");
 
         /* build nodes */
         this.sectionNode = document.createElement("section");
@@ -95,26 +96,30 @@ export class Slide extends AeroElement {
 
         if (this.props.arrangement) { this.setArrangement(this.props.arrangement); }
 
-        /* <background> */
-        if (this.props.background != undefined) {
-            let backgroundParam = this.props.background;
-            if (backgroundParam.substring(0, 4) == "pic:") {
+         /* <background> */
+        if (this.props.id != undefined) {
+            this.sectionNode.id = this.props.id;
+        }
 
-                /* extract backgroundImagePath */
-                let n = backgroundParam.length;
-                let backgroundImagePath = backgroundParam.substring(4, n);
-                this.sectionNode.classList.add("background-pic");
-                AeroUtilities.loadBackgroundImage(this.sectionNode, backgroundImagePath, () => this.render(page));
+        /* <background> */
+        if (this.props.background != undefined || this.props.backgroundColor != undefined) {
+            let backgroundParam = this.props.background;
+            switch (backgroundParam) {
+                case "black": this.sectionNode.classList.add("background-black"); break;
+                case "white": this.sectionNode.classList.add("background-white"); break;
+                case "grey64": this.sectionNode.classList.add("background-grey64"); break;
+                case "grey128": this.sectionNode.classList.add("background-grey128"); break;
+                case "grey192": this.sectionNode.classList.add("background-grey192"); break;
             }
-            else {
-                switch (backgroundParam) {
-                    case "black": this.sectionNode.classList.add("background-black"); break;
-                    case "white": this.sectionNode.classList.add("background-white"); break;
-                    case "grey64": this.sectionNode.classList.add("background-grey64"); break;
-                    case "grey128": this.sectionNode.classList.add("background-grey128"); break;
-                    case "grey192": this.sectionNode.classList.add("background-grey192"); break;
-                }
-            }
+        }
+        else if (this.props.backgroundGradient != undefined) {
+            this.sectionNode.classList.add("aero-background-gradient-" + this.props.backgroundGradient);
+        }
+        else if (this.props.backgroundImage != undefined) {
+            let backgroundImagePath = this.props.backgroundImage;
+            this.sectionNode.classList.add("background-pic");
+            AeroUtilities.loadBackgroundImage(this.sectionNode, backgroundImagePath, () => this.render(page));
+
         }
         /* </background> */
 
@@ -161,7 +166,7 @@ export class Slide extends AeroElement {
             assetNode.classList.add("aero-slide-picture");
             if (this.props.assetAspectRatio) { assetNode.style.aspectRatio = this.props.assetAspectRatio; }
             let assetImagePath = this.props.asset;
-            AeroUtilities.loadBackgroundImage(assetNode, assetImagePath, () => {});
+            AeroUtilities.loadBackgroundImage(assetNode, assetImagePath, () => { });
             this.sectionNode.appendChild(assetNode);
         }
         /* </assset> */
