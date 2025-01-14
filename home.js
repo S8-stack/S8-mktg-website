@@ -25,6 +25,7 @@ export const WEB_PAGE = page([
         theme: "light",
         backgroundColor: "white",
         cards: [
+            /* tile 00 */
             sqGridCard("light", "std", {
                 theme: "light",
                 backgroundColor: "#fae7eb",
@@ -38,11 +39,12 @@ export const WEB_PAGE = page([
                     }),
                     sqGridCardLink({
                         icon: "/icons/left-circled-arrow.svg",
-                        text: "Discover more...",
-                        url: "#simple-text",
+                        text: "Learn more...",
+                        url: "#tile00-text",
                     })
                 ]
             }),
+            /* tile 01 */
             sqGridCard("light", "std", {
                 theme: "light",
                 backgroundColor: "#e0d4e7",
@@ -56,11 +58,12 @@ export const WEB_PAGE = page([
                     }),
                     sqGridCardLink({
                         icon: "/icons/left-circled-arrow.svg",
-                        text: "Discover more...",
-                        url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java",
+                        text: "Learn more...",
+                        url: "#tile01-text",
                     })
                 ]
             }),
+            /* tile 02 */
             sqGridCard("light", "std", {
                 theme: "light",
                 backgroundColor: "#dbeef7",
@@ -75,11 +78,12 @@ export const WEB_PAGE = page([
                     }),
                     sqGridCardLink({
                         icon: "/icons/left-circled-arrow.svg",
-                        text: "Discover more...",
-                        url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java",
+                        text: "Learn more...",
+                        url: "#tile02-text",
                     })
                 ]
             }),
+            /* tile 03 */
             sqGridCard("light", "std", {
                 theme: "light",
                 backgroundColor: "#d0edef",
@@ -93,6 +97,7 @@ export const WEB_PAGE = page([
                     })
                 ]
             }),
+            /* tile 04 */
             sqGridCard("light", "std", {
                 theme: "light",
                 backgroundColor: "#b5f6cf",
@@ -101,15 +106,17 @@ export const WEB_PAGE = page([
                     sqGridCardH2({ txt: "Embedded DB and caching" }),
                     sqGridCardParagraph({
                         txt: `Annotated your objects and we provide under the hood the most efficient 
-                        caching and databases accesses.`
+                        caching and databases accesses.`,
+                        isMobileHideable: true
                     }),
                     sqGridCardLink({
                         icon: "/icons/left-circled-arrow.svg",
-                        text: "Discover more...",
-                        url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java",
+                        text: "Learn more...",
+                        url: "#tile04-text",
                     })
                 ]
             }),
+            /* tile 05 */
             sqGridCard("light", "std", {
                 theme: "light",
                 backgroundColor: "#e3e5ff",
@@ -119,14 +126,16 @@ export const WEB_PAGE = page([
                     sqGridCardParagraph({
                         txt: `Handle large objects in db with abitrary graph shapes. Attach resources directly to objects, 
                         leveraging S8 full binary architecture. Go back in time on natively versionned data.`,
+                        isMobileHideable: true
                     }),
                     sqGridCardLink({
                         icon: "/icons/left-circled-arrow.svg",
-                        text: "Discover more...",
-                        url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java",
+                        text: "Learn more...",
+                        url: "#tile05-text",
                     })
                 ]
             }),
+            /* tile 06 */
             sqGridCard("light", "std", {
                 theme: "light",
                 backgroundColor: "#faedcb",
@@ -134,15 +143,18 @@ export const WEB_PAGE = page([
                     sqGridCardH1({ txt: "Screen" }),
                     sqGridCardH2({ txt: "Your front as a remote screen" }),
                     sqGridCardParagraph({
-                        txt: `Handle directly your front components from the back. Use standards ot create new one with extension mechanims.`
+                        txt: `Handle directly your front components from the back. 
+                        Use standards ot create new one with extension mechanims.`,
+                        isMobileHideable: true
                     }),
                     sqGridCardLink({
                         icon: "/icons/left-circled-arrow.svg",
-                        text: "Discover more...",
-                        url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java",
+                        text: "Learn more...",
+                        url: "#tile06-text",
                     })
                 ]
             }),
+            /* tile 07 */
             sqGridCard("light", "std", {
                 theme: "light",
                 backgroundColor: "#fcd5ce",
@@ -150,19 +162,21 @@ export const WEB_PAGE = page([
                     sqGridCardH1({ txt: "Scalable" }),
                     sqGridCardH2({ txt: "Lake of nodes" }),
                     sqGridCardParagraph({
-                        txt: `Use cluster of S8 instances to achieve resisilience, load balancing and back-up at arbitray level.`
+                        txt: `Use cluster of S8 instances to achieve resisilience, 
+                        load balancing and back-up at arbitray level.`,
+                        isMobileHideable: true
                     }),
                     sqGridCardLink({
                         icon: "/icons/left-circled-arrow.svg",
-                        text: "Discover more...",
-                        url: "https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java",
+                        text: "Learn more...",
+                        url: "#tile07-text",
                     })
                 ]
             }),
         ]
     }),
     slide("prime", {
-        id: "simple-text",
+        id: "tile00-text",
         theme: "light", 
         backgroundGradient: "light-tile00",
         title: `<b>Make</b>Simple<b> Stack</b>`,
@@ -172,9 +186,69 @@ export const WEB_PAGE = page([
             Alphaventor platform is the way.`,
     }),
     slide("prime", {
-        id: "simple-text",
+        id: "tile01-text",
         theme: "light", 
-        backgroundGradient: "light-tile00",
+        backgroundGradient: "light-tile01",
+        title: `<b>Make</b>Simple<b> Stack</b>`,
+        subtitle: `A single language to master all the features, and in your app assemble them.`,
+        paragraph: `Vastly increase your sales performance by providing your team with direct insights of the core business objects. 
+            Want to answer to a client on how will the product will perform in its use case? 
+            Alphaventor platform is the way.`,
+    }),
+    slide("prime", {
+        id: "tile02-text",
+        theme: "light", 
+        backgroundGradient: "light-tile02",
+        title: `<b>Make</b>Simple<b> Stack</b>`,
+        subtitle: `A single language to master all the features, and in your app assemble them.`,
+        paragraph: `Vastly increase your sales performance by providing your team with direct insights of the core business objects. 
+            Want to answer to a client on how will the product will perform in its use case? 
+            Alphaventor platform is the way.`,
+    }),
+    slide("prime", {
+        id: "tile03-text",
+        theme: "light", 
+        backgroundGradient: "light-tile03",
+        title: `<b>Make</b>Simple<b> Stack</b>`,
+        subtitle: `A single language to master all the features, and in your app assemble them.`,
+        paragraph: `Vastly increase your sales performance by providing your team with direct insights of the core business objects. 
+            Want to answer to a client on how will the product will perform in its use case? 
+            Alphaventor platform is the way.`,
+    }),
+    slide("prime", {
+        id: "tile04-text",
+        theme: "light", 
+        backgroundGradient: "light-tile04",
+        title: `<b>Make</b>Simple<b> Stack</b>`,
+        subtitle: `A single language to master all the features, and in your app assemble them.`,
+        paragraph: `Vastly increase your sales performance by providing your team with direct insights of the core business objects. 
+            Want to answer to a client on how will the product will perform in its use case? 
+            Alphaventor platform is the way.`,
+    }),
+    slide("prime", {
+        id: "tile05-text",
+        theme: "light", 
+        backgroundGradient: "light-tile05",
+        title: `<b>Make</b>Simple<b> Stack</b>`,
+        subtitle: `A single language to master all the features, and in your app assemble them.`,
+        paragraph: `Vastly increase your sales performance by providing your team with direct insights of the core business objects. 
+            Want to answer to a client on how will the product will perform in its use case? 
+            Alphaventor platform is the way.`,
+    }),
+    slide("prime", {
+        id: "tile06-text",
+        theme: "light", 
+        backgroundGradient: "light-tile06",
+        title: `<b>Make</b>Simple<b> Stack</b>`,
+        subtitle: `A single language to master all the features, and in your app assemble them.`,
+        paragraph: `Vastly increase your sales performance by providing your team with direct insights of the core business objects. 
+            Want to answer to a client on how will the product will perform in its use case? 
+            Alphaventor platform is the way.`,
+    }),
+    slide("prime", {
+        id: "tile07-text",
+        theme: "light", 
+        backgroundGradient: "light-tile07",
         title: `<b>Make</b>Simple<b> Stack</b>`,
         subtitle: `A single language to master all the features, and in your app assemble them.`,
         paragraph: `Vastly increase your sales performance by providing your team with direct insights of the core business objects. 

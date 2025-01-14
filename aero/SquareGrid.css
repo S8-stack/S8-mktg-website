@@ -1,11 +1,11 @@
 /** */
 
-@media (width >= 520px) {
+@media (width >= 620px) {
 
 	.square-grid-wrapper {
 		top: 0px;
 		left: 0px;
-		padding: 32px 5% 32px 5%;
+		padding: 32px 32px 32px 32px;
 		background-color: white;
 		overflow-y: scroll;
 	}
@@ -24,12 +24,12 @@
 }
 
 
-@media (width < 520px) {
+@media (width < 620px) {
 
 	.square-grid-wrapper {
 		top: 0px;
 		left: 0px;
-		padding: 32px 16px 32px 16px;
+		padding: 32px 0px 32px 0px;
 		background-color: white;
 		overflow-y: scroll;
 	}
@@ -89,7 +89,7 @@
 
 
 
-@media (width <= 520px) {
+@media (width <= 620px) {
 	.square-grid-card h1 {
 		font-size: 20px;
 	}
@@ -105,7 +105,7 @@
 
 /* <size> */
 
-@media (width >= 520px) {
+@media (width >= 620px) {
 	.square-grid-card[size="std"] {
 		grid-column: auto / span 1;
 		grid-row: auto / span 1;
@@ -135,7 +135,7 @@
 	}
 }
 
-@media (width < 520px) {
+@media (width < 620px) {
 
 	.square-grid-card[size="std"] {
 		grid-column: auto / span 1;
@@ -352,7 +352,7 @@
 
 /* <mobile-hideable> */
 
-@media (width <= 520px) {
+@media (width <= 620px) {
 	.square-grid-mobile-hideable {
 		display: none;
 	}

@@ -255,6 +255,7 @@ export class SquareGridCardH1 extends SquareGridCardElement {
 
     build(page) {
         const headerNode = document.createElement("h1");
+        if (this.isMobileHideable) { headerNode.classList.add("square-grid-mobile-hideable"); }
         headerNode.innerHTML = this.txt;
         return this.headerNode = headerNode;
     }
@@ -270,6 +271,7 @@ export class SquareGridCardH2 extends SquareGridCardElement {
 
     build(page) {
         const headerNode = document.createElement("h2");
+        if (this.isMobileHideable) { headerNode.classList.add("square-grid-mobile-hideable"); }
         headerNode.innerHTML = this.txt;
         return this.headerNode = headerNode;
     }
@@ -291,6 +293,7 @@ export class SquareGridCardParagraph extends SquareGridCardElement {
      */
     build(page) {
         const pNode = document.createElement("p");
+        if (this.isMobileHideable) { pNode.classList.add("square-grid-mobile-hideable"); }
         pNode.innerHTML = this.txt;
         return this.pNode = pNode;
     }
