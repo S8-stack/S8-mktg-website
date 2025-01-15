@@ -254,9 +254,15 @@ export const WEB_PAGE = page([
         id: "tile03-text",
         elements: [
             txbkSVG("/assets/principles/sync.svg", { width: 128, height: 128 }),
-            txbkH1("THis is header 1"),
-            txbkH2("THis is header 2"),
-            txbkP("THis is paragrpah"),
+            txbkH1("Synced"),
+            txbkP(`One of the main obstacles into writing a scalable application is the proper handling of high 
+                concurrency through asynchronous task orchestration. Since this is a recurring problem, and a hard 
+                to solve one, we decided to embedded deep into the S8 stack what we think is the best solution (and 
+                we have a high-level API that gives us plenty of room to make further improvements under the hood). 
+                Also, because the S8 stack is managing the server aspects, we needed to have this asynchronous engine 
+                ready to support the stack inner systems.`),
+            txbkP(`That’s why we designed a light threads engine with a built-in thread workers pool along with a thread 
+                allocation mechanism that prevent congestion and enable high scaling up.`)
         ],
         backgroundGradient: "light-tile03"
     }),
@@ -264,9 +270,24 @@ export const WEB_PAGE = page([
         id: "tile04-text",
         elements: [
             txbkSVG("/assets/principles/servers.svg", { width: 128, height: 128 }),
-            txbkH1("THis is header 1"),
-            txbkH2("THis is header 2"),
-            txbkP("THis is paragrpah"),
+            txbkH1("Storage"),
+            txbkP(`Every web-app relies at some point on databases. Moreover, the proximity with data is key to write easily 
+                complex treatment. Having noticed this, we came up to think that data must be served efficiently, seamlessly 
+                within the app through very simple accesses directly available in the flow. So every instance running on the 
+                S8 stack have by default the possibility of working with three types of databases, and build as many tables, 
+                objects on the fly.`),
+            txbkH2("Annotations"),
+            txbkP(`Objects persistency relies on annotating object classes -most robust approach so far. Access to objects 
+                is exclusively made through the call of methods on the flow, as well as all subsequent actions (saving, 
+                reverting, etc.).`),
+            txbkH2("Caching"),
+            txbkP(`Caching is a key part of performance, and one of the goals of S8 is to handle this seamlessly. As a result, 
+                you can make the assumption that data is always readily available since the caching will balance memory retention 
+                to reflect data usage.`),
+            txbkH2("Scaling and replicating"),
+            txbkP(`For the scaling up versions, we will provide automatic synchronization of instances running S8 stack on our cloud to 
+                ensure that any modifications made to data contained on the databases of one instance are replicated to other instances, 
+                and efficiently handling copies to ensure a given requirement in terms of redundancy.`)
         ],
         backgroundGradient: "light-tile04"
     }),
@@ -274,9 +295,16 @@ export const WEB_PAGE = page([
         id: "tile05-text",
         elements: [
             txbkSVG("/assets/principles/graph.svg", { width: 128, height: 128 }),
-            txbkH1("THis is header 1"),
-            txbkH2("THis is header 2"),
-            txbkP("THis is paragrpah"),
+            txbkH1("Structured"),
+            txbkH2("Key-value DB"),
+            txbkP(`Key value db is probably the most efficient pattern to get data. S8 provides with efficient table-like list of objects 
+                you can search through or retrieve through id, effectively mimicking the core features of NO SQL like db. For more advanced 
+                searches, selection with JAVA queries can be used.`),
+            txbkH2("Structured DB"),
+            txbkP(`Structured DB works with large objects, each representing a group of data you can navigate through points and methods. 
+                This group of data typically represent the data of a big project, including hundreds or even hundreds of thousands sub 
+                objects, but that belong to a same logical entity and need to remain grouped from a logical point of view (think of the 
+                plan of a building), even if you can traverse it easily.`),
         ],
         backgroundGradient: "light-tile05"
     }),
@@ -284,9 +312,25 @@ export const WEB_PAGE = page([
         id: "tile06-text",
         elements: [
             txbkSVG("/assets/principles/monitor.svg", { width: 128, height: 128 }),
-            txbkH1("THis is header 1"),
-            txbkH2("THis is header 2"),
-            txbkP("THis is paragrpah"),
+            txbkH1("Screen"),
+            txbkP(`One thing that makes Saas so time-consuming to develop is that development is split between two realms, with deiffrenet 
+                languages, logics, teams, deployment tools, etc. This gigantically increases the number of skills a team must master to 
+                deliver a webapp. So we came up with something different.`),
+            txbkH2("Your front as a remote screen"),
+            txbkP(`When you develop a app that will run on local device (say desktop or mobile), things are much more simple: without exiting 
+                your development environment, you directly have access to all graphical components that come standard with the OS, and you 
+                can manipulate in any imaginable way, even inside a deeply nested function. You don’t have to define an API between the back 
+                and the front so both can communicate. Everything is fused together, and that’s why it is so easy to achieve remarkable 
+                graphical complexity with minimum effort. We thought it was the way to go for Saas as well!`),
+            txbkH2("Additional hidden benefits"),
+            txbkP(`S8 way of handling the front is radical: each graphical component comes as a JAVA realm object, that you can manipulate at 
+                will, and a ghost counterpart -that you never have to touch- that lives on the front side. Connection between both sides of the 
+                same entity is handled under the hood by S8. The tremendous benefits are the following:
+                <ul>
+                <li>High compression throughput
+                <li>Natural caching strategies of large objects on the front, operated from the back.
+                <li>Radical speed improvements when switching of views of large objects (like opening the plan of building A, closing it, 
+                opening plan of building B, closing it and reopening plan of building B).`)
         ],
         backgroundGradient: "light-tile06"
     }),
@@ -294,93 +338,13 @@ export const WEB_PAGE = page([
         id: "tile07-text",
         elements: [
             txbkSVG("/assets/principles/scalability.svg", { width: 128, height: 128 }),
-            txbkH1("THis is header 1"),
-            txbkH2("THis is header 2"),
-            txbkP("THis is paragrpah"),
+            txbkH1("Scalable"),
+            txbkP(`Scalability is the long-time concern of every project builder. We designed the S8 stack to enable a natural and powerful way of 
+                scaling up: each node running S8 is a member of a cluster. It is a member of a database cluster. It is a member of lambda expression 
+                workers pools clusters. It is a member of login cluster. And so on. Each node being able to perform the entire set of tasks required 
+                by the applications enables a smooth and arbitrary large scale up.`),
         ],
         backgroundGradient: "light-tile07"
-    }),
-    slide("hThird", {
-        theme: "light",
-        backgroundGradient: "light-tile00",
-        title: `The make-it-<b>Simple</b> Stack`,
-        subtitle: `A single language to master all the features, and in your app assemble them.`,
-        paragraph: `Saas development is often a shattered game, with different languages, environments, teams. 
-        This in turn increases any task on the development, deployment. With a single JAVA core based stack, S8
-        make it simple to kick start your project but also to reach a level in features complexity that is still
-        unbelieved to be achievable with a stack that simple.`,
-        asset: "assets/principles/etoile.png",
-    }),
-    slide("prime", {
-        id: "tile01-text",
-        theme: "light",
-        backgroundGradient: "light-tile01",
-        title: `Secure`,
-        subtitle: `We've taken this to the next level`,
-        paragraph: `Because we have a tighten set of features, we have done something: we have recoded everything. I mean everything: XML-parser, 
-        JSON-parser, light thread engine, HTTPS server, db access. Pure madness you would think. But the results in terms of
-        performance are excellent and most important importantly, we know every single line of the core.`,
-
-    }),
-    slide("prime", {
-        id: "tile02-text",
-        theme: "light",
-        backgroundGradient: "light-tile02",
-        title: `<b>Make</b>Simple<b> Stack</b>`,
-        subtitle: `A single language to master all the features, and in your app assemble them.`,
-        paragraph: `Vastly increase your sales performance by providing your team with direct insights of the core business objects. 
-            Want to answer to a client on how will the product will perform in its use case? 
-            Alphaventor platform is the way.`,
-    }),
-    slide("prime", {
-        id: "tile03-text",
-        theme: "light",
-        backgroundGradient: "light-tile03",
-        title: `<b>Make</b>Simple<b> Stack</b>`,
-        subtitle: `A single language to master all the features, and in your app assemble them.`,
-        paragraph: `Vastly increase your sales performance by providing your team with direct insights of the core business objects. 
-            Want to answer to a client on how will the product will perform in its use case? 
-            Alphaventor platform is the way.`,
-    }),
-    slide("prime", {
-        id: "tile04-text",
-        theme: "light",
-        backgroundGradient: "light-tile04",
-        title: `<b>Make</b>Simple<b> Stack</b>`,
-        subtitle: `A single language to master all the features, and in your app assemble them.`,
-        paragraph: `Vastly increase your sales performance by providing your team with direct insights of the core business objects. 
-            Want to answer to a client on how will the product will perform in its use case? 
-            Alphaventor platform is the way.`,
-    }),
-    slide("prime", {
-        id: "tile05-text",
-        theme: "light",
-        backgroundGradient: "light-tile05",
-        title: `<b>Make</b>Simple<b> Stack</b>`,
-        subtitle: `A single language to master all the features, and in your app assemble them.`,
-        paragraph: `Vastly increase your sales performance by providing your team with direct insights of the core business objects. 
-            Want to answer to a client on how will the product will perform in its use case? 
-            Alphaventor platform is the way.`,
-    }),
-    slide("prime", {
-        id: "tile06-text",
-        theme: "light",
-        backgroundGradient: "light-tile06",
-        title: `<b>Make</b>Simple<b> Stack</b>`,
-        subtitle: `A single language to master all the features, and in your app assemble them.`,
-        paragraph: `Vastly increase your sales performance by providing your team with direct insights of the core business objects. 
-            Want to answer to a client on how will the product will perform in its use case? 
-            Alphaventor platform is the way.`,
-    }),
-    slide("prime", {
-        id: "tile07-text",
-        theme: "light",
-        backgroundGradient: "light-tile07",
-        title: `<b>Make</b>Simple<b> Stack</b>`,
-        subtitle: `A single language to master all the features, and in your app assemble them.`,
-        paragraph: `Vastly increase your sales performance by providing your team with direct insights of the core business objects. 
-            Want to answer to a client on how will the product will perform in its use case? 
-            Alphaventor platform is the way.`,
     }),
     sqGrid("light", {
         theme: "light",
