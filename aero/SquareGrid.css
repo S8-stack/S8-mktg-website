@@ -7,7 +7,7 @@
 		left: 0px;
 		padding: 32px 32px 32px 32px;
 		background-color: white;
-		overflow-y: scroll;
+		overflow-y: hidden;
 	}
 
 	.square-grid-deck {
@@ -31,7 +31,7 @@
 		left: 0px;
 		padding: 32px 0px 32px 0px;
 		background-color: white;
-		overflow-y: scroll;
+		overflow-y: hidden;
 	}
 
 	.square-grid-deck {

@@ -175,25 +175,28 @@ export const WEB_PAGE = page([
             }),
         ]
     }),
-    slide("prime", {
+    slide("hThird", {
         id: "tile00-text",
         theme: "light", 
         backgroundGradient: "light-tile00",
-        title: `<b>Make</b>Simple<b> Stack</b>`,
+        title: `The make-it-<b>Simple</b> Stack`,
         subtitle: `A single language to master all the features, and in your app assemble them.`,
-        paragraph: `Vastly increase your sales performance by providing your team with direct insights of the core business objects. 
-            Want to answer to a client on how will the product will perform in its use case? 
-            Alphaventor platform is the way.`,
+        paragraph: `Saas development is often a shattered game, with different languages, environments, teams. 
+        This in turn increases any task on the development, deployment. With a single JAVA core based stack, S8
+        make it simple to kick start your project but also to reach a level in features complexity that is still
+        unbelieved to be achievable with a stack that simple.`,
+        asset: "assets/principles/etoile.png",
     }),
     slide("prime", {
         id: "tile01-text",
         theme: "light", 
         backgroundGradient: "light-tile01",
-        title: `<b>Make</b>Simple<b> Stack</b>`,
-        subtitle: `A single language to master all the features, and in your app assemble them.`,
-        paragraph: `Vastly increase your sales performance by providing your team with direct insights of the core business objects. 
-            Want to answer to a client on how will the product will perform in its use case? 
-            Alphaventor platform is the way.`,
+        title: `Secure`,
+        subtitle: `We've taken this to the next level`,
+        paragraph: `Because we have a tighten set of features, we have done something: we have recoded everything. I mean everything: XML-parser, 
+        JSON-parser, light thread engine, HTTPS server, db access. Pure madness you would think. But the results in terms of
+        performance are excellent and most important importantly, we know every single line of the core.`,
+
     }),
     slide("prime", {
         id: "tile02-text",

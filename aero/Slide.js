@@ -90,17 +90,20 @@ export class Slide extends AeroElement {
         /* build nodes */
         this.sectionNode = document.createElement("section");
         this.sectionNode.classList.add("aero-slide");
+        this.sectionNode.setAttribute("type", this.type);
+        
 
         this.setType(this.type);
         this.setTheme(this.props.theme ? this.props.theme : "light");
 
         if (this.props.arrangement) { this.setArrangement(this.props.arrangement); }
 
-         /* <background> */
+        /* <id> */
         if (this.props.id != undefined) {
             this.sectionNode.id = this.props.id;
         }
-
+        /* </id> */
+        
         /* <background> */
         if (this.props.background != undefined || this.props.backgroundColor != undefined) {
             let backgroundParam = this.props.background;

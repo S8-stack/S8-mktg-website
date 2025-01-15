@@ -5,6 +5,14 @@
 	width: 100%;
 	display: flex;
 	flex-direction: column;
+	box-sizing: content-box;
+}
+
+
+.aero-slide[type="hThird"] {
+	display: flex;
+	flex-direction: row-reverse;
+	padding: 8px 16% 8px 16%;
 }
 
 /* <text> */
@@ -19,6 +27,10 @@
 	div.aero-slide-text {
 		margin: 0px 0px 0px 0px;
 		padding: 8px 16% 8px 16%;
+	}
+
+	.aero-slide[type="hThird"] > div.aero-slide-text {
+		
 	}
 }
 
@@ -50,12 +62,22 @@ div.aero-slide-picture {
 		margin: 0px 20% 0px 20%;
 		width: 60%;
 	}
+
+	.aero-slide[type="hThird"] > .aero-slide-picture {
+		margin: 32px 32px 32px 32px;
+		background-size: contain;
+	}
 }
 
 @media (orientation : portrait) {
 	div.aero-slide-picture {
 		margin: 0px 4% 0px 4%;
 		width: 92%;
+	}
+
+	.aero-slide[type="hThird"] > .aero-slide-picture {
+		margin: 32px 32px 32px 32px;
+		background-size: contain;
 	}
 }
 /* <asset> */
@@ -83,9 +105,6 @@ div.aero-slide-picture {
 
 }
 
-
-
-
 /* </arrangements> */
 
 
@@ -93,94 +112,6 @@ div.aero-slide-picture {
 
 
 
-
-/* <metrics> */
-div.aero-slide[type="metrics"] {
-	margin: 0px 0px 0px 0px;
-	margin: 8px 12% 8px 12%;
-	display: inline-flex;
-	background-color: black;
-	z-index: 2;
-	/*overflow: auto;*/
-}
-
-
-div.aero-slide-metrics-item {
-	flex: auto;
-	padding: 20px;
-}
-
-div.aero-slide-metrics-item * {
-	padding: 0px;
-	margin: 0px;
-}
-
-div.aero-slide-metrics-item-value>span {
-	vertical-align: baseline;
-	color: #9fffa5;
-}
-
-div.aero-slide-metrics-item-value>span.modifier {
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light",
-		"Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-	font-size: 64px;
-	font-weight: normal;
-}
-
-div.aero-slide-metrics-item-value>span.number {
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light",
-		"Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-	font-size: 64px;
-	font-weight: bold;
-	padding: 0px 4px 0px 4px;
-}
-
-div.aero-slide-metrics-item-value>span.unit {
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light",
-		"Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-	font-size: 32px;
-	font-weight: bold;
-}
-
-div.aero-slide-metrics-item-parameter {
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light",
-		"Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-	font-size: 16px;
-	font-weight: normal;
-	padding: 8px;
-	color: #6be8ea;
-}
-
-
-@media (orientation : landscape) {
-	/* default */
-
-	div.aero-slide-metrics-item {
-		border-left: 1px solid rgba(64, 64, 64, 0.92);
-	}
-
-	div.aero-slide[type="metrics"]>div.aero-slide-metrics-item:first-child {
-		border-left: none;
-	}
-}
-
-@media (orientation : portrait) {
-	div.aero-slide[type="metrics"] {
-		display: flex;
-		flex-wrap: wrap;
-	}
-
-	div.aero-slide-metrics-item {
-		border-top: 1px solid rgba(64, 64, 64, 0.92);
-	}
-
-	div.aero-slide[type="metrics"]>div.aero-slide-metrics-item:first-child {
-		border-top: none;
-	}
-}
-
-
-/* </metrics> */
 
 /* <h1> */
 .aero-slide-text>h1 {
