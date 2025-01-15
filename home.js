@@ -28,7 +28,7 @@ export const WEB_PAGE = page([
             /* tile 00 */
             sqGridCard("light", "std", {
                 theme: "light",
-                backgroundColor: "#fae7eb",
+                backgroundImage : "assets/principles/tile00.png",
                 elements: [
                     sqGridCardH1({ txt: "Simple" }),
                     sqGridCardH2({ txt: "Less is More" }),
@@ -47,7 +47,7 @@ export const WEB_PAGE = page([
             /* tile 01 */
             sqGridCard("light", "std", {
                 theme: "light",
-                backgroundColor: "#e0d4e7",
+                backgroundImage : "assets/principles/tile01.png",
                 elements: [
                     sqGridCardH1({ txt: "Secure" }),
                     sqGridCardH2({ txt: "Paranoid mode enabled" }),
@@ -66,7 +66,7 @@ export const WEB_PAGE = page([
             /* tile 02 */
             sqGridCard("light", "std", {
                 theme: "light",
-                backgroundColor: "#dbeef7",
+                backgroundImage : "assets/principles/tile02.png",
                 elements: [
                     sqGridCardH1({ txt: "Small" }),
                     sqGridCardH2({ txt: "Small-Surface API" }),
@@ -86,7 +86,7 @@ export const WEB_PAGE = page([
             /* tile 03 */
             sqGridCard("light", "std", {
                 theme: "light",
-                backgroundColor: "#d0edef",
+                backgroundImage : "assets/principles/tile03.png",
                 elements: [
                     sqGridCardH1({ txt: "Synced" }),
                     sqGridCardH2({ txt: "High concurrency architecture" }),
@@ -100,7 +100,7 @@ export const WEB_PAGE = page([
             /* tile 04 */
             sqGridCard("light", "std", {
                 theme: "light",
-                backgroundColor: "#b5f6cf",
+                backgroundImage : "assets/principles/tile04.png",
                 elements: [
                     sqGridCardH1({ txt: "Storage" }),
                     sqGridCardH2({ txt: "Embedded DB and caching" }),
@@ -119,7 +119,7 @@ export const WEB_PAGE = page([
             /* tile 05 */
             sqGridCard("light", "std", {
                 theme: "light",
-                backgroundColor: "#e3e5ff",
+                backgroundImage : "assets/principles/tile05.png",
                 elements: [
                     sqGridCardH1({ txt: "Structured" }),
                     sqGridCardH2({ txt: "Graph DB, native version" }),
@@ -138,7 +138,7 @@ export const WEB_PAGE = page([
             /* tile 06 */
             sqGridCard("light", "std", {
                 theme: "light",
-                backgroundColor: "#faedcb",
+                backgroundImage : "assets/principles/tile06.png",
                 elements: [
                     sqGridCardH1({ txt: "Screen" }),
                     sqGridCardH2({ txt: "Your front as a remote screen" }),
@@ -157,7 +157,7 @@ export const WEB_PAGE = page([
             /* tile 07 */
             sqGridCard("light", "std", {
                 theme: "light",
-                backgroundColor: "#fcd5ce",
+                backgroundImage : "assets/principles/tile07.png",
                 elements: [
                     sqGridCardH1({ txt: "Scalable" }),
                     sqGridCardH2({ txt: "Lake of nodes" }),
