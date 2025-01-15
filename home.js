@@ -13,11 +13,10 @@ export const WEB_PAGE = page([
     slide("prime", {
         theme: "dark", 
         backgroundGradient: "dark0016",
-        title: `<b>Make</b> your technical objects <b>teamwide</b>`,
-        subtitle: `Unlock access to playing with core business technical objects throughout your team.`,
-        paragraph: `Vastly increase your sales performance by providing your team with direct insights of the core business objects. 
-            Want to answer to a client on how will the product will perform in its use case? 
-            Alphaventor platform is the way.`,
+        title: `The <b>High productivity</b> stack, for <b>rich</b> Saas development`,
+        subtitle: `Get a top-level team of devs to build your dream app, for a fraction of the cost.`,
+        paragraph: `Build by project developpers for project developpers, S8 is curbing spacetime to make possible 
+        projects previously thought to be financially out of reach.`,
         asset: "assets/slides/diagram-2.png",
         assetAspectRatio: 16 / 9
     }),
