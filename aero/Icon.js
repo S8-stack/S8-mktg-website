@@ -26,6 +26,8 @@ export class Icon {
             this.svgNode = svgNode;
             this.isSVGNodeLoaded = true;
         });
+
+        return this.wrapperNode;
     }
 
     getEnvelope(){ return this.wrapperNode; }

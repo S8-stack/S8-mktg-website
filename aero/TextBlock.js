@@ -1,5 +1,6 @@
 import { AeroElement } from "./AeroElement.js";
 import { AeroUtilities } from "./AeroUtilities.js";
+import { Icon } from "./Icon.js";
 import { WebPage } from "./WebPage.js";
 
 
@@ -40,7 +41,7 @@ import { WebPage } from "./WebPage.js";
 export const LOW_RESOLUTION_TAG = "-low";
 export const HIGH_RESOLUTION_TAG = "-high";
 
-export class Slide extends AeroElement {
+export class TextBlock extends AeroElement {
 
     /** @type {HTMLElement } */
     sectionNode;
@@ -84,14 +85,13 @@ export class Slide extends AeroElement {
     build(page) {
 
         /* CSS requirements */
-        page.css_requireStylesheet("aero/Slide.css");
-        page.css_requireStylesheet("aero/gradient-backgrounds.css");
+        page.css_requireStylesheet("aero/TextBlock.css");
 
         /* build nodes */
         this.sectionNode = document.createElement("section");
-        this.sectionNode.classList.add("aero-slide");
+        this.sectionNode.classList.add("textblock");
         this.sectionNode.setAttribute("type", this.type);
-        
+
 
         this.setType(this.type);
         this.setTheme(this.props.theme ? this.props.theme : "light");
@@ -104,7 +104,7 @@ export class Slide extends AeroElement {
         }
         /* </id> */
 
-        
+
         /* <background> */
         if (this.props.background != undefined || this.props.backgroundColor != undefined) {
             let backgroundParam = this.props.background;
@@ -128,53 +128,9 @@ export class Slide extends AeroElement {
         /* </background> */
 
 
-        /* <text> */
-        let textNode = document.createElement("div");
-        textNode.classList.add("aero-slide-text");
-
-        /* <h1> */
-        if (this.props.title != undefined) {
-            let h1Node = document.createElement("h1");
-            h1Node.innerHTML = this.props.title;
-            textNode.appendChild(h1Node);
-        }
-        /* </h1> */
-
-        /* <h2> */
-        if (this.props.subtitle != undefined) {
-            let h2Node = document.createElement("h2");
-            h2Node.innerHTML = this.props.subtitle;
-            textNode.appendChild(h2Node);
-        }
-        /* </h2> */
-
-        /* <p> */
-        if (this.props.paragraph != undefined) {
-            let pNode = document.createElement("p");
-            pNode.innerHTML = this.props.paragraph;
-            textNode.appendChild(pNode);
-        }
-        /* </p> */
-
-        this.sectionNode.appendChild(textNode);
-        /* </text> */
-
-        /* <metrics> */
-        if (this.props.metrics != undefined) { this.drawMetrics(this.props.metrics); }
-        /* <metrics> */
-
-
-        /* <asset> */
-        if (this.props.asset != undefined) {
-            let assetNode = document.createElement("div");
-            assetNode.classList.add("aero-slide-picture");
-            if (this.props.assetAspectRatio) { assetNode.style.aspectRatio = this.props.assetAspectRatio; }
-            let assetImagePath = this.props.asset;
-            AeroUtilities.loadBackgroundImage(assetNode, assetImagePath, () => { });
-            this.sectionNode.appendChild(assetNode);
-        }
-        /* </assset> */
-
+        /* <elements> */
+        this.props.elements.forEach(element => this.sectionNode.appendChild(element.build(page)));
+        /* </elements> */
 
         /* return wrapper node */
         return this.sectionNode;
@@ -214,67 +170,6 @@ export class Slide extends AeroElement {
 
     }
 
-    drawMetrics(script) {
-        /*
-        <div class="metrics-4">
-            <div class="metrics-item">
-                <div class="metrics-item-value">
-                    <span class="number">6000</span><span class="unit">kg</span>
-                </div>
-                <div class="metrics-item-parameter">Max nacelle weight</div>
-            </div>
-            <div class="metrics-item">
-                <div class="metrics-item-value">
-                    <span class="modifier">></span><span class="number">12</span><span
-                        class="unit">h</span>
-                </div>
-                <div class="metrics-item-parameter">Flight time (ECO MODE 250
-                    km/h, full load)</div>
-            </div>
-            <div class="metrics-item">
-                <div class="metrics-item-value">
-                    <span class="modifier">></span><span class="number">3000</span><span
-                        class="unit">km</span>
-                </div>
-                <div class="metrics-item-parameter">Range (ECO MODE 250 km/h,
-                    full load)</div>
-            </div>
-            <div class="metrics-item">
-                <div class="metrics-item-value">
-                    <span class="modifier">></span><span class="number">450</span><span
-                        class="unit">km/h</span>
-                </div>
-                <div class="metrics-item-parameter">Max speed</div>
-            </div>
-        </div>
-        */
-        let metricsNode = document.createElement("div");
-        metricsNode.classList.add(`aero-slide-metrics`);
-        script.forEach(metric => {
-            let metricsItemNode = document.createElement("div");
-            metricsItemNode.classList.add("aero-slide-metrics-item");
-
-            let metricsItemValueNode = document.createElement("div");
-            metricsItemValueNode.classList.add("aero-slide-metrics-item-value");
-
-            let content = "";
-            if (metric.modifier != undefined) {
-                content += `<span class="modifier">${metric.modifier}</span>`;
-            }
-            content += `<span class="number">${metric.number}</span>`;
-            content += `<span class="unit">${metric.unit}</span>`;
-            metricsItemValueNode.innerHTML = content;
-            metricsItemNode.appendChild(metricsItemValueNode);
-
-            let metricsItemParameterNode = document.createElement("div");
-            metricsItemParameterNode.classList.add("aero-slide-metrics-item-parameter");
-            metricsItemParameterNode.innerHTML = metric.parameter;
-            metricsItemNode.appendChild(metricsItemParameterNode);
-
-            metricsNode.appendChild(metricsItemNode);
-        })
-        this.sectionNode.appendChild(metricsNode);
-    }
 
 
     redrawHighRes() {
@@ -304,6 +199,86 @@ export class Slide extends AeroElement {
             this.isAssetImageLoaded = false;
             highResImageBuffer.src = highResPath; // trigger
         }
+    }
+
+}
+
+export class TextBlockElement {
+
+    constructor(props) {
+        this.props = props ? props : {};
+    }
+
+}
+
+export class TxBkHeader1 extends TextBlockElement {
+
+    constructor(text, props) {
+        super(props);
+        this.text = text;
+    }
+
+    build(page) {
+        const headerNode = document.createElement("h1");
+        //if (this.isMobileHideable) { headerNode.classList.add("txbk-mobile-hideable"); }
+        headerNode.innerHTML = this.text;
+        return this.headerNode = headerNode;
+    }
+
+}
+
+
+export class TxBkHeader2 extends TextBlockElement {
+
+    constructor(text, props) {
+        super(props);
+        this.text = text;
+    }
+
+    build(page) {
+        const headerNode = document.createElement("h2");
+        //if (this.isMobileHideable) { headerNode.classList.add("txbk-mobile-hideable"); }
+        headerNode.innerHTML = this.text;
+        return this.headerNode = headerNode;
+    }
+
+}
+
+
+export class TxBkParagraph extends TextBlockElement {
+
+    constructor(text, props) {
+        super(props);
+        this.text = text;
+    }
+
+    build(page) {
+        const headerNode = document.createElement("p");
+        //if (this.isMobileHideable) { headerNode.classList.add("txbk-mobile-hideable"); }
+        headerNode.innerHTML = this.text;
+        return this.headerNode = headerNode;
+    }
+
+}
+
+
+export class TxBkSVG extends TextBlockElement {
+
+    constructor(pathname, props) {
+        super(props);
+        this.pathname = pathname;
+    }
+
+    build(page) {
+        const wrapperNode = document.createElement("div");
+        wrapperNode.classList.add("textblock-pic-svg");
+        //if (this.isMobileHideable) { headerNode.classList.add("txbk-mobile-hideable"); }
+       
+
+        this.icon = new Icon(this.pathname, this.props); 
+        wrapperNode.appendChild(this.icon.build());
+
+        return this.wrapperNode = wrapperNode;
     }
 
 }

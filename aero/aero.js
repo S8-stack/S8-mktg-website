@@ -10,6 +10,7 @@ import { Slide } from "./Slide.js";
 import { WebPage } from "./WebPage.js";
 import { SquareGrid, SquareGridCard, SquareGridCardGroup, SquareGridCardH1, SquareGridCardH2, SquareGridCardLink, SquareGridCardParagraph, SquareGridCardPoint } from "./SquareGrid.js";
 import { CodeBlock } from "./CodeBlock.js";
+import { TextBlock, TxBkHeader1, TxBkHeader2, TxBkParagraph, TxBkSVG } from "./TextBlock.js";
 
 
 export const page = function (elements, props) {
@@ -79,6 +80,13 @@ export const sqGridCardLink = function (props) {
 export const codeBlock = function (source) {
     return new CodeBlock(source);
 }
+
+
+export const textBlock = function (type, props) { return new TextBlock(type, props); }
+export const txbkH1 = function (text, props) { return new TxBkHeader1(text, props); }
+export const txbkH2 = function (text, props) { return new TxBkHeader2(text, props); }
+export const txbkP = function (text, props) { return new TxBkParagraph(text, props); }
+export const txbkSVG = function (pathname, props) { return new TxBkSVG(pathname, props); }
 
 
 

@@ -1,5 +1,5 @@
 
-import { page, header, slide, footer, movie, grid, gridCard, sqGridCard, sqGridCardGroup, sqGridCardH1, sqGridCardH2, sqGridCardParagraph, sqGridCardLink, sqGrid, sqGridCardPoint } from './aero/aero.js';
+import { page, header, slide, footer, movie, grid, gridCard, sqGridCard, sqGridCardGroup, sqGridCardH1, sqGridCardH2, sqGridCardParagraph, sqGridCardLink, sqGrid, sqGridCardPoint, textBlock, txbkH1, txbkP, txbkH2, txbkSVG } from './aero/aero.js';
 
 
 export const WEB_PAGE = page([
@@ -11,7 +11,7 @@ export const WEB_PAGE = page([
         selected: "Home"
     }),
     slide("prime", {
-        theme: "dark", 
+        theme: "dark",
         backgroundGradient: "dark0016",
         title: `The <b>High productivity</b> stack, for <b>rich</b> Saas development`,
         subtitle: `Get a top-level team of devs to build your dream app, for a fraction of the cost.`,
@@ -27,7 +27,7 @@ export const WEB_PAGE = page([
             /* tile 00 */
             sqGridCard("light", "std", {
                 theme: "light",
-                backgroundImage : "assets/principles/tile00.png",
+                backgroundImage: "assets/principles/tile00.png",
                 elements: [
                     sqGridCardH1({ txt: "Simple" }),
                     sqGridCardH2({ txt: "Less is More" }),
@@ -46,7 +46,7 @@ export const WEB_PAGE = page([
             /* tile 01 */
             sqGridCard("light", "std", {
                 theme: "light",
-                backgroundImage : "assets/principles/tile01.png",
+                backgroundImage: "assets/principles/tile01.png",
                 elements: [
                     sqGridCardH1({ txt: "Secure" }),
                     sqGridCardH2({ txt: "Paranoid mode enabled" }),
@@ -65,7 +65,7 @@ export const WEB_PAGE = page([
             /* tile 02 */
             sqGridCard("light", "std", {
                 theme: "light",
-                backgroundImage : "assets/principles/tile02.png",
+                backgroundImage: "assets/principles/tile02.png",
                 elements: [
                     sqGridCardH1({ txt: "Small" }),
                     sqGridCardH2({ txt: "Small-Surface API" }),
@@ -85,7 +85,7 @@ export const WEB_PAGE = page([
             /* tile 03 */
             sqGridCard("light", "std", {
                 theme: "light",
-                backgroundImage : "assets/principles/tile03.png",
+                backgroundImage: "assets/principles/tile03.png",
                 elements: [
                     sqGridCardH1({ txt: "Synced" }),
                     sqGridCardH2({ txt: "High concurrency architecture" }),
@@ -99,7 +99,7 @@ export const WEB_PAGE = page([
             /* tile 04 */
             sqGridCard("light", "std", {
                 theme: "light",
-                backgroundImage : "assets/principles/tile04.png",
+                backgroundImage: "assets/principles/tile04.png",
                 elements: [
                     sqGridCardH1({ txt: "Storage" }),
                     sqGridCardH2({ txt: "Embedded DB and caching" }),
@@ -118,7 +118,7 @@ export const WEB_PAGE = page([
             /* tile 05 */
             sqGridCard("light", "std", {
                 theme: "light",
-                backgroundImage : "assets/principles/tile05.png",
+                backgroundImage: "assets/principles/tile05.png",
                 elements: [
                     sqGridCardH1({ txt: "Structured" }),
                     sqGridCardH2({ txt: "Graph DB, native version" }),
@@ -137,7 +137,7 @@ export const WEB_PAGE = page([
             /* tile 06 */
             sqGridCard("light", "std", {
                 theme: "light",
-                backgroundImage : "assets/principles/tile06.png",
+                backgroundImage: "assets/principles/tile06.png",
                 elements: [
                     sqGridCardH1({ txt: "Screen" }),
                     sqGridCardH2({ txt: "Your front as a remote screen" }),
@@ -156,7 +156,7 @@ export const WEB_PAGE = page([
             /* tile 07 */
             sqGridCard("light", "std", {
                 theme: "light",
-                backgroundImage : "assets/principles/tile07.png",
+                backgroundImage: "assets/principles/tile07.png",
                 elements: [
                     sqGridCardH1({ txt: "Scalable" }),
                     sqGridCardH2({ txt: "Lake of nodes" }),
@@ -174,9 +174,134 @@ export const WEB_PAGE = page([
             }),
         ]
     }),
-    slide("hThird", {
+    textBlock("std", {
         id: "tile00-text",
-        theme: "light", 
+        elements: [
+            txbkSVG("/assets/principles/etoile.svg", { width: 128, height: 128 }),
+            txbkH1("Simple"),
+            txbkP(`The idea of maximum productivity encompasses all aspects of the Saas development and deployment. 
+                S8 brings a certain number of radical changes to make this it simpler.`),
+            txbkH2("Language"),
+            txbkP(`First it proposes the development team to reduce to a single language JAVA, that -despite being 
+                seen as less hype than other new languages- is widely adopted, highly efficient but also very complete 
+                in terms of features. But have no fear! All the gory aspects of traditional JAVA project development 
+                have been left behind, to leverage only the very best of language: JAVA core. It’s even more than 
+                that: JAVA comes with a lot high level functions that require expert level team to master, but 
+                regarding this, we just ask our user not to use them and to use JAVA as a simpler version of TypeScript.`),
+            txbkH2(`Booting fast`),
+            txbkP(`S8 marks a clear cut with traditional web-app deployment on JAVA server (Tomcat, etc.). S8 server-side 
+                boots in less than 1s on most environments, meaning you don’t care stopping and redeploying an instance 
+                anytime you want it. This drastically reduces the development cycle by enabling super frequent test 
+                in real world testing environment. This is especially true for apps with advanced graphics where 
+                the entire db-back-front is required, even to play unit tests.`),
+            txbkH2(`Single man orchestra`),
+            txbkP(`Ok, this is wild. But that’s how we built it. We wanted -day 1- that S8 can be efficiently used to 
+                build and deploy a project with a record low number of people, so we squeeze all the 
+                {params, configs, scripts} around to just focus on app development. 
+                S8 enables to have your server life from any simple JAVA environment. 
+                We broke the rule of having two servers, one server dedicated for the back and another one for the 
+                front, and merged everything into a single stack, for the sake of simplicity and efficient project 
+                management.`)
+        ],
+        backgroundGradient: "light-tile00"
+    }),
+    textBlock("std", {
+        id: "tile01-text",
+        elements: [
+            txbkSVG("/assets/principles/shield.svg", { width: 128, height: 128 }),
+            txbkH1("Secure"),
+            txbkH2("Zero dependencies"),
+            txbkP(`While open source supply with valuable tools and features, it also creates uncontrolled dependencies 
+                from unchecked origins. Many incidents through two decades illustrated how easily a malicious contributor 
+                can inject vulnerabilities inside applications based on external modules. The number of those dependencies 
+                is out of control for most organizations and this results in random highly critical incidents. With open 
+                sources modules deeply nested inside layers and layers of code, it becomes virtually impossible to guarantee 
+                a safe system. On top of that, any previously clear dependency can become malevolent through updates.`),
+            txbkP(`That’s why we decided to rebuild the entire stack from the ground up, carefully crafting and validating 
+                    each of our modules. Therefore, we can guarantee the total absence of the traditional worms inside 
+                    the code you will build on S8.`),
+            txbkH2("HTTPS and all the rest..."),
+            txbkP(`We also implement HTTP2 and TLS security layer with a somewhat restrictive inner policy to stay on 
+                the safe side.`),
+        ],
+        backgroundGradient: "light-tile01"
+    }),
+    textBlock("std", {
+        id: "tile02-text",
+        elements: [
+            txbkSVG("/assets/principles/3d-printer.svg", { width: 128, height: 128 }),
+            txbkH1("Small"),
+            txbkH2("Small Surface API is the key"),
+            txbkP(`Small surface API might be seen as a limitation. We see a strength: only key features are here, but 
+                all key features. This enables a fast learning curve, and an almost immediate kicking off. It also 
+                offers a serenity for creator, when you know you sit on something that is taking care of fine grain 
+                details, without having to spend time resolving problems -including integration problems- that have 
+                been solved so many time. You leverage performance improvement of the entire stack effortlessly.`),
+            txbkH2("Multiple environnement, one API"),
+            txbkP(`Also, we have plans to build even more aggressive of some module (in a JAVA sense) of current ones, 
+                and to propose them on future version. Having a high-level API enables you to take advantage of many 
+                implementations  fine tuning with the same codebase. It provides a stable environment, just as JVM 
+                provides a standardized coding environment over different machines.`),
+            txbkH2("The flow"),
+            txbkP(`The key concept of this stack relies on the flow. The flow let you access pretty much every feature
+                     of the stack in an asynchronous and unified way. The flow is the context against which you build 
+                     the big lambda expression which is in the end your app.`),
+
+        ],
+        backgroundGradient: "light-tile02"
+    }),
+    textBlock("std", {
+        id: "tile03-text",
+        elements: [
+            txbkSVG("/assets/principles/sync.svg", { width: 128, height: 128 }),
+            txbkH1("THis is header 1"),
+            txbkH2("THis is header 2"),
+            txbkP("THis is paragrpah"),
+        ],
+        backgroundGradient: "light-tile03"
+    }),
+    textBlock("std", {
+        id: "tile04-text",
+        elements: [
+            txbkSVG("/assets/principles/servers.svg", { width: 128, height: 128 }),
+            txbkH1("THis is header 1"),
+            txbkH2("THis is header 2"),
+            txbkP("THis is paragrpah"),
+        ],
+        backgroundGradient: "light-tile04"
+    }),
+    textBlock("std", {
+        id: "tile05-text",
+        elements: [
+            txbkSVG("/assets/principles/graph.svg", { width: 128, height: 128 }),
+            txbkH1("THis is header 1"),
+            txbkH2("THis is header 2"),
+            txbkP("THis is paragrpah"),
+        ],
+        backgroundGradient: "light-tile05"
+    }),
+    textBlock("std", {
+        id: "tile06-text",
+        elements: [
+            txbkSVG("/assets/principles/monitor.svg", { width: 128, height: 128 }),
+            txbkH1("THis is header 1"),
+            txbkH2("THis is header 2"),
+            txbkP("THis is paragrpah"),
+        ],
+        backgroundGradient: "light-tile06"
+    }),
+    textBlock("std", {
+        id: "tile07-text",
+        elements: [
+            txbkSVG("/assets/principles/scalability.svg", { width: 128, height: 128 }),
+            txbkH1("THis is header 1"),
+            txbkH2("THis is header 2"),
+            txbkP("THis is paragrpah"),
+        ],
+        backgroundGradient: "light-tile07"
+    }),
+    slide("hThird", {
+        theme: "light",
         backgroundGradient: "light-tile00",
         title: `The make-it-<b>Simple</b> Stack`,
         subtitle: `A single language to master all the features, and in your app assemble them.`,
@@ -188,7 +313,7 @@ export const WEB_PAGE = page([
     }),
     slide("prime", {
         id: "tile01-text",
-        theme: "light", 
+        theme: "light",
         backgroundGradient: "light-tile01",
         title: `Secure`,
         subtitle: `We've taken this to the next level`,
@@ -199,7 +324,7 @@ export const WEB_PAGE = page([
     }),
     slide("prime", {
         id: "tile02-text",
-        theme: "light", 
+        theme: "light",
         backgroundGradient: "light-tile02",
         title: `<b>Make</b>Simple<b> Stack</b>`,
         subtitle: `A single language to master all the features, and in your app assemble them.`,
@@ -209,7 +334,7 @@ export const WEB_PAGE = page([
     }),
     slide("prime", {
         id: "tile03-text",
-        theme: "light", 
+        theme: "light",
         backgroundGradient: "light-tile03",
         title: `<b>Make</b>Simple<b> Stack</b>`,
         subtitle: `A single language to master all the features, and in your app assemble them.`,
@@ -219,7 +344,7 @@ export const WEB_PAGE = page([
     }),
     slide("prime", {
         id: "tile04-text",
-        theme: "light", 
+        theme: "light",
         backgroundGradient: "light-tile04",
         title: `<b>Make</b>Simple<b> Stack</b>`,
         subtitle: `A single language to master all the features, and in your app assemble them.`,
@@ -229,7 +354,7 @@ export const WEB_PAGE = page([
     }),
     slide("prime", {
         id: "tile05-text",
-        theme: "light", 
+        theme: "light",
         backgroundGradient: "light-tile05",
         title: `<b>Make</b>Simple<b> Stack</b>`,
         subtitle: `A single language to master all the features, and in your app assemble them.`,
@@ -239,7 +364,7 @@ export const WEB_PAGE = page([
     }),
     slide("prime", {
         id: "tile06-text",
-        theme: "light", 
+        theme: "light",
         backgroundGradient: "light-tile06",
         title: `<b>Make</b>Simple<b> Stack</b>`,
         subtitle: `A single language to master all the features, and in your app assemble them.`,
@@ -249,7 +374,7 @@ export const WEB_PAGE = page([
     }),
     slide("prime", {
         id: "tile07-text",
-        theme: "light", 
+        theme: "light",
         backgroundGradient: "light-tile07",
         title: `<b>Make</b>Simple<b> Stack</b>`,
         subtitle: `A single language to master all the features, and in your app assemble them.`,
