@@ -35,7 +35,7 @@ export class Header extends AeroElement {
         this.props = props;
 
         this.flatColor = "black";
-        switch(this.props.theme){
+        switch (this.props.theme) {
             default:
             case "light": this.flatColor = "black"; break;
             case "dark": this.flatColor = "white"; break;
@@ -92,13 +92,51 @@ export class Header extends AeroElement {
         barNode.classList.add("aero-header-bar");
 
         if (this.isLandscape) {
-           this.drawLandscape(barNode);
+            this.drawLandscape(barNode);
         }
         else {
             this.drawPortrait(barNode);
         }
         this.headerNode.appendChild(barNode);
 
+
+
+        let lastKnowScrollY = 0;
+        let deltaScrollY = 0;
+        let upwardDeltaScrollY = 0;
+        let ticking = false;
+        let barPositionY = 0;
+        let previousMove = 0; /* O :undefined, -1:upward, +1:downward */
+        
+
+        const udpateBarPosition = function (y) {  barNode.style.top = `${y}px`;  }
+
+        window.addEventListener("scroll", function (e) {
+            deltaScrollY = window.scrollY - lastKnowScrollY;
+            lastKnowScrollY = window.scrollY;
+
+            if(deltaScrollY < 0){ /* going upward, deltaScrollY < 0  */
+                //if(previousMove != -1){ barPositionY = -68; }
+                barPositionY -= deltaScrollY;
+                if(barPositionY > 0){ barPositionY = 0; }
+                //previousMove = -1;
+            }
+            else{ /* downward, deltaScrollY > 0 */
+                barPositionY -= deltaScrollY;
+                if(barPositionY < -68){ barPositionY = -68; }
+                //previousMove = 1;
+            }
+            console.log(`upwardDeltaScrollY: ${upwardDeltaScrollY}`);
+
+            if (!ticking) {
+                window.requestAnimationFrame(function () {
+                    udpateBarPosition(barPositionY);
+                    ticking = false;
+                });
+            }
+
+            ticking = true;
+        });
     }
 
 
@@ -202,12 +240,12 @@ export class Header extends AeroElement {
     buildLoginNode() {
         /* <login-icon> */
         const loginNode = document.createElement("a");
-        
-        loginNode.href ="https://app.alphaventor.com";
+
+        loginNode.href = "https://app.alphaventor.com";
 
         loginNode.classList.add("menu-login");
         let loginImgNode = document.createElement("img");
-        loginImgNode.src = `icons/login-${this.flatColor}.svg`; 
+        loginImgNode.src = `icons/login-${this.flatColor}.svg`;
         loginImgNode.alt = "login";
         loginNode.appendChild(loginImgNode);
         return loginNode;
