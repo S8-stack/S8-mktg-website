@@ -58,6 +58,12 @@ export class Footer extends AeroElement {
     this.footerNode.innerHTML = CONTENT;
     //this.draw();
 
+
+    /* logo node */
+    const logoNode = document.createElement('div');
+    this.footerNode.classList.add('aero-footer');
+    this.footerNode.innerHTML = CONTENT;
+
     /* return wrapper node */
     return this.footerNode;
   }
@@ -69,6 +75,6 @@ export class Footer extends AeroElement {
   render(page) {
 
   }
-
-
 }
+
+

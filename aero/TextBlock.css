@@ -9,7 +9,7 @@
 
 
 @media (orientation : landscape) {
-	div.textblock {
+	.textblock {
 		margin: 0px 0px 0px 0px;
 		padding: 8px 16% 8px 16%;
 	}
@@ -17,7 +17,7 @@
 
 
 @media (orientation : portrait) {
-	div.textblock {
+	.textblock {
 		margin: 0px 0px 0px 0px;
 		padding: 8px 4% 8px 4%;
 	}
@@ -169,6 +169,7 @@ div.aero-slide-picture {
 
 /* </h2> */
 
+/* <p> */
 .textblock>p {
 	font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande",
 		sans-serif;
@@ -190,9 +191,10 @@ div.aero-slide-picture {
 
 @media (orientation : portrait) {
 	.textblock>p {
-		font-size: 20px;
+		font-size: 13px;
 	}
 }
+/* </p> */
 
 .aero-slide>a {
 	position: absolute;

@@ -83,16 +83,26 @@ export class Header extends AeroElement {
     }
 
     draw() {
+
+        const placeholderNode = document.createElement("div");
+        placeholderNode.classList.add("aero-header-placeholder");
+        this.headerNode.appendChild(placeholderNode);
+
+        const barNode = document.createElement("div");
+        barNode.classList.add("aero-header-bar");
+
         if (this.isLandscape) {
-            this.drawLandscape();
+           this.drawLandscape(barNode);
         }
         else {
-            this.drawPortrait();
+            this.drawPortrait(barNode);
         }
+        this.headerNode.appendChild(barNode);
+
     }
 
 
-    drawLandscape() {
+    drawLandscape(barNode) {
 
         /* <front-icon> */
         let menuLogoNode = document.createElement("div");
@@ -101,12 +111,12 @@ export class Header extends AeroElement {
         frontImgNode.src = this.props.logo;
         frontImgNode.alt = "logo";
         menuLogoNode.appendChild(frontImgNode);
-        this.headerNode.appendChild(menuLogoNode);
+        barNode.appendChild(menuLogoNode);
         /* </front-icon> */
 
         /* <nav> */
         let selectedMenu = this.props.selected;
-        this.headerNode.appendChild(this.buildNavNode(selectedMenu));
+        barNode.appendChild(this.buildNavNode(selectedMenu));
         /* </nav> */
 
         /* <login-icon> */
@@ -115,7 +125,7 @@ export class Header extends AeroElement {
     }
 
 
-    drawPortrait() {
+    drawPortrait(barNode) {
 
         let iconsWrapperNode = document.createElement("div");
         iconsWrapperNode.classList.add("aero-menu-icons-wrapper");
@@ -140,12 +150,12 @@ export class Header extends AeroElement {
         iconsWrapperNode.appendChild(menuLogoNode);
         /* </logo-icon> */
 
-        this.headerNode.appendChild(iconsWrapperNode);
+        barNode.appendChild(iconsWrapperNode);
 
         let selectedMenu = this.props.selected;
         let navNode = this.buildNavNode(selectedMenu);
 
-        this.headerNode.appendChild(navNode);
+        barNode.appendChild(navNode);
 
         this.isNavVisible = false; // hidden by default in portrait
         let _this = this;
