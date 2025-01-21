@@ -11,6 +11,7 @@ import { WebPage } from "./WebPage.js";
 import { SquareGrid, SquareGridCard, SquareGridCardGroup, SquareGridCardH1, SquareGridCardH2, SquareGridCardLink, SquareGridCardParagraph, SquareGridCardPoint } from "./SquareGrid.js";
 import { CodeBlock } from "./CodeBlock.js";
 import { TextBlock, TxBkHeader1, TxBkHeader2, TxBkParagraph, TxBkSVG } from "./TextBlock.js";
+import { SpText } from "./SpText.js";
 
 
 export const page = function (elements, props) {
@@ -89,9 +90,19 @@ export const txbkP = function (text, props) { return new TxBkParagraph(text, pro
 export const txbkSVG = function (pathname, props) { return new TxBkSVG(pathname, props); }
 
 
+export const spText = function (contentPathname, props) { return new SpText(contentPathname, props); }
 
-export const footer = function (props) {
-    return new Footer(props);
+
+export const footer = function (contentPathname, props) {
+    return new Footer(contentPathname, props);
+}
+
+export const footSocial = function (props) {
+    return new FooterSocialLink(props);
+}
+
+export const footLegal = function (props) {
+    return new FooterLegalLink(props);
 }
 
 

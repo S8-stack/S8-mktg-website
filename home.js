@@ -571,7 +571,7 @@ export const WEB_PAGE = page([
             platform to give your client a digital twin of your products`,
         asset: "assets/slides/slide00.png"
     }),
-    footer()],
+    footer("footer.html")],
     {
         hasCookiesModalBox: true,
     }

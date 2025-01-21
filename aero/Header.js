@@ -51,7 +51,7 @@ export class Header extends AeroElement {
     build(page) {
 
         /* CSS requirements */
-        page.css_requireStylesheet("aero/Header.css");
+        page.css_requireStylesheet("/aero/Header.css");
 
         /* build nodes */
         this.headerNode = document.createElement('header');
@@ -118,14 +118,16 @@ export class Header extends AeroElement {
             if(deltaScrollY < 0){ /* going upward, deltaScrollY < 0  */
                 //if(previousMove != -1){ barPositionY = -68; }
                 barPositionY -= deltaScrollY;
-                if(barPositionY > 0){ barPositionY = 0; }
+                
                 //previousMove = -1;
             }
             else{ /* downward, deltaScrollY > 0 */
                 barPositionY -= deltaScrollY;
-                if(barPositionY < -68){ barPositionY = -68; }
+               
                 //previousMove = 1;
             }
+            if(barPositionY > 0){ barPositionY = 0; }
+            if(barPositionY < -64){ barPositionY = -64; }
             console.log(`upwardDeltaScrollY: ${upwardDeltaScrollY}`);
 
             if (!ticking) {

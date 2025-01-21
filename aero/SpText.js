@@ -38,10 +38,8 @@ import { WebPage } from "./WebPage.js";
 
 
 
-export const LOW_RESOLUTION_TAG = "-low";
-export const HIGH_RESOLUTION_TAG = "-high";
 
-export class TextBlock extends AeroElement {
+export class SpText extends AeroElement {
 
     /** @type {HTMLElement } */
     sectionNode;
@@ -71,9 +69,9 @@ export class TextBlock extends AeroElement {
     /** @type {HTMLDivElement} */
     assetNode;
 
-    constructor(type, props) {
+    constructor(contentPathname, props) {
         super();
-        this.type = type;
+        this.contentPathname = contentPathname;
         this.props = props;
     }
 
@@ -85,17 +83,15 @@ export class TextBlock extends AeroElement {
     build(page) {
 
         /* CSS requirements */
-        page.css_requireStylesheet("/aero/TextBlock.css");
+        page.css_requireStylesheet("/aero/SpText.css");
 
         /* build nodes */
         this.sectionNode = document.createElement("section");
-        this.sectionNode.classList.add("textblock");
+        this.sectionNode.classList.add("sptext");
         this.sectionNode.setAttribute("type", this.type);
 
 
-        this.setType(this.type);
         this.setTheme(this.props.theme ? this.props.theme : "light");
-
         if (this.props.arrangement) { this.setArrangement(this.props.arrangement); }
 
         /* <id> */
@@ -106,15 +102,8 @@ export class TextBlock extends AeroElement {
 
 
         /* <background> */
-        if (this.props.background != undefined || this.props.backgroundColor != undefined) {
-            let backgroundParam = this.props.background;
-            switch (backgroundParam) {
-                case "black": this.sectionNode.classList.add("background-black"); break;
-                case "white": this.sectionNode.classList.add("background-white"); break;
-                case "grey64": this.sectionNode.classList.add("background-grey64"); break;
-                case "grey128": this.sectionNode.classList.add("background-grey128"); break;
-                case "grey192": this.sectionNode.classList.add("background-grey192"); break;
-            }
+        if (this.props.backgroundColor != undefined) {
+            this.sectionNode.style.backgroundColor = this.props.backgroundColor;
         }
         else if (this.props.backgroundGradient != undefined) {
             this.sectionNode.classList.add("aero-background-gradient-" + this.props.backgroundGradient);
@@ -129,7 +118,9 @@ export class TextBlock extends AeroElement {
 
 
         /* <elements> */
-        this.props.elements.forEach(element => this.sectionNode.appendChild(element.build(page)));
+        AeroUtilities.sendRequest_HTTP_GET(this.contentPathname, "text", content => {
+            this.sectionNode.innerHTML = content;
+          });
         /* </elements> */
 
         /* return wrapper node */
@@ -137,18 +128,9 @@ export class TextBlock extends AeroElement {
     }
 
 
-    setType(type) {
-        this.sectionNode.setAttribute("type", type);
-    }
-
     setTheme(theme) {
         this.sectionNode.setAttribute("theme", theme);
     }
-
-    setArrangement(arrangement) {
-        this.sectionNode.setAttribute("arrangement", arrangement);
-    }
-
 
     /**
      * 
@@ -167,85 +149,4 @@ export class TextBlock extends AeroElement {
     draw() {
 
     }
-
-}
-
-export class TextBlockElement {
-
-    constructor(props) {
-        this.props = props ? props : {};
-    }
-
-}
-
-export class TxBkHeader1 extends TextBlockElement {
-
-    constructor(text, props) {
-        super(props);
-        this.text = text;
-    }
-
-    build(page) {
-        const headerNode = document.createElement("h1");
-        //if (this.isMobileHideable) { headerNode.classList.add("txbk-mobile-hideable"); }
-        headerNode.innerHTML = this.text;
-        return this.headerNode = headerNode;
-    }
-
-}
-
-
-export class TxBkHeader2 extends TextBlockElement {
-
-    constructor(text, props) {
-        super(props);
-        this.text = text;
-    }
-
-    build(page) {
-        const headerNode = document.createElement("h2");
-        //if (this.isMobileHideable) { headerNode.classList.add("txbk-mobile-hideable"); }
-        headerNode.innerHTML = this.text;
-        return this.headerNode = headerNode;
-    }
-
-}
-
-
-export class TxBkParagraph extends TextBlockElement {
-
-    constructor(text, props) {
-        super(props);
-        this.text = text;
-    }
-
-    build(page) {
-        const headerNode = document.createElement("p");
-        //if (this.isMobileHideable) { headerNode.classList.add("txbk-mobile-hideable"); }
-        headerNode.innerHTML = this.text;
-        return this.headerNode = headerNode;
-    }
-
-}
-
-
-export class TxBkSVG extends TextBlockElement {
-
-    constructor(pathname, props) {
-        super(props);
-        this.pathname = pathname;
-    }
-
-    build(page) {
-        const wrapperNode = document.createElement("div");
-        wrapperNode.classList.add("textblock-pic-svg");
-        //if (this.isMobileHideable) { headerNode.classList.add("txbk-mobile-hideable"); }
-       
-
-        this.icon = new Icon(this.pathname, this.props); 
-        wrapperNode.appendChild(this.icon.build());
-
-        return this.wrapperNode = wrapperNode;
-    }
-
 }
