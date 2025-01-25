@@ -133,6 +133,12 @@ div.aero-slide-picture {
 	font-weight: bold;
 }
 
+
+
+.textblock[type="legal"]>h1 {
+	padding: 32px 8px 16px 8px;
+}
+
 /* </h1> */
 
 
@@ -152,6 +158,9 @@ div.aero-slide-picture {
 	text-align: left;
 }
 
+.textblock[type="legal"]>h2 {
+	padding: 16px 8px 8px 8px;
+}
 
 @media (orientation : landscape) {
 	.textblock>h2 {
@@ -182,6 +191,17 @@ div.aero-slide-picture {
 	border-radius: 4px;
 	margin: 0px;
 }
+
+
+/* <p> */
+.textblock[type="legal"]>p, .textblock[type="legal"]>ul {
+	font-size: 16px;
+}
+
+.textblock[type="legal"]>ul>li {
+	padding: 8px 8px 8px 16px;
+}
+
 
 @media (orientation : landscape) {
 	.textblock>p {
@@ -353,3 +373,30 @@ div[class^="background-"] {
 
 
 /* </backgrounds> */
+
+
+/* <code> */
+
+
+.txbk-code-section {
+	padding: 24px max(5%, 16px) 24px max(5%, 16px);
+}
+
+.txbk-code-window {
+	background-color: rgb(33, 23, 59);
+	border-radius: 16px;
+	padding: 16px 32px;
+	color: rgb(87, 211, 211);
+}
+
+.txbk-code-window pre {
+	margin: 0;
+	padding: 0;
+	overflow-x: scroll;
+	tab-size: 2;
+}
+
+.txbk-code-window code {
+	margin: 0;
+	padding: 0;
+}

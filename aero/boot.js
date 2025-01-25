@@ -1,4 +1,13 @@
 import { ModalBox } from "./ModalBox.js";
+import { WebPageV2 } from "./WebPageV2.js";
+
+
+
+
+export const bootV2 = function(props){
+    const page = new WebPageV2(props);
+    page.start();
+}
 
 
 /**

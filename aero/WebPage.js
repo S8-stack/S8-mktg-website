@@ -112,7 +112,7 @@ export class WebPage {
     }
 
     render() {
-        this.elements.forEach(element => element.render(this));
+        //this.elements.forEach(element => element.render(this));
     }
 
     run() {

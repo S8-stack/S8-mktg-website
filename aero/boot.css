@@ -6,9 +6,13 @@
 
 
 body {
-	background-color: white;
+	background-color: black;
 	padding: 0px;
 	margin: 0px;
+}
+
+body > div#aero-page {
+	display: none;
 }
 
 

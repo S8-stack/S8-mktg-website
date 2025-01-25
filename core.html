@@ -1,20 +1,123 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-<title>AlphaVentor</title>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="shortcut icon" href="favicon.ico" type="image/png">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="aero/boot.css" />
-<script type="module">
-	import { boot } from './aero/boot.js';
-	window.boot = boot;
-</script>
+	<title>S8 Core</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="icon" type="image/x-icon" href="/favicon.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="aero/boot.css" />
+	<script type="module">
+		import { boot } from './aero/WebPageV2.js';
+		window.boot = boot;
+	</script>
 </head>
-<body onload="boot({
-	page : '/core.js',
-	hasCookiesModalBox : false, 
-	icon : '/assets/logos/S8-logo-v4-256px.png'
-})">
+
+<body onload="boot()">
+	<div id="aero-page" hasCookiesModalBox>
+		<header theme="dark" logo="logos/S8-logo-v4-256px.png">
+			<menu to="/home.html">Home</menu>
+			<menu to="/get-started.html">Get Started</menu>
+			<menu to="/plans.html">Plans</menu>
+			<menu to="/core.html" selected>Core</menu>
+			<menu to="/packages.html">Packages</menu>
+			<menu to="/extensions.html">Extensions</menu>
+		</header>
+		<slide type="prime" theme="dark" asset="assets/turbos/SiTyphoon-config-low.png">
+			<h1><b>Built-in</b> powerful capabilities</h1>
+			<h2>The Alphaventor platform came with efficient libraries to power your engineering app.</h2>
+			<p>Libraries enables complex applications capabilities out of the boxes, greatly
+				reducing the development time and platform integration.</p>
+			<p>Discover the core packages</p>
+		</slide>
+		<square-grid theme="light" backgroundColor="white">
+			<card type="light" size="std" theme="light"
+				backgroundImage="/assets/cards/core-arch-silicon/background.jpg">
+				<hgroup>core.arch.silicon</hgroup>
+				<h1>Light Threads</h1>
+				<h2>Async tasks made easy</h2>
+				<p isMobileHideable>Silicon module brings even more powerful concurrency mechanism than light threads.
+				</p>
+				<a icon="/icons/left-circled-arrow.svg"
+					href="https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java">example</a>
+				<a icon="/icons/coding.svg"
+					href="https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
+					isMobileHideable>doc</a>
+			</card>
+			<card type="light" size="std" theme="dark" backgroundImage="/assets/cards/core-io-xml/background.jpg">
+				<hgroup>core.io.xml</hgroup>
+				<h1>XML Parsing</h1>
+				<h2>Stable & Secured</h2>
+				<p isMobileHideable>Async tasks made easy</p>
+				<a icon="/icons/left-circled-arrow.svg"
+					href="https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java">example</a>
+				<a icon="/icons/coding.svg"
+					href="https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java">doc</a>
+			</card>
+			<card type="light" size="large-square" theme="light"
+				backgroundImage="/assets/cards/core-bohr/background-3.jpg">
+				<hgroup>core.bohr</hgroup>
+				<h1>BOHR</h1>
+				<h2>The Ubiquitous data format</h2>
+				<p><span>BOHR (initially Binary Object for HTTP Request) is binary stream format that
+						makes mulitpart, zipping, versioning and much more seamless integrated.
+						BOHR protocol can be used for:</p>
+				<li icon="/icons/server.svg"><b>Persistency</b>: for storage of complex Graph objects, including the
+					serialization of
+					many data structure.</li>
+				<li icon="/icons/flow.svg"><b>Stream to Front</b>: This is the key to send compelx structure to front
+					with
+					extremely tight data frame: every single object sent to front is part of graph wehere every
+					node is identified. Therefore, any modification of the screen does not need any reload of
+					previously transmitted objects.</li>
+				<a icon="/icons/left-circled-arrow.svg"
+					href="https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java">example</a>
+			</card>
+			<card type="light" size="large-horizontal" theme="dark"
+				backgroundImage="/assets/cards/core-bohr-neodymium/background.jpg">
+				<hgroup>core.bohr.neodymium</hgroup>
+				<h1>Versionable Object Graph Serial format</h1>
+				<p>Neodymium allows for the efficient peristency and vesrionning of complex large objects with non
+					trivial objects graph. Perfectly suited for your high level services.
+				</p>
+				<a icon="/icons/left-circled-arrow.svg"
+					href="https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java">example</a>
+			</card>
+			<card type="light" size="std" theme="dark" backgroundImage="assets/cards/core-bohr-lithium/background.jpg">
+				<hgroup>core.bohr.lithium</hgroup>
+				<h1>The fast rev</h1>
+				<p>Async tasks made easy</p>
+				<a icon="/icons/left-circled-arrow.svg"
+					href="https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java">example</a>
+			</card>
+			<card type="light" size="std" theme="dark" backgroundImage="assets/cards/core-web-xenon/background.png">
+				<hgroup>core.web.xenon</hgroup>
+				<h1>The Base Server</h1>
+				<p>Xenon is the default implementation of the S8 API.</p>
+				<a icon="/icons/left-circled-arrow.svg"
+					href="https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java">repo</a>
+			</card>
+
+			<card type="light" size="large-horizontal" theme="dark"
+				backgroundImage="/assets/cards/core-bohr-neon/background.jpg">
+				<hgroup>core.bohr.neon</hgroup>
+				<h1>Handle front like a desktop window</h1>
+				<p>Neon is the radical front simplification.</p>
+				<a icon="/icons/left-circled-arrow.svg"
+					href="https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java">repo</a>
+			</card>
+
+			<card type="light" size="std" theme="light" backgroundImage="/assets/atoms/beryllium.png">
+				<hgroup>core.bohr.neon</hgroup>
+				<h1>Handle front like a desktop window</h1>
+				<p>Neon is the radical front simplification.</p>
+				<a icon="/icons/left-circled-arrow.svg"
+					href="https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java">repo</a>
+			</card>
+		</square-grid>
+		<footer path="footer.html"></footer>
+	</div>
+</body>
+
 </html>
