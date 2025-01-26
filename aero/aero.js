@@ -4,7 +4,6 @@ import { AeroElement } from "./AeroElement.js";
 import { Deck } from "./Deck.js";
 import { Footer } from "./Footer.js";
 import { Grid, GridCard } from "./Grid.js";
-import { Header } from "./Header.js";
 import { AeroMovie } from "./AeroMovie.js";
 import { Slide } from "./Slide.js";
 import { WebPage } from "./WebPage.js";
@@ -16,10 +15,6 @@ import { SpText } from "./SpText.js";
 
 export const page = function (elements, props) {
     return new WebPage(elements, props);
-}
-
-export const header = function (props) {
-    return new Header(props);
 }
 
 export const slide = function (type, props) {

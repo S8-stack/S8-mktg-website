@@ -5,6 +5,7 @@ import { ModalBox } from "./ModalBox.js";
 import { SlideV2 } from "./SlideV2.js";
 import { SquareGridV2 } from "./SquareGridV2.js";
 import { TextBlockV2 } from "./TextBlockV2.js";
+import { DocumentationV2 } from "./DocumentationV2.js";
 
 
 
@@ -31,6 +32,7 @@ export const buildPageElement = function (page, sourceNode) {
         case "square-grid": return new SquareGridV2(page, sourceNode);
         case "text-block": return new TextBlockV2(page, sourceNode);
         case "footer": return new FooterV2(page, sourceNode);
+        case "aero-doc": return new DocumentationV2(page, sourceNode);
         default : return null;
     }
 }

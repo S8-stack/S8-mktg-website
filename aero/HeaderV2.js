@@ -146,8 +146,8 @@ export class HeaderV2 extends AeroElement {
                 //previousMove = 1;
             }
             if (barPositionY > 0) { barPositionY = 0; }
-            if (barPositionY < -64) { barPositionY = -64; }
-            console.log(`upwardDeltaScrollY: ${upwardDeltaScrollY}`);
+            if (barPositionY < -65) { barPositionY = -65; }
+            console.log(`barPositionY: ${barPositionY}`);
 
             if (!ticking) {
                 window.requestAnimationFrame(function () {
