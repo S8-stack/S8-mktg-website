@@ -89,7 +89,7 @@ export class SlideV2 extends AeroElement {
 
         /* <id> */
         this.id = sources.id;
-        if (this.id != undefined) { this.sectionNode.id = this.id; }
+        if (this.id) { this.sectionNode.id = this.id; }
         /* </id> */
 
         let val;
@@ -97,7 +97,7 @@ export class SlideV2 extends AeroElement {
         /* <type> */
         this.type = (val = sources.getAttribute("type")) ? val : "prime";
         this.sectionNode.setAttribute("type", this.type);
-        /* </ype> */
+        /* </type> */
 
         /* <theme> */
         this.theme = (val = sources.getAttribute("theme")) ? val : "light";
@@ -112,15 +112,8 @@ export class SlideV2 extends AeroElement {
 
 
         /* <background> */
-        if (sources.hasAttribute("background")) {
-            let backgroundParam = sources.getAttribute("background");
-            switch (backgroundParam) {
-                case "black": this.sectionNode.classList.add("background-black"); break;
-                case "white": this.sectionNode.classList.add("background-white"); break;
-                case "grey64": this.sectionNode.classList.add("background-grey64"); break;
-                case "grey128": this.sectionNode.classList.add("background-grey128"); break;
-                case "grey192": this.sectionNode.classList.add("background-grey192"); break;
-            }
+        if (sources.hasAttribute("backgroundColor")) {
+            this.sectionNode.style.backgroundColor = sources.getAttribute("backgroundColor");
         }
         else if (val = sources.getAttribute("backgroundGradient")) {
             this.sectionNode.classList.add("aero-background-gradient-" + val);

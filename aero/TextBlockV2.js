@@ -145,6 +145,7 @@ export class TextBlockV2 extends AeroElement {
                 case "p" : this.elements.push(new TxBkParagraph(page, node)); break;
                 case "svg" : this.elements.push(new TxBkSVG(page, node)); break;
                 case "code" : this.elements.push(new TxBkCode(page, node)); break;
+                case "ul" : this.elements.push(new TxBkList(page, node)); break;
             }
 
             node = node.nextSibling;
@@ -325,4 +326,35 @@ export class TxBkCode extends TextBlockElement {
     render(page) {
         /* do nothing */
     }
+}
+
+
+
+export class TxBkList extends TextBlockElement {
+
+    constructor(page, sources) {
+        super(sources);
+        const listNode = document.createElement("ul");
+        //listNode.classList.add("textblock-list");
+        if (this.isMobileHideable) { listNode.classList.add("square-grid-mobile-hideable"); }
+       
+        /* <elements> */
+        let node = sources.firstChild;
+        while(node){
+            let type = node.nodeName.toLowerCase();
+            switch(type){
+                case "li" : { 
+                    const itemNode = document.createElement("li")
+                    itemNode.innerHTML = node.innerHTML;
+                    listNode.appendChild(itemNode);
+                } break;
+            }
+            node = node.nextSibling;
+        }
+        /* </elements> */
+
+        this.listNode = listNode;
+    }
+
+    html_getNode(){ return this.listNode; }
 }

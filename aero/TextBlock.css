@@ -3,6 +3,8 @@
 /* <text> */
 
 .textblock {
+	font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande",
+		sans-serif;
 	margin: 0px 0px 0px 0px;
 	padding: 8px 16% 8px 16%;
 }
@@ -215,6 +217,35 @@ div.aero-slide-picture {
 	}
 }
 /* </p> */
+
+/* <ul> */
+
+.textblock>ul>li {
+	font-size: 16px;
+	padding: 4px 8px;
+}
+
+.textblock[type="legal"]>ul {
+	font-size: 16px;
+}
+
+.textblock[type="legal"]>ul>li {
+	padding: 8px 8px 8px 16px;
+}
+
+
+@media (orientation : landscape) {
+	.textblock>ul {
+		font-size: 16px;
+	}
+}
+
+@media (orientation : portrait) {
+	.textblock>ul {
+		font-size: 13px;
+	}
+}
+/* </ul> */
 
 .aero-slide>a {
 	position: absolute;
