@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<title>S8 Plans</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="icon" type="image/x-icon" href="/favicon.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="aero/boot.css" />
+	<script type="module">
+		import { boot } from './aero/WebPageV2.js';
+		window.boot = boot;
+	</script>
+</head>
+
+<body onload="boot()">
+	<div id="aero-page">
+		<header theme="dark" logo="logos/S8-logo-v4-256px.png">
+			<nav>
+				<menu to="/home.html">Home</menu>
+				<menu to="/get-started.html">Get Started</menu>
+				<menu to="/plans.html" selected>Plans</menu>
+				<menu to="/core.html">Core</menu>
+				<menu to="/packages.html">Packages</menu>
+				<menu to="/extensions.html">Extensions</menu>
+			</nav>
+			<social>
+				<a to="https://www.linkedin.com/company/s8-stack" pic="/assets/social/linkedin-icon-256px.png"></a>
+				<a to="https://x.com/Stack8Official" pic="/assets/social/x-icon-256px.png"></a>
+			</social>
+		</header>
+		<slide theme="dark" , backgroundGradient="dark0016" asset="assets/slides/diagram-2.png"
+			assetAspectRatio="16 / 9">
+			<h1>The <b>High productivity</b> stack, for <b>rich</b> Saas development</h1>
+			<h2>Get a top-level team of devs to build your dream app, for a fraction of the cost.</h2>
+			<p>Build by project developpers for project developpers, S8 is curbing spacetime to make possible
+				projects previously thought to be financially out of reach.</p>
+		</slide>
+		<square-grid theme="light" backgroundColor="white">
+			<card type="light" size="large-vertical" theme="light" backgroundImage="/assets/plans/background-plan01.png">
+				<hgroup>self hosted</hgroup>
+				<h1>Sandbox</h1>
+				<h2>Learn and test (non-commercial)</h2>
+				<p isMobileHideable="true">Enjoy fast learning curve with the ease of local install enabling 
+					fast iteration on your projects.
+				</p>
+				<a icon="/icons/left-circled-arrow.svg" href="#plan0-details">Learn more...</a>
+				<p> Includes: </p>
+				<ul>
+					<li>Basic core stack</li>
+					<li>Features packages</li>
+					<li><b>Unlimited</b> nb of DB accesses</li>
+					<li><b>Unlimited</b> nb of HTTP requests</li>
+					<li><b>Unlimited</b> nb of installs</li>
+				</ul>
+				<h1>Free</h1>
+			</card>
+			<card type="light" size="large-vertical" theme="light" backgroundImage="/assets/plans/background-plan02.png">
+				<hgroup>self hosted</hgroup>
+				<h1>Start-up</h1>
+				<h2>Grow before paying anything</h2>
+				<p>For pre-revenues companies. Enables fast start for free.</p>
+				<a icon="/icons/left-circled-arrow.svg" href="#plan1-details">Learn more...</a>
+				<p> Includes: </p>
+				<ul>
+					<li>Basic core stack</li>
+					<li>Features packages</li>
+					<li><b>Unlimited</b> nb of DB accesses</li>
+					<li><b>Unlimited</b> nb of requests</li>
+					<li><b>Unlimited</b> nb of installs</li>
+				</ul>
+				<h1>Free</h1>
+			</card>
+			<card type="light" size="large-vertical" theme="light" backgroundImage="/assets/plans/background-plan03.png">
+				<hgroup>self hosted</hgroup>
+				<h1>Scale-up</h1>
+				<h2>High performance comes at low expenses</h2>
+				<p>For revenues generating companies.</p>
+				<p>Stay in control of your stack operating costs. And keep them low.</p>
+				<p isMobileHideable="true">S8 wants to promote daring projects. Because we know that great projects need
+					time to emerge, we make S8 free for the pioneering phase.
+				</p>
+				<a icon="/icons/left-circled-arrow.svg" href="#plan2-details">Learn more...</a>
+				<p> Includes: </p>
+				<ul>
+					<li>Basic core stack</li>
+					<li>Features packages</li>
+					<li><b>Unlimited</b> nb of DB accesses</li>
+					<li><b>Unlimited</b> nb of requests</li>
+					<li><b>Unlimited</b> nb of installs</li>
+				</ul>
+				<h1><b>$32</b> /core /month</h1>
+			</card>
+			<card type="dark" size="large-vertical" theme="dark" backgroundImage="/assets/plans/background-plan04.png">
+				<hgroup>cloud</hgroup>
+				<h1>N1 Unit</h1>
+				<h2>Up to 15k+ B2B SaaS users per unit</h2>
+				<p isMobileHideable="true">The go-to solution for early-stage Saas.
+				</p>
+				<a icon="/icons/left-circled-arrow.svg" href="#plan2-details">Learn more...</a>
+				<ul>
+					<li>All Scale-up Plan features</li>
+					<li>Dedicated top level hardware</li>
+					<li>High-end <b>10x</b> cores 4.2GHz+ CPU</li>
+					<li><b>32 GB</b> RAM</li>
+					<li><b>1 TB</b> SSD</li>
+					<li><b>Unlimited</b> nb of DBs accesses</li>
+					<li><b>Unlimited</b> nb of HTTPS requests</li>
+					<li><b>1 Gb/s</b> unmetered bandwidth</li>
+				</ul>
+				<h1><b>$620</b> /unit /month</h1>
+			</card>
+			<card type="light" size="large-vertical" theme="dark" backgroundImage="/assets/plans/background-plan05.png">
+				<hgroup>cloud</hgroup>
+				<h1>N2 Unit</h1>
+				<h2>Up to 25k+ B2B SaaS users per unit</h2>
+				<p isMobileHideable="true">The go-to solution for medium intensity Saas.
+				</p>
+				<a icon="/icons/left-circled-arrow.svg" href="#plan2-details">Learn more...</a>
+				<ul>
+					<li>All Scale-up Plan features</li>
+					<li>Dedicated top level hardware</li>
+					<li>High-end <b>12x</b> cores 3.2GHz+ CPU</li>
+					<li><b>64 GB</b> RAM</li>
+					<li><b>2 TB</b> SSD</li>
+					<li><b>Unlimited</b> nb of DBs accesses</li>
+					<li><b>Unlimited</b> nb of HTTPS requests</li>
+					<li><b>1 Gb/s</b> unmetered bandwidth</li>
+				</ul>
+				<h1><b>$420</b> /unit /month</h1>
+			</card>
+			<card type="dark" size="large-vertical" theme="dark" backgroundImage="/assets/plans/background-plan06.png">
+				<hgroup>cloud</hgroup>
+				<h1>N3 Unit</h1>
+				<h2>Up to 50k+ B2B SaaS users per unit</h2>
+				<p isMobileHideable="true">The go-to solution for medium intensity Saas.
+				</p>
+				<a icon="/icons/left-circled-arrow.svg" href="#plan2-details">Learn more...</a>
+				<ul>
+					<li>All Scale-up Plan features</li>
+					<li>Dedicated top level hardware</li>
+					<li>High-end <b>24x</b> cores 3.2GHz+ CPU</li>
+					<li><b>128 GB</b> RAM</li>
+					<li><b>4 TB</b> SSD</li>
+					<li><b>Unlimited</b> nb of DBs accesses</li>
+					<li><b>Unlimited</b> nb of HTTPS requests</li>
+					<li><b>2 Gb/s</b> unmetered bandwidth</li>
+				</ul>
+				<h1><b>$620</b> /unit /month</h1>
+			</card>
+		</square-grid>
+		<text-block id="plan0-details" type="std" backgroundColor="white">
+			<h1>Sandbox</h1>
+			<h2>Learn and test</h2>
+			<p>Small surface API might be seen as a limitation. We see a strength: only key features are here, but
+				all key features. This enables a fast learning curve, and an almost immediate kicking off. It also
+				offers a serenity for creator, when you know you sit on something that is taking care of fine grain
+				details, without having to spend time resolving problems -including integration problems- that have
+				been solved so many time. You leverage performance improvement of the entire stack effortlessly.
+			</p>
+		</text-block>
+		<text-block id="plan1-details" type="std" backgroundColor="white">
+			<h1>Early Stage</h1>
+			<h2>Learn and test</h2>
+			<p>Small surface API might be seen as a limitation. We see a strength: only key features are here, but
+				all key features. This enables a fast learning curve, and an almost immediate kicking off. It also
+				offers a serenity for creator, when you know you sit on something that is taking care of fine grain
+				details, without having to spend time resolving problems -including integration problems- that have
+				been solved so many time. You leverage performance improvement of the entire stack effortlessly.
+			</p>
+		</text-block>
+		<text-block id="plan2-details" type="std" backgroundColor="white">
+			<h1>Start-up</h1>
+			<h2>Learn and test</h2>
+			<p>Small surface API might be seen as a limitation. We see a strength: only key features are here, but
+				all key features. This enables a fast learning curve, and an almost immediate kicking off. It also
+				offers a serenity for creator, when you know you sit on something that is taking care of fine grain
+				details, without having to spend time resolving problems -including integration problems- that have
+				been solved so many time. You leverage performance improvement of the entire stack effortlessly.
+			</p>
+		</text-block>
+		<text-block id="plan3-details" type="std" backgroundColor="white">
+			<h1>Scale-up</h1>
+			<h2>Learn and test</h2>
+			
+		</text-block>
+		
+		<footer path="footer.html"></footer>
+	</div>
+</body>
+
+</html>

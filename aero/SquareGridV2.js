@@ -211,6 +211,7 @@ export class SquareGridCard extends AeroElement {
                 case "p" : { this.elements.push(new SquareGridCardParagraph(node)); } break;
                 case "a" : { this.elements.push(new SquareGridCardLink(node)); } break;
                 case "li" : { this.elements.push(new SquareGridCardPoint(node)); } break;
+                case "ul" : { this.elements.push(new SquareGridCardList(node)); } break;
             }
             node = node.nextSibling;
         }
@@ -290,7 +291,17 @@ export class SquareGridCardParagraph extends SquareGridCardElement {
         super(sources);
         const pNode = document.createElement("p");
         if (this.isMobileHideable) { pNode.classList.add("square-grid-mobile-hideable"); }
-        pNode.innerHTML = sources.innerHTML;
+       
+
+         /* <elements> */
+        let node = sources.firstChild, nextNode;
+        while(node){
+            nextNode = node.nextSibling;
+            pNode.appendChild(node);
+            node = nextNode;
+        }
+        /* </elements> */
+
         this.pNode = pNode;
     }
 
@@ -359,4 +370,36 @@ export class SquareGridCardLink extends SquareGridCardElement {
 
     html_getNode(){ return this.linkNode; }
 
+}
+
+
+
+export class SquareGridCardList extends SquareGridCardElement {
+
+    constructor(sources) {
+        super(sources);
+        const listNode = document.createElement("ul");
+        if (this.isMobileHideable) { listNode.classList.add("square-grid-mobile-hideable"); }
+       
+
+         /* <elements> */
+         
+        let node = sources.firstChild;
+        while(node){
+            let type = node.nodeName.toLowerCase();
+            switch(type){
+                case "li" : { 
+                    const itemNode = document.createElement("li")
+                    itemNode.innerHTML = node.innerHTML;
+                    listNode.appendChild(itemNode);
+                } break;
+            }
+            node = node.nextSibling;
+        }
+        /* </elements> */
+
+        this.listNode = listNode;
+    }
+
+    html_getNode(){ return this.listNode; }
 }
