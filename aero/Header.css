@@ -2,6 +2,7 @@
 header {
 	background-color: rgb(255, 255, 255);
 	/*width: 100%;*/
+	width: 100vw;
 	
 	
 
@@ -13,13 +14,17 @@ header {
 	height: 64px;
 }
 
-.aero-header-bar {
+.aero-header-flying {
+	width: 100vw;
+	height: 64px;
 	position: fixed;
 	top: 0px;
 	left: 0px;
-	height: 64px;
-	width: 100vw;
 	z-index: 128;
+}
+
+.aero-header-bar {
+	height: 64px;
 }
 
 /* <placeholder> */
@@ -33,6 +38,17 @@ header[theme="dark"] > .aero-header-placeholder {
 	color: rgb(255, 255, 255);
 }
 /* </placeholder> */
+
+
+/* <flying> */
+header[theme="light"] > .aero-header-flying {
+	background-color: rgb(255, 255, 255);
+}
+
+header[theme="dark"] > .aero-header-flying {
+	background-color: rgb(0, 0, 0);
+}
+/* </flying> */
 
 
 /* <bar> */
@@ -62,7 +78,7 @@ header[theme="dark"] > .aero-header-bar, header[theme="dark"] > .aero-header-pla
 	text-decoration: none;
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light",
 		"Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-	font-size: 16px;
+	font-size: 14px;
 	font-weight: bold;
 }
 
@@ -150,7 +166,7 @@ header[theme="dark"] > .aero-header-bar, header[theme="dark"] > .aero-header-pla
 	}
 
 	.aero-header-menu>a {
-		padding: 8px 4px 8px 4px;
+		padding: 8px;
 		margin: 0px;
 		vertical-align: baseline;
 	}
@@ -160,14 +176,11 @@ header[theme="dark"] > .aero-header-bar, header[theme="dark"] > .aero-header-pla
 	}
 
 	.aero-header-menu:hover>a {
-		background-color: rgb(199, 204, 208);
+		background-color: rgb(94, 53, 231);
 		border-radius: 4px;
-		color: rgb(24, 24, 24);
+		color: rgb(255, 243, 249);
 	}
 
-	header[theme="dark"] .aero-header-menu:hover>a {
-		color: rgb(83, 83, 83);
-	}
 
 
 

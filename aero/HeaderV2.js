@@ -16,9 +16,14 @@ export class HeaderV2 extends AeroElement {
     headerNode;
 
      /**
-     * @type{Array<AeroElement>}
+     * @type{Nav}
      */
-     menus = new Array();
+    nav;
+
+     /**
+     * @type{Social}
+     */
+     social;
 
     /**
      * @type {boolean}
@@ -61,8 +66,11 @@ export class HeaderV2 extends AeroElement {
         /* build menus */
         let node = sources.firstChild;
         while (node) {
-            if (node.nodeName.toLowerCase() == "menu") { 
-                this.menus.push(new Menu(node));
+            if (node.nodeName.toLowerCase() == "nav") { 
+                this.nav = new Nav(node);
+            }
+            else if (node.nodeName.toLowerCase() == "social") { 
+                this.social = new Social(node);
             }
 
             /* save next node */
@@ -107,16 +115,19 @@ export class HeaderV2 extends AeroElement {
         placeholderNode.classList.add("aero-header-placeholder");
         this.headerNode.appendChild(placeholderNode);
 
+        const flyingNode = document.createElement("div");
+        flyingNode.classList.add("aero-header-flying");
+
         const barNode = document.createElement("div");
         barNode.classList.add("aero-header-bar");
-
         if (this.isLandscape) {
             this.drawLandscape(barNode);
         }
         else {
             this.drawPortrait(barNode);
         }
-        this.headerNode.appendChild(barNode);
+        flyingNode.appendChild(barNode);
+        this.headerNode.appendChild(flyingNode);
 
 
 
@@ -128,7 +139,7 @@ export class HeaderV2 extends AeroElement {
         let previousMove = 0; /* O :undefined, -1:upward, +1:downward */
 
 
-        const udpateBarPosition = function (y) { barNode.style.top = `${y}px`; }
+        const udpateBarPosition = function (y) { flyingNode.style.top = `${y}px`; }
 
         window.addEventListener("scroll", function (e) {
             deltaScrollY = window.scrollY - lastKnowScrollY;
@@ -174,11 +185,11 @@ export class HeaderV2 extends AeroElement {
         /* </front-icon> */
 
         /* <nav> */
-        barNode.appendChild(this.buildNavNode());
+        barNode.appendChild(this.nav.html_getNode());
         /* </nav> */
 
         /* <login-icon> */
-        //this.headerNode.appendChild(this.buildLoginNode());
+        barNode.appendChild(this.buildLoginNode());
         /* </login-icon> */
     }
 
@@ -210,7 +221,7 @@ export class HeaderV2 extends AeroElement {
 
         barNode.appendChild(iconsWrapperNode);
 
-        let navNode = this.buildNavNode();
+        let navNode = this.nav.html_getNode();
 
         barNode.appendChild(navNode);
 
@@ -271,6 +282,40 @@ export class HeaderV2 extends AeroElement {
 }
 
 
+
+class Nav {
+
+    /**
+     * @type{Array<AeroElement>}
+     */
+    menus = new Array();
+
+    constructor(sources){
+        let node = sources.firstChild;
+        while (node) {
+            if (node.nodeName.toLowerCase() == "menu") { 
+                this.menus.push(new Menu(node));
+            }
+
+            /* save next node */
+            node = node.nextSibling;
+        }
+
+          /* <nav> */
+          let navNode = document.createElement('nav');
+          let unorderedListNode = document.createElement('ul');
+          this.menus.forEach(menu => unorderedListNode.appendChild(menu.html_getNode()));
+          navNode.appendChild(unorderedListNode);
+          /* </nav> */
+  
+          this.navNode = navNode;
+    }
+
+    html_getNode(){ return this.navNode; }
+
+}
+
+
 class Menu {
 
     constructor(source){
@@ -293,5 +338,19 @@ class Menu {
     html_getNode(){
         return this.listItemNode;
     }
+
+}
+
+
+class Social {
+
+    constructor(sources){
+
+    }
+}
+
+class Link {
+
+
 
 }
