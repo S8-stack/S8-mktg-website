@@ -176,7 +176,7 @@ export class HeaderV2 extends AeroElement {
 
         /* <front-icon> */
         let menuLogoNode = document.createElement("div");
-        menuLogoNode.classList.add("menu-logo");
+        menuLogoNode.classList.add("aero-header-logo");
         let frontImgNode = document.createElement("img");
         frontImgNode.src = this.logo;
         frontImgNode.alt = "logo";
@@ -185,11 +185,17 @@ export class HeaderV2 extends AeroElement {
         /* </front-icon> */
 
         /* <nav> */
-        barNode.appendChild(this.nav.html_getNode());
+        const navNode = this.nav.html_getNode();
+        barNode.appendChild(navNode);
+        navNode.style.visibility = "visible";
+        this.isNavVisible = true; // visible by default in landscape
         /* </nav> */
 
         /* <login-icon> */
-        barNode.appendChild(this.buildLoginNode());
+        if(this.social){
+            barNode.appendChild(this.social.html_getNode());
+        }
+        
         /* </login-icon> */
     }
 
@@ -211,7 +217,7 @@ export class HeaderV2 extends AeroElement {
 
         /* <logo-icon> */
         let menuLogoNode = document.createElement("div");
-        menuLogoNode.classList.add("menu-logo");
+        menuLogoNode.classList.add("aero-header-logo");
         let frontImgNode = document.createElement("img");
         frontImgNode.src = this.logo;
         frontImgNode.alt = "logo";
@@ -226,6 +232,7 @@ export class HeaderV2 extends AeroElement {
         barNode.appendChild(navNode);
 
         this.isNavVisible = false; // hidden by default in portrait
+        navNode.style.visibility = "hidden";
         let _this = this;
         menuHandlerNode.addEventListener("click", function () {
             navNode.style.visibility = _this.isNavVisible ? "hidden" : "visible";
@@ -233,7 +240,7 @@ export class HeaderV2 extends AeroElement {
         }, false);
 
         /* <login-icon> */
-        //iconsWrapperNode.appendChild(this.buildLoginNode());
+        iconsWrapperNode.appendChild(this.social.html_getNode());
         /* </login-icon> */
     }
 
@@ -286,7 +293,7 @@ export class HeaderV2 extends AeroElement {
 class Nav {
 
     /**
-     * @type{Array<AeroElement>}
+     * @type{Array<Menu>}
      */
     menus = new Array();
 
@@ -344,13 +351,52 @@ class Menu {
 
 class Social {
 
-    constructor(sources){
 
+    /**
+     * @type{Array<Link>}
+     */
+    links = new Array();
+
+    constructor(sources){
+        let node = sources.firstChild;
+        while (node) {
+            if (node.nodeName.toLowerCase() == "a") { 
+                this.links.push(new Link(node));
+            }
+
+            /* save next node */
+            node = node.nextSibling;
+        }
+
+          /* <wrapper> */
+          let socialNode = document.createElement('div');
+          socialNode.classList.add("aero-header-social");
+          this.links.forEach(link => socialNode.appendChild(link.html_getNode()));
+          /* </wrapper> */
+  
+          this.socialNode = socialNode;
     }
+
+    html_getNode(){ return this.socialNode; }
 }
 
 class Link {
 
+    constructor(sources){
+         /* <login-icon> */
+         const loginNode = document.createElement("a");
 
+         loginNode.href = sources.getAttribute("to");
+ 
+         loginNode.classList.add("aero-header-social-link");
+         let loginImgNode = document.createElement("img");
+         loginImgNode.src = sources.getAttribute("pic");
+         loginImgNode.alt = "login";
+         loginNode.appendChild(loginImgNode);
+         this.loginNode = loginNode;
+         /* </login-icon> */
+    }
+
+    html_getNode(){ return this.loginNode; }
 
 }

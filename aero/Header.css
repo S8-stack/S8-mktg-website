@@ -111,9 +111,21 @@ header[theme="dark"] > .aero-header-bar, header[theme="dark"] > .aero-header-pla
 	}
 
 
+	.aero-header-logo {
+		width: 12%;
+		min-width: 64px;
+		cursor: pointer;
+	}
+
+	.aero-header-logo>img {
+		margin: 8px 16px 8px 16px;
+		height: 48px;
+		width: 48px;
+	}
+
 	.aero-header-bar {
 		height: 64px;
-		padding: 0px 8% 0px 8%;
+		padding: 0px 4% 0px 4%;
 		display: flex;
 		flex-direction: row;
 	}
@@ -122,27 +134,10 @@ header[theme="dark"] > .aero-header-bar, header[theme="dark"] > .aero-header-pla
 		flex: auto;
 	}
 
-	.menu-logo {
-		width: 12%;
-		min-width: 64px;
-		cursor: pointer;
-	}
-
-	.menu-logo>img {
-		margin: 8px 16px 8px 16px;
-		height: 48px;
-		width: 48px;
-	}
 
 	nav {
 		z-index: 12;
-		width: calc(100% - 128px);
-	}
-
-	@media screen and (max-width: 600px) {
-		nav {
-			width: calc(100% - 64px);
-		}
+		width: 72%;
 	}
 
 	nav>ul {
@@ -183,13 +178,18 @@ header[theme="dark"] > .aero-header-bar, header[theme="dark"] > .aero-header-pla
 
 
 
+	.aero-header-social {
+		width: 16%;
+		min-width: 64px;
+		/*overflow: hidden; */
+	}
+	
 
 
-
-	.menu-login>img {
-		margin: 14px;
-		height: 36px;
-		width: 36px;
+	.aero-header-social-link>img {
+		margin: 16px;
+		width: 32px;
+		height: 32px;
 	}
 
 }
@@ -226,14 +226,14 @@ header[theme="dark"] > .aero-header-bar, header[theme="dark"] > .aero-header-pla
 		width: 36px;
 	}
 
-	.menu-logo {
+	.aero-header-logo {
 		display: inline-block;
 		vertical-align: top;
 		width: 80px;
 		margin: 0px 0px 0px calc(50vw - 96px);
 	}
 
-	.menu-logo>img {
+	.aero-header-logo>img {
 		margin: 4px 0px 0px 0px;
 		width: 56px;
 	}
@@ -302,17 +302,20 @@ header[theme="dark"] > .aero-header-bar, header[theme="dark"] > .aero-header-pla
 		vertical-align: baseline;
 	}
 
-	.menu-login {
+	.aero-header-social {
 		display: inline-block;
 		vertical-align: top;
+		margin: 0px 0px 10px 0px;
 		margin-left: auto;
-		margin-right: 0px;
 	}
 
-	.menu-login>img {
-		margin: 10px 0px 0px 0px;
-		width: 42px;
+	.aero-header-social-link>img {
+		margin: 16px;
+		width: 32px;
+		height: 32px;
 	}
+
+
 }
 
 /* </nav> */
