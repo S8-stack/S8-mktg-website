@@ -247,6 +247,83 @@ div.aero-slide-picture {
 }
 /* </ul> */
 
+/* <a> */
+.textblock-link {
+	font-size: 16px;
+	padding: 4px 8px;
+}
+
+
+.textblock-link {
+	color: white;
+	font-size: 14px;
+	font-weight: bold;
+    padding: 4px 12px 4px 4px;
+    margin: 16px 8px 8px 8px;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+	background-color: #3862fbca;
+	/*background-image: linear-gradient(to right, #3525e5 0%, #3525e5  20%, #b214d2 100%);*/
+	border-radius: 20px;
+	cursor: pointer;
+	box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.367);
+}
+
+.textblock-link:hover {
+	background-color: #476bed;
+}
+
+.textblock-link-pic {
+	width: 24px;
+	height: 24px;
+	margin: 0px;
+	padding: 0px;
+	background-size: auto;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.textblock-link-pic > svg {
+	stroke: #ffffff;
+	fill: #ffffff;
+}
+
+.textblock-link-text {
+	padding-bottom: 2px;
+	font-size: 14px;
+	margin-left: 8px;
+	color: #ffffff;
+}
+
+
+
+.textblock-link:hover > .textblock-link-pic >svg {
+	stroke: white;
+	fill: white;
+}
+
+.textblock-link:hover > .textblock-link-text{
+	color: white;
+}
+
+/* <a:styles> */
+
+.textblock-link[type="marketing"] {
+	padding: 12px 24px;
+	border-radius: 4px;
+}
+.textblock-link[type="marketing"]>.textblock-link-text {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+/* </a:styles> */
+
+/* </a> */
+
+
 .aero-slide>a {
 	position: absolute;
 	z-index: 10;

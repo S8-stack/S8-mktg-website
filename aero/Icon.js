@@ -32,6 +32,14 @@ export class Icon {
 
     getEnvelope(){ return this.wrapperNode; }
 
+}
 
 
+export function SVG_inject(target, pathname, width, height){
+    AeroUtilities.getResourceFromOrigin(pathname, "text", responseText => {
+        target.innerHTML = responseText;
+        const svgNode = this.wrapperNode.getElementsByTagName("svg")[0];
+        svgNode.setAttribute("width", width ? width : 64);
+        svgNode.setAttribute("height", height ? height : 64);
+    });
 }

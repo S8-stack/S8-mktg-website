@@ -32,4 +32,7 @@
 	<x-filter cache="PRODUCTION" frag-length="65536">
 		<pattern>**.pdf</pattern>
 	</x-filter>
+	<x-filter cache="PRODUCTION" frag-length="65536">
+		<pattern>**.zip</pattern>
+	</x-filter>
 </sources>

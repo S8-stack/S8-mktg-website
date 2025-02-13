@@ -1,6 +1,6 @@
 import { AeroElement } from "./AeroElement.js";
 import { AeroUtilities } from "./AeroUtilities.js";
-import { Icon } from "./Icon.js";
+import { Icon, SVG_inject } from "./Icon.js";
 import { WebPage } from "./WebPage.js";
 import { WebPageV2 } from "./WebPageV2.js";
 
@@ -146,6 +146,7 @@ export class TextBlockV2 extends AeroElement {
                 case "svg" : this.elements.push(new TxBkSVG(page, node)); break;
                 case "code" : this.elements.push(new TxBkCode(page, node)); break;
                 case "ul" : this.elements.push(new TxBkList(page, node)); break;
+                case "a" : this.elements.push(new TxBkLink(page, node)); break;
             }
 
             node = node.nextSibling;
@@ -357,4 +358,49 @@ export class TxBkList extends TextBlockElement {
     }
 
     html_getNode(){ return this.listNode; }
+}
+
+
+
+export class TxBkLink extends TextBlockElement {
+
+    /**
+     * 
+     * @param {HTMLElement} sources 
+     */
+    constructor(page, sources) {
+        super(sources);
+
+        this.iconPathname = sources.getAttribute("icon");
+        this.url = sources.getAttribute("href");
+    
+        this.type = sources.hasAttribute("type") ? sources.getAttribute("type"): "std";
+
+        const linkNode = document.createElement("a");
+        linkNode.setAttribute("type", this.type);
+        linkNode.classList.add("textblock-link");
+        if (this.isMobileHideable) { linkNode.classList.add("square-grid-mobile-hideable"); }
+
+        
+        const picNode = document.createElement("span");
+        picNode.classList.add("textblock-link-pic");
+        SVG_inject(picNode, this.iconPathname, 24, 24);
+        linkNode.appendChild(picNode);
+        
+        const textNode = document.createElement("span");
+        textNode.classList.add("textblock-link-text");
+        textNode.innerHTML = sources.innerHTML;
+        linkNode.appendChild(textNode);
+
+        let val;
+        if(val = sources.getAttribute("href")){ linkNode.href = val; }
+        /* download="proposed_file_name" */
+        if(val = sources.getAttribute("client-filename")){ linkNode.download = val; }
+        
+
+        this.linkNode = linkNode;
+    }
+
+    html_getNode(){ return this.linkNode; }
+
 }
