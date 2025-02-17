@@ -88,7 +88,7 @@ export class TextBlockV2 extends AeroElement {
      * @param {WebPageV2} page 
      * @param {HTMLElement} sources 
      */
-    constructor(page, sources){
+    constructor(page, sources) {
         super();
 
         /* CSS requirements */
@@ -108,8 +108,10 @@ export class TextBlockV2 extends AeroElement {
         this.arrangement = (val = sources.getAttribute("arrangement")) ? val : "std";
         this.sectionNode.setAttribute("arrangement", this.arrangement);
 
+        this.numbering = (val = sources.getAttribute("numbering")) ? val : "none";
+
         /* <id> */
-        if (sources.id != undefined) {  this.sectionNode.id = sources.id; }
+        if (sources.id != undefined) { this.sectionNode.id = sources.id; }
         /* </id> */
 
 
@@ -136,17 +138,35 @@ export class TextBlockV2 extends AeroElement {
 
 
         /* <elements> */
+        const numbering = {
+            type: this.numbering,
+            h1Number: 0,
+            h2Number: 0,
+            pNumber: 0
+        };
+
         let node = sources.firstChild;
-        while(node){
+        while (node) {
             let type = node.nodeName.toLowerCase();
-            switch(type){
-                case "h1" : this.elements.push(new TxBkHeader1(page, node)); break;
-                case "h2" : this.elements.push(new TxBkHeader2(page, node)); break;
-                case "p" : this.elements.push(new TxBkParagraph(page, node)); break;
-                case "svg" : this.elements.push(new TxBkSVG(page, node)); break;
-                case "code" : this.elements.push(new TxBkCode(page, node)); break;
-                case "ul" : this.elements.push(new TxBkList(page, node)); break;
-                case "a" : this.elements.push(new TxBkLink(page, node)); break;
+            switch (type) {
+                case "h1": {
+                    numbering.h1Number++;
+                    this.elements.push(new TxBkHeader1(page, node, numbering));
+                    numbering.h2Number = 0;
+                } break;
+
+                case "h2": {
+                    numbering.h2Number++;
+                    this.elements.push(new TxBkHeader2(page, node, numbering));
+                    numbering.pNumber = 0;
+                } break;
+
+                case "p": this.elements.push(new TxBkParagraph(page, node)); break;
+                case "svg": this.elements.push(new TxBkSVG(page, node)); break;
+                case "snippet": this.elements.push(new TxBkCodeSnippet(page, node)); break;
+                case "ol": this.elements.push(new TxOrderedBkList(page, node)); break;
+                case "ul": this.elements.push(new TxUnorderedBkList(page, node)); break;
+                case "links": this.elements.push(new TxBkLinks(page, node)); break;
             }
 
             node = node.nextSibling;
@@ -157,7 +177,7 @@ export class TextBlockV2 extends AeroElement {
     }
 
 
-    html_getNode(){ 
+    html_getNode() {
         /* return wrapper node */
         return this.sectionNode;
     }
@@ -187,19 +207,33 @@ export class TextBlockV2 extends AeroElement {
 export class TextBlockElement {
 
     constructor(sources) {
-    
+
     }
 
 }
 
 export class TxBkHeader1 extends TextBlockElement {
 
-    constructor(page, sources) {
+    constructor(page, sources, numbering) {
         super(sources);
-
         const headerNode = document.createElement("h1");
+        switch(numbering.type){
+            case "none" : {
+                headerNode.innerHTML = sources.innerHTML;
+            } break;
+            case "1.2.3" : {
+                const numberNode = document.createElement("span");
+                numberNode.innerHTML = `${numbering.h1Number}.`;
+                headerNode.appendChild(numberNode);
+
+                const textNode = document.createElement("span");
+                textNode.innerHTML = sources.innerHTML;
+                headerNode.appendChild(textNode);
+            } break;
+        }
+        
         //if (this.isMobileHideable) { headerNode.classList.add("txbk-mobile-hideable"); }
-        headerNode.innerHTML = sources.innerHTML;
+        
         this.headerNode = headerNode;
     }
 
@@ -209,11 +243,24 @@ export class TxBkHeader1 extends TextBlockElement {
 
 export class TxBkHeader2 extends TextBlockElement {
 
-    constructor(page, sources) {
+    constructor(page, sources, numbering) {
         super(sources);
         const headerNode = document.createElement("h2");
+        switch(numbering.type){
+            case "none" : {
+                headerNode.innerHTML = sources.innerHTML;
+            } break;
+            case "1.2.3" : {
+                const numberNode = document.createElement("span");
+                numberNode.innerHTML = `${numbering.h1Number}.${numbering.h2Number}.`;
+                headerNode.appendChild(numberNode);
+
+                const textNode = document.createElement("span");
+                textNode.innerHTML = sources.innerHTML;
+                headerNode.appendChild(textNode);
+            } break;
+        }
         //if (this.isMobileHideable) { headerNode.classList.add("txbk-mobile-hideable"); }
-        headerNode.innerHTML = sources.innerHTML;
         this.headerNode = headerNode;
     }
 
@@ -224,7 +271,7 @@ export class TxBkHeader2 extends TextBlockElement {
 export class TxBkParagraph extends TextBlockElement {
 
     constructor(page, sources) {
-        super(sources); 
+        super(sources);
         const headerNode = document.createElement("p");
         //if (this.isMobileHideable) { headerNode.classList.add("txbk-mobile-hideable"); }
         headerNode.innerHTML = sources.innerHTML;
@@ -244,11 +291,11 @@ export class TxBkSVG extends TextBlockElement {
         const wrapperNode = document.createElement("div");
         wrapperNode.classList.add("textblock-pic-svg");
         //if (this.isMobileHideable) { headerNode.classList.add("txbk-mobile-hideable"); }
-    
+
         let val;
         const width = (val = sources.getAttribute("width")) ? parseInt(val) : 128;
         const height = (val = sources.getAttribute("height")) ? parseInt(val) : 128;
-        this.icon = new Icon(this.pathname, { width: width, height: height }); 
+        this.icon = new Icon(this.pathname, { width: width, height: height });
         wrapperNode.appendChild(this.icon.build());
 
         this.wrapperNode = wrapperNode;
@@ -259,7 +306,7 @@ export class TxBkSVG extends TextBlockElement {
 }
 
 
-export class TxBkCode extends TextBlockElement {
+export class TxBkCodeSnippet extends TextBlockElement {
 
     static isLanguageLoaded = false;
 
@@ -268,7 +315,7 @@ export class TxBkCode extends TextBlockElement {
      * @param {WebPageV2} page 
      * @param {HTMLElement} sources 
      */
-    constructor(page, sources){
+    constructor(page, sources) {
         super(sources);
 
         this.sourcePathname = sources.getAttribute("path");
@@ -284,24 +331,24 @@ export class TxBkCode extends TextBlockElement {
         //page.css_requireStylesheet("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.0/styles/default.min.css");
         page.css_requireStylesheet("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.0/styles/atom-one-dark.css");
 
-      
+
         const wrapperNode = document.createElement("div");
         wrapperNode.classList.add("txbk-code-section");
 
         const windowNode = document.createElement("div");
         windowNode.classList.add("txbk-code-window");
-       // windowNode.classList.add("theme-atom-one-dark");
+        // windowNode.classList.add("theme-atom-one-dark");
 
         const preNode = document.createElement("pre");
         //preNode.classList.add("theme-atom-one-dark");
 
         const spanNode = document.createElement("span");
         //spanNode.classList.add("language-java");
-       // spanNode.classList.add("hljs");
+        // spanNode.classList.add("hljs");
 
         const codeNode = document.createElement("code");
         //codeNode.innerHTML = highlightedCode;
-       
+
 
         spanNode.appendChild(codeNode);
         preNode.appendChild(spanNode);
@@ -331,20 +378,25 @@ export class TxBkCode extends TextBlockElement {
 
 
 
-export class TxBkList extends TextBlockElement {
+export class TxOrderedBkList extends TextBlockElement {
 
     constructor(page, sources) {
         super(sources);
-        const listNode = document.createElement("ul");
+        const listNode = document.createElement("ol");
         //listNode.classList.add("textblock-list");
         if (this.isMobileHideable) { listNode.classList.add("square-grid-mobile-hideable"); }
-       
+        
+        let val;
+        this.type = (val = sources.getAttribute("type")) ? val : "1";
+        listNode.setAttribute("type", this.type);
+
+
         /* <elements> */
         let node = sources.firstChild;
-        while(node){
+        while (node) {
             let type = node.nodeName.toLowerCase();
-            switch(type){
-                case "li" : { 
+            switch (type) {
+                case "li": {
                     const itemNode = document.createElement("li")
                     itemNode.innerHTML = node.innerHTML;
                     listNode.appendChild(itemNode);
@@ -357,50 +409,129 @@ export class TxBkList extends TextBlockElement {
         this.listNode = listNode;
     }
 
-    html_getNode(){ return this.listNode; }
+    html_getNode() { return this.listNode; }
 }
 
 
 
-export class TxBkLink extends TextBlockElement {
+export class TxUnorderedBkList extends TextBlockElement {
+
+    constructor(page, sources) {
+        super(sources);
+        const listNode = document.createElement("ul");
+        //listNode.classList.add("textblock-list");
+        if (this.isMobileHideable) { listNode.classList.add("square-grid-mobile-hideable"); }
+
+       
+        /* <elements> */
+        let node = sources.firstChild;
+        while (node) {
+            let type = node.nodeName.toLowerCase();
+            switch (type) {
+                case "li": {
+                    const itemNode = document.createElement("li")
+                    itemNode.innerHTML = node.innerHTML;
+                    listNode.appendChild(itemNode);
+                } break;
+            }
+            node = node.nextSibling;
+        }
+        /* </elements> */
+
+        this.listNode = listNode;
+    }
+
+    html_getNode() { return this.listNode; }
+}
+
+
+
+
+
+export class TxBkLinks extends TextBlockElement {
+
+
+
+    /**
+     * @type{List<Object>}
+     */
+    elements = new Array();
+
+    /**
+     * 
+     * @param {*} page 
+     * @param {HTMLElement} sources 
+     */
+    constructor(page, sources) {
+        super(sources);
+
+        const wrapperNode = document.createElement("div");
+        wrapperNode.classList.add("textblock-links");
+        if (this.isMobileHideable) { wrapperNode.classList.add("square-grid-mobile-hideable"); }
+
+        /* <elements> */
+        let node = sources.firstChild;
+        while (node) {
+            let type = node.nodeName.toLowerCase();
+            switch (type) {
+                case "a": this.elements.push(new TxBkAnchor(page, node)); break;
+            }
+            node = node.nextSibling;
+        }
+
+        this.elements.forEach(element => {
+            let cellNode = document.createElement("div");
+            cellNode.appendChild(element.html_getNode());
+            wrapperNode.appendChild(cellNode);
+        });
+        /* </elements> */
+
+        this.wrapperNode = wrapperNode;
+    }
+
+    html_getNode() { return this.wrapperNode; }
+
+}
+
+export class TxBkAnchor {
 
     /**
      * 
      * @param {HTMLElement} sources 
      */
     constructor(page, sources) {
-        super(sources);
 
         this.iconPathname = sources.getAttribute("icon");
         this.url = sources.getAttribute("href");
-    
-        this.type = sources.hasAttribute("type") ? sources.getAttribute("type"): "std";
+
+        this.type = sources.hasAttribute("type") ? sources.getAttribute("type") : "std";
+        this.color = sources.hasAttribute("color") ? sources.getAttribute("color") : "std";
 
         const linkNode = document.createElement("a");
         linkNode.setAttribute("type", this.type);
+        linkNode.setAttribute("color", this.color);
         linkNode.classList.add("textblock-link");
         if (this.isMobileHideable) { linkNode.classList.add("square-grid-mobile-hideable"); }
 
-        
         const picNode = document.createElement("span");
         picNode.classList.add("textblock-link-pic");
         SVG_inject(picNode, this.iconPathname, 24, 24);
         linkNode.appendChild(picNode);
-        
+
         const textNode = document.createElement("span");
         textNode.classList.add("textblock-link-text");
         textNode.innerHTML = sources.innerHTML;
         linkNode.appendChild(textNode);
 
         let val;
-        if(val = sources.getAttribute("href")){ linkNode.href = val; }
+        if (val = sources.getAttribute("href")) { linkNode.href = val; }
         /* download="proposed_file_name" */
-        if(val = sources.getAttribute("client-filename")){ linkNode.download = val; }
-        
+        if (val = sources.getAttribute("client-filename")) { linkNode.download = val; }
+
 
         this.linkNode = linkNode;
     }
 
-    html_getNode(){ return this.linkNode; }
+    html_getNode() { return this.linkNode; }
 
 }
