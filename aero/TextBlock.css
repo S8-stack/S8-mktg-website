@@ -13,7 +13,7 @@
 @media (orientation : landscape) {
 	.textblock {
 		margin: 0px 0px 0px 0px;
-		padding: 8px 16% 8px 16%;
+		padding: 32px 16% 8px 16%;
 	}
 }
 
@@ -21,7 +21,7 @@
 @media (orientation : portrait) {
 	.textblock {
 		margin: 0px 0px 0px 0px;
-		padding: 8px 4% 8px 4%;
+		padding: 16px 4% 8px 4%;
 	}
 }
 
@@ -209,7 +209,7 @@ div.aero-slide-picture {
 	margin: 0px;
 }
 
-.textblock>p>code {
+.textblock>p code, .textblock>ul code, .textblock>ol code{
 	font-weight: bold;
 	color: #1635a5;
 }
@@ -561,7 +561,7 @@ div[class^="background-"] {
 .txbk-code-window pre {
 	margin: 0;
 	padding: 0;
-	overflow-x: scroll;
+	overflow-x: hidden;
 	tab-size: 2;
 }
 

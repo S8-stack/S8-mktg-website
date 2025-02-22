@@ -18,7 +18,7 @@
 	<div id="aero-page">
 		<header theme="light" logo="logos/S8-logo-v4-256px.png">
 			<nav>
-				<menu to="/home.html" >Home</menu>
+				<menu to="/home.html">Home</menu>
 				<menu to="/get-started.html">Get Started</menu>
 				<menu to="/plans.html">Plans</menu>
 				<menu to="/core.html" selected>Core</menu>
@@ -45,21 +45,21 @@
 				<h2>Async tasks made easy</h2>
 				<p isMobileHideable>Silicon module brings even more powerful concurrency mechanism than light threads.
 				</p>
-				<a icon="/icons/left-circled-arrow.svg"
-					href="https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java">example</a>
-				<a icon="/icons/coding.svg"
-					href="https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java"
-					isMobileHideable>doc</a>
+				<a icon="/icons/left-circled-arrow.svg" href="#core-arch-silicon">Learn more...</a>
 			</card>
 			<card type="light" size="std" theme="dark" backgroundImage="/assets/cards/core-io-xml/background.jpg">
 				<hgroup>core.io.xml</hgroup>
 				<h1>XML Parsing</h1>
 				<h2>Stable & Secured</h2>
-				<p isMobileHideable>Async tasks made easy</p>
-				<a icon="/icons/left-circled-arrow.svg"
-					href="https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java">example</a>
-				<a icon="/icons/coding.svg"
-					href="https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java">doc</a>
+				<p isMobileHideable>Based XML editor hadnling multiple polymorphic contexts.</p>
+				<a icon="/icons/left-circled-arrow.svg" href="#core-io-xml">Learn more...</a>
+			</card>
+			<card type="light" size="std" theme="dark" backgroundImage="/assets/cards/core/json-background.jpg">
+				<hgroup>core.io.json</hgroup>
+				<h1>JSON Parsing</h1>
+				<h2>Ubiquitous module</h2>
+				<p isMobileHideable>Read/Write JSON and add a polymorphic layer. Plus JS compatibility</p>
+				<a icon="/icons/left-circled-arrow.svg" href="#core-io-json">Learn more...</a>
 			</card>
 			<card type="light" size="large-square" theme="light"
 				backgroundImage="/assets/cards/core-bohr/background-3.jpg">
@@ -122,6 +122,85 @@
 					href="https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java">repo</a>
 			</card>
 		</square-grid>
+		<text-block id="core-arch-silicon" type="std" backgroundColor="white">
+			<h1>S8-<b>core</b>-arch-silicon</h1>
+			<h2>The Heartbeat of the system</h2>
+			<p>The S8 core system is embedding a powerful application-wide thread pool workers with Task profile
+				identification. Everything is packed under the <code>SiliconEngine</code> object and is available
+				everywhere.
+			</p>
+			<h2>Support different types of tasks</h2>
+			<p>
+				S8 core arch silicon supports different types of tasks, each tailored for specific cases:
+			</p>
+			<ul>
+				<li><b>Reasonnably non-blocking tasks</b>: (see: <code>AsyncSiTask</code>) Those tasks are expected to
+					end in a finite amount of time.
+					In order to have a reasonnable orchestration, each of thme come with a profile that indicates the
+					expected run duration.</li>
+				<li><b>Blocking tasks</b>: (see: <code>WatchSiTask</code>) Those tasks can block indifinitely and are
+					therefore parked in a specific
+					area of the engine.
+				</li>
+				<li><b>Timed tasks</b>: (see: <code>CLockSiTask</code>) Those tasks are periodically called back.
+				</li>
+			</ul>
+			<h2>Basic usage</h2>
+			<p>Just see examples below for a quick glimpse of how to use them in context:</p>
+			<snippet path="/snippets/s8-core/arch-silicon/SiDemo02.java"></snippet>
+			<h2>Sources</h2>
+			<p>Sources of the local S8 stack version can be found with the link below:</p>
+			<links>
+				<a icon="/icons/github-mark.svg" 
+				href="https://github.com/S8-stack/S8-core-arch-silicon" type="marketing" color="resource" >Check Repository</a>
+			</links>
+		</text-block>
+		<text-block id="core-io-xml" type="std" backgroundColor="white">
+			<h1>S8-<b>core</b>-io-XML</h1>
+			<h2>The Reference parser for XML</h2>
+			<p>The S8 core system takes advantage of XML format in a number of underlying tasks, and a fast, stable, backdoors-free
+				parser is somewhat of a necessity. This is the role of this parser.
+			</p>
+			<h2>Generating compliant XSD</h2>
+			<p>Not only did this XML parser handles serial/deserial, it also generates the XSD grammar format for easier
+				compliance prooving of your utility/config files.
+			</p>
+			<h2>Basic usage</h2>
+			<p>Just see examples below for a quick glimpse of how to use them in context:</p>
+			<snippet path="/snippets/s8-core/io-xml/Demo02.java"></snippet>
+			<h2>Sources</h2>
+			<p>Sources of the local S8 stack version can be found with the link below:</p>
+			<links>
+				<a icon="/icons/github-mark.svg" 
+				href="https://github.com/S8-stack/S8-core-io-XML" type="marketing" color="resource" >Check Repository</a>
+			</links>
+		</text-block>
+		<text-block id="core-io-json" type="std" backgroundColor="white">
+			<h1>S8-<b>core</b>-io-JSON</h1>
+			<h2>The Reference parser for JSON</h2>
+			<p>The S8 core system takes advantage of the JSON  format in a number of underlying tasks, and a fast, 
+				stable, backdoors-free, polymorphic, JS-compliant parser is very handy. This is the role of this parser.
+			</p>
+			<h2></h2>
+			<h2>Basic usage</h2>
+			<p>Just see examples below for a quick glimpse of how to use them in context:</p>
+			<snippet path="/snippets/s8-core/io-json/Demo02.java"></snippet>
+			<h2>JS vs JSON</h2>
+			<p>JSON may also be a bit over-verbose with so many unnecessary quotes, and is also very markedly lacking
+				polymorphism. JS direct format is good aternative already supported in many environments. We supported 
+				with this parser, but tend to favor the later one (see repo-meta.js file below).
+			</p>
+			<snippet path="/snippets/s8-core/io-json/repo-meta.js"></snippet>
+			<h2>Sources</h2>
+			<p>Sources of the local S8 stack version can be found with the link below:</p>
+			<links>
+				<a icon="/icons/github-mark.svg" 
+				href="https://github.com/S8-stack/S8-core-io-JSON" type="marketing" color="resource" >Check Repository</a>
+			</links>
+		</text-block>
+		<slide theme="light" , backgroundGradient="wip" asset="assets/images/wip-icon.png" assetAspectRatio="16 / 9">
+			<h1>Work in progress</h1>
+		</slide>
 		<footer path="footer.html"></footer>
 	</div>
 </body>

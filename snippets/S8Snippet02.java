@@ -1,4 +1,3 @@
-
 public class S8Snippet02 {
 
 	
