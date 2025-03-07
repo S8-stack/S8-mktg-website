@@ -77,32 +77,9 @@
 					extremely tight data frame: every single object sent to front is part of graph wehere every
 					node is identified. Therefore, any modification of the screen does not need any reload of
 					previously transmitted objects.</li>
-				<a icon="/icons/left-circled-arrow.svg"
-					href="https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java">example</a>
-			</card>
-			<card type="light" size="large-horizontal" theme="dark"
-				backgroundImage="/assets/cards/core-bohr-neodymium/background.jpg">
-				<hgroup>core.bohr.neodymium</hgroup>
-				<h1>Versionable Object Graph Serial format</h1>
-				<p>Neodymium allows for the efficient peristency and vesrionning of complex large objects with non
-					trivial objects graph. Perfectly suited for your high level services.
-				</p>
-				<a icon="/icons/left-circled-arrow.svg"
-					href="https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java">example</a>
-			</card>
-			<card type="light" size="std" theme="dark" backgroundImage="assets/cards/core-bohr-lithium/background.jpg">
-				<hgroup>core.bohr.lithium</hgroup>
-				<h1>The fast rev</h1>
-				<p>Async tasks made easy</p>
-				<a icon="/icons/left-circled-arrow.svg"
-					href="https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java">example</a>
-			</card>
-			<card type="light" size="std" theme="dark" backgroundImage="assets/cards/core-web-xenon/background.png">
-				<hgroup>core.web.xenon</hgroup>
-				<h1>The Base Server</h1>
-				<p>Xenon is the default implementation of the S8 API.</p>
-				<a icon="/icons/left-circled-arrow.svg"
-					href="https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java">repo</a>
+				<li icon="/icons/flow.svg"><b>Native Undo</b>: Since all objects are persisted in a flow of sequential
+					modifications, undo reconstruction comes at no costs.</li>
+				<a icon="/icons/left-circled-arrow.svg" href="#core-bohr-atom">Learn more...</a>
 			</card>
 
 			<card type="light" size="large-horizontal" theme="dark"
@@ -110,20 +87,39 @@
 				<hgroup>core.bohr.neon</hgroup>
 				<h1>Handle front like a desktop window</h1>
 				<p>Neon is the radical front simplification.</p>
-				<a icon="/icons/left-circled-arrow.svg"
-					href="https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java">repo</a>
+				<a icon="/icons/left-circled-arrow.svg" href="#core-bohr-neon">Learn more...</a>
 			</card>
 
-			<card type="light" size="std" theme="light" backgroundImage="/assets/atoms/beryllium.png">
-				<hgroup>core.bohr.neon</hgroup>
-				<h1>Handle front like a desktop window</h1>
-				<p>Neon is the radical front simplification.</p>
-				<a icon="/icons/left-circled-arrow.svg"
-					href="https://github.com/S8-stack/S8-api/blob/main/sources/com/s8/api/flow/S8AsyncFlow.java">repo</a>
+			<card type="light" size="large-horizontal" theme="dark"
+				backgroundImage="/assets/cards/core-bohr-neodymium/background.jpg">
+				<hgroup>core.bohr.neodymium</hgroup>
+				<h1>Versionable Object Graph Serial format</h1>
+				<p>Neodymium allows for the efficient peristency and vesrionning of complex large objects with non
+					trivial objects graph. Perfectly suited for your high level services.
+				</p>
+				<a icon="/icons/left-circled-arrow.svg" href="#core-bohr-neodymium">Learn more...</a>
+			</card>
+			<card type="light" size="std" theme="dark" backgroundImage="assets/cards/core-bohr-lithium/background.jpg">
+				<hgroup>core.bohr.lithium</hgroup>
+				<h1>The fast rev</h1>
+				<p>Async tasks made easy</p>
+				<a icon="/icons/left-circled-arrow.svg" href="#core-bohr-lithium">Learn more...</a>
+			</card>
+			<card type="light" size="std" theme="dark" backgroundImage="assets/cards/core-web-xenon/background.png">
+				<hgroup>core.web.xenon</hgroup>
+				<h1>The Base Server</h1>
+				<p>Xenon is the default implementation of the S8 API.</p>
+				<a icon="/icons/left-circled-arrow.svg" href="#core-web-xenon">Learn more...</a>
+			</card>
+			<card type="light" size="std" theme="dark" backgroundImage="/assets/cards/core-bohr-beryllium/background.jpg">
+				<hgroup>core.bohr.beryllium</hgroup>
+				<h1>NoSQL serializer</h1>
+				<p>Serilization for table-shaped database records.</p>
+				<a icon="/icons/left-circled-arrow.svg" href="#core-web-xenon">Learn more...</a>
 			</card>
 		</square-grid>
 		<text-block id="core-arch-silicon" type="std" backgroundColor="white">
-			<h1>S8-<b>core</b>-arch-silicon</h1>
+			<h1>S8-core-arch-<b>silicon</b></h1>
 			<h2>The Heartbeat of the system</h2>
 			<p>The S8 core system is embedding a powerful application-wide thread pool workers with Task profile
 				identification. Everything is packed under the <code>SiliconEngine</code> object and is available
@@ -151,14 +147,15 @@
 			<h2>Sources</h2>
 			<p>Sources of the local S8 stack version can be found with the link below:</p>
 			<links>
-				<a icon="/icons/github-mark.svg" 
-				href="https://github.com/S8-stack/S8-core-arch-silicon" type="marketing" color="resource" >Check Repository</a>
+				<a icon="/icons/github-mark.svg" href="https://github.com/S8-stack/S8-core-arch-silicon"
+					type="marketing" color="resource">Check Repository</a>
 			</links>
 		</text-block>
 		<text-block id="core-io-xml" type="std" backgroundColor="white">
-			<h1>S8-<b>core</b>-io-XML</h1>
+			<h1>S8-core-io-<b>XML</b></h1>
 			<h2>The Reference parser for XML</h2>
-			<p>The S8 core system takes advantage of XML format in a number of underlying tasks, and a fast, stable, backdoors-free
+			<p>The S8 core system takes advantage of XML format in a number of underlying tasks, and a fast, stable,
+				backdoors-free
 				parser is somewhat of a necessity. This is the role of this parser.
 			</p>
 			<h2>Generating compliant XSD</h2>
@@ -171,14 +168,14 @@
 			<h2>Sources</h2>
 			<p>Sources of the local S8 stack version can be found with the link below:</p>
 			<links>
-				<a icon="/icons/github-mark.svg" 
-				href="https://github.com/S8-stack/S8-core-io-XML" type="marketing" color="resource" >Check Repository</a>
+				<a icon="/icons/github-mark.svg" href="https://github.com/S8-stack/S8-core-io-XML" type="marketing"
+					color="resource">Check Repository</a>
 			</links>
 		</text-block>
 		<text-block id="core-io-json" type="std" backgroundColor="white">
-			<h1>S8-<b>core</b>-io-JSON</h1>
+			<h1>S8-core-io-<b>JSON</b></h1>
 			<h2>The Reference parser for JSON</h2>
-			<p>The S8 core system takes advantage of the JSON  format in a number of underlying tasks, and a fast, 
+			<p>The S8 core system takes advantage of the JSON format in a number of underlying tasks, and a fast,
 				stable, backdoors-free, polymorphic, JS-compliant parser is very handy. This is the role of this parser.
 			</p>
 			<h2></h2>
@@ -187,20 +184,129 @@
 			<snippet path="/snippets/s8-core/io-json/Demo02.java"></snippet>
 			<h2>JS vs JSON</h2>
 			<p>JSON may also be a bit over-verbose with so many unnecessary quotes, and is also very markedly lacking
-				polymorphism. JS direct format is good aternative already supported in many environments. We supported 
+				polymorphism. JS direct format is good aternative already supported in many environments. We supported
 				with this parser, but tend to favor the later one (see repo-meta.js file below).
 			</p>
 			<snippet path="/snippets/s8-core/io-json/repo-meta.js"></snippet>
 			<h2>Sources</h2>
 			<p>Sources of the local S8 stack version can be found with the link below:</p>
 			<links>
-				<a icon="/icons/github-mark.svg" 
-				href="https://github.com/S8-stack/S8-core-io-JSON" type="marketing" color="resource" >Check Repository</a>
+				<a icon="/icons/github-mark.svg" href="https://github.com/S8-stack/S8-core-io-JSON" type="marketing"
+					color="resource">Check Repository</a>
 			</links>
 		</text-block>
-		<slide theme="light" , backgroundGradient="wip" asset="assets/images/wip-icon.png" assetAspectRatio="16 / 9">
-			<h1>Work in progress</h1>
-		</slide>
+		<text-block id="core-bohr-atom" type="std" backgroundColor="white">
+			<h1>S8-core-<b>bohr-atom</b></h1>
+			<h2>The Reference serialization protocol for all things S8</h2>
+			<p>Bohr is a kind of ultimate protocol that tremendously upgrades the currently ubiquitous JSON format.
+				Its super powers come for the fact that it natively enables:
+			</p>
+			<ul>
+				<li><b>Efficient Serialization</b>: serialize pretty much everything and natively support objects that
+					come with a specific native serilization methods (blending), like for instances matrices, vectors,
+					pictures.
+				</li>
+				<li><b>Native Compression</b>: BOHR is binary protocol, enabling bit-omptimized flow for file size and
+					streams
+					bandwidth maximal compression. Virtually all repetitions are removed in a single pass, enabling a
+					merge
+					of the serialization pass and the compression pass into an ultimately fast processing.
+				</li>
+				<li><b>Self-standing</b>: BOHR is an auto-documented protocol, meaning that all structures of objects
+					are
+					completely recorded into the file/stream, in a incremental way tolreant to data model evolutions.
+					This
+					enables to re-use any data processed through BOHR in anay application that support the BOHR
+					protocol, allowing
+					data-model reconstruction direcly from data themselves in an univoque manner.
+				</li>
+				<li><b>Sequence of Deltas</b>: Think of BOHR as a block chain type protocol. This implies that data can
+					always
+					be reconstructed through time, and that any state in time is always accessible through re-redaing
+					the sequence of updates.
+					This makes the do/undo pattern very easy to implement. Also, in the event of partial data
+					destruction, reconstruction methods can still be used to recover a lot of things.
+				</li>
+			</ul>
+			<h2>Usages</h2>
+			<p>BOHR has the following usages for the S8 Stack:</p>
+			<ul>
+				<li><b>Persistency</b>: use for the Beryllium, Neodymium, and Lithium objects peristency handlers.
+				</li>
+				<li><b>Streaming</b>: BOHR is massively used to push objects from the back to the front, leveraging the
+					native caching it offers.
+				</li>
+			</ul>
+			<h2>Protocol</h2>
+			<p>The foundations of the BOHR protocol can be found here:</p>
+			<links>
+				<a icon="/icons/github-mark.svg" href="https://github.com/S8-stack/S8-core-bohr-atom" type="marketing"
+					color="resource">Check Repository</a>
+			</links>
+		</text-block>
+		<text-block id="core-bohr-neodymium" type="std" backgroundColor="white">
+			<h1>S8-core-bohr-<b>neodymium</b></h1>
+			<h2>The project data handler</h2>
+			<p>The S8 core system takes advantage of the BOHR format that implements delta generation 
+				by performing a deep inspection pass on the persisted graph of objects.
+			</p>
+			<h2></h2>
+			<h2>Basic usage</h2>
+			<p>Just see examples below for a quick glimpse of how to use it in context:</p>
+			<snippet path="/snippets/s8-core/bohr-neodymium/Demo02.java"></snippet>
+			<h2>Sources</h2>
+			<p>Sources of the local S8 stack version can be found with the link below:</p>
+			<links>
+				<a icon="/icons/github-mark.svg" href="https://github.com/S8-stack/S8-core-bohr-neodymium" type="marketing"
+					color="resource">Check Repository</a>
+			</links>
+		</text-block>
+		<text-block id="core-bohr-beryllium" type="std" backgroundColor="white">
+			<h1>S8-core-bohr-<b>beryllium</b></h1>
+			<h2>Fast serialization for flat objects</h2>
+			<p>Beryllium serilization is specially tailored for fast serialization of small repetitive objects, like table-shaped database records.
+			</p>
+			<h2></h2>
+			<h2>Basic usage</h2>
+			<p>Just see examples below for a quick glimpse of how to use it in context:</p>
+			<snippet path="/snippets/s8-core/bohr-beryllium/BeDemo02.java"></snippet>
+			<h2>Sources</h2>
+			<p>Sources of the local S8 stack version can be found with the link below:</p>
+			<links>
+				<a icon="/icons/github-mark.svg" href="https://github.com/S8-stack/S8-core-bohr-beryllium" type="marketing"
+					color="resource">Check Repository</a>
+			</links>
+		</text-block>
+		<text-block id="core-bohr-neon" type="std" backgroundColor="white">
+			<h1>S8-core-bohr-<b>neon</b></h1>
+			<h2>Handle front like a desktop window</h2>
+				<p>Neon is the radical front simplification tha allows to manipulate server side avatar of the front side components, resulgin in huge simplification of the development, better consistency, vastly improved caching methods, and much more.</p>
+			<h2></h2>
+			<h2>Basic usage</h2>
+			<p>Just see examples below for a quick glimpse of how to use it in context:</p>
+			<snippet path="/snippets/s8-core/bohr-neon/PalmWorkspaceViewer.java"></snippet>
+			<h2>Sources</h2>
+			<p>Sources of the local S8 stack version can be found with the link below:</p>
+			<links>
+				<a icon="/icons/github-mark.svg" href="https://github.com/S8-stack/S8-core-bohr-neon" type="marketing"
+					color="resource">Check Repository</a>
+			</links>
+		</text-block>
+		<text-block id="core-web-xenon" type="std" backgroundColor="white">
+			<h1>S8-core-web-<b>xenon</b></h1>
+			<h2>The reference server implementation for S8 API</h2>
+			<p>Xenon is a wrap-up implementation of the S8 server</p>
+			<h2></h2>
+			<h2>Basic usage</h2>
+			<p>Just see examples below for a quick glimpse of how to use it in context:</p>
+			<snippet path="/snippets/s8-core/web-xenon/AppLauncher.java"></snippet>
+			<h2>Sources</h2>
+			<p>Sources of the local S8 stack version can be found with the link below:</p>
+			<links>
+				<a icon="/icons/github-mark.svg" href="https://github.com/S8-stack/S8-core-web-xenon" type="marketing"
+					color="resource">Check Repository</a>
+			</links>
+		</text-block>
 		<footer path="footer.html"></footer>
 	</div>
 </body>
