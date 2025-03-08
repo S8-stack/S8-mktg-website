@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<title>S8 Packages</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="icon" type="image/x-icon" href="/favicon.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="aero/boot.css" />
+	<script type="module">
+		import { boot } from './aero/WebPageV2.js';
+		window.boot = boot;
+	</script>
+</head>
+
+<body onload="boot()">
+	<div id="aero-page">
+		<header theme="light" logo="logos/S8-logo-v4-256px.png">
+			<nav>
+				<menu to="/index.html">Home</menu>
+				<menu to="/get-started.html">Get Started</menu>
+				<menu to="/plans.html">Plans</menu>
+				<menu to="/core.html">Core</menu>
+				<menu to="/packages.html">Packages</menu>
+				<menu to="/extensions.html" selected>Extensions</menu>
+			</nav>
+			<social>
+				<a to="https://www.linkedin.com/company/s8-stack" pic="/assets/social/linkedin-icon-256px.png"></a>
+				<a to="https://x.com/Stack8Official" pic="/assets/social/twitter-icon.svg"></a>
+			</social>
+		</header>
+		<slide type="prime" theme="light" asset="/assets/images/cut-through-turbine.png" backgroundColor="white">
+			<h1>A strong <b>base</b> to build cutting edge apps</h1>
+			<h2>The Alphaventor platform came with efficient libraries to power your engineering app.</h2>
+			<p>Libraries enables complex applications capabilities out of the boxes, greatly
+				reducing the development time and platform integration.</p>
+			<p>Discover the core packages</p>
+		</slide>
+		<footer path="footer.html"></footer>
+	</div>
+</body>
+
+</html>

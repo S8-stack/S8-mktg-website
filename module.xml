@@ -35,4 +35,7 @@
 	<x-filter cache="PRODUCTION" frag-length="65536">
 		<pattern>**.zip</pattern>
 	</x-filter>
+	<x-filter cache="PRODUCTION" frag-length="65536">
+		<pattern>**.mp4</pattern>
+	</x-filter>
 </sources>

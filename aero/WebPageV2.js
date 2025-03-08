@@ -6,6 +6,7 @@ import { SlideV2 } from "./SlideV2.js";
 import { SquareGridV2 } from "./SquareGridV2.js";
 import { TextBlockV2 } from "./TextBlockV2.js";
 import { DocumentationV2 } from "./DocumentationV2.js";
+import { Video } from "./Video.js";
 
 
 
@@ -31,11 +32,15 @@ export const buildPageElement = function (page, sourceNode) {
         case "slide": return new SlideV2(page, sourceNode);
         case "square-grid": return new SquareGridV2(page, sourceNode);
         case "text-block": return new TextBlockV2(page, sourceNode);
+        case "video": return new Video(page, sourceNode);
         case "footer": return new FooterV2(page, sourceNode);
         case "aero-doc": return new DocumentationV2(page, sourceNode);
         default : return null;
     }
 }
+
+
+const COOKIES_KEY = "has-cookies-already-been-displayed";
 
 
 export class WebPageV2 {
@@ -102,13 +107,6 @@ export class WebPageV2 {
         }
         document.body.removeChild(sources);
         console.log("WEBPAGE loaded!");
-
-        let val = null;
-        this.hasCookiesModalBox = sources.hasAttribute("hasCookiesModalBox");
-
-
-    
-        
     }
 
 
@@ -130,7 +128,9 @@ export class WebPageV2 {
         /** populate structure */
         this.elements.forEach(element => this.baseLayerNode.appendChild(element.html_getNode()));
 
-        if (this.hasCookiesModalBox) {
+        let val, hasBeenShown = (val = window.sessionStorage.getItem(COOKIES_KEY)) ? val : false;
+        
+        if (!hasBeenShown) {
             const modalBox = new ModalBox({
                 image: "/icons/cookie.png",
                 title: "0 cookies : Total privacy",
@@ -142,6 +142,8 @@ export class WebPageV2 {
                 page.run();
             });
             this.topLayerNode.appendChild(modalBox.getEnvelope());
+
+            window.sessionStorage.setItem(COOKIES_KEY, true);
         }
 
         /* retrieve page info */
