@@ -1,0 +1,7 @@
+# Cloudflare Workers rejects assets over 25 MiB.
+*.mov
+.DS_Store
+.git
+.classpath
+.project
+.settings
