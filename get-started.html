@@ -1,72 +1,54 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
-	<title>S8 Get started</title>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link rel="icon" type="image/x-icon" href="/favicon.png">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="aero/boot.css" />
-	<script type="module">
-		import { boot } from './aero/WebPageV2.js';
-		window.boot = boot;
-	</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>S8 — Get started</title>
+  <meta name="description" content="Download Stack8 v0.8 and start building with a single JAVA stack.">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.0/highlight.min.js"></script>
 </head>
 
-<body onload="boot()">
-	<div id="aero-page">
-		<header theme="dark" logo="logos/S8-logo-v4-256px.png">
-			<nav>
-				<menu to="/index.html">Home</menu>
-				<menu to="/get-started.html" selected>Get Started</menu>
-				<menu to="/plans.html">Plans</menu>
-				<menu to="/core.html">Core</menu>
-				<menu to="/packages.html">Packages</menu>
-				<menu to="/extensions.html">Extensions</menu>
-			</nav>
-			<social>
-				<a to="https://www.linkedin.com/company/s8-stack" pic="/assets/social/linkedin-icon-256px.png"></a>
-				<a to="https://x.com/Stack8Official" pic="/assets/social/twitter-icon.svg"></a>
-			</social>
-		</header>
-		<text-block id="tile04-text" type="std" backgroundColor="white">
-			<svg path="/icons/start-button.svg" width="128" height="128"></svg>
-			<h1>Start your journey here</h1>
-			<h2>Pre-requisites</h2>
-			<p>
-				Stack8 is bundled in a simple zip containing all modules and ressources for an easy startup. Virtually
-				nothing more is required other than an IDE and the S8 stack that you can download below.
-			</p>
-			<links>
-				<a icon="/icons/down-arrow-to-box.svg" href="/releases/Stack8-v0.8.zip"
-					client-filename="Stack8-v0.8.zip" type="marketing" color="resource" >Download Stack8 v0.8</a>
-				<a icon="/icons/book.svg" href="/docs/v0.8/index.html" type="marketing" color="doc" >See Doc of Stack8 v0.8</a>
-			</links>
-			<h2>Annotations</h2>
-			<p>Objects persistency relies on annotating object classes -most robust approach so far. <code>RepoS8Object</code>Access to objects
-				is exclusively made through the call of methods on the flow, as well as all subsequent actions (saving,
-				reverting, etc.).
-			</p>
-			<snippet path="/snippets/BootMethodSnippet00.java"></snippet>
-			<p>Objects persistency relies on annotating object classes -most robust approach so far. Access to objects
-				is exclusively made through the call of methods on the flow, as well as all subsequent actions (saving,
-				reverting, etc.).
-			</p>
-			<snippet path="/snippets/AlphaXeMainBoot.java"></snippet>
-			<p>Objects persistency relies on annotating object classes -most robust approach so far. Access to objects
-				is exclusively made through the call of methods on the flow, as well as all subsequent actions (saving,
-				reverting, etc.).
-			</p>
-			<snippet path="/snippets/mix.java"></snippet>
-			<p>Objects persistency relies on annotating object classes -most robust approach so far. Access to objects
-				is exclusively made through the call of methods on the flow, as well as all subsequent actions (saving,
-				reverting, etc.).
-			</p>
-			<snippet path="/snippets/S8Snippet03.java"></snippet>
-		</text-block>
-		<footer path="footer.html"></footer>
-	</div>
+<body data-page="start">
+  <script src="/js/site.js"></script>
+
+  <section class="hero hero--compact">
+    <img class="hero-image-bg" src="/assets/slides/diagram-2.png" alt="">
+    <div class="hero-overlay"></div>
+    <div class="hero-container container">
+      <div class="hero-grid">
+        <h1 class="hero-title reveal">Start your journey here</h1>
+        <p class="hero-desc reveal">Stack8 is bundled in a simple zip containing all modules and resources for an easy startup. Virtually nothing more is required other than an IDE and the S8 stack.</p>
+        <div class="hero-btns reveal">
+          <a class="btn btn--primary" href="/releases/Stack8-v0.8.zip" download="Stack8-v0.8.zip">Download Stack8 v0.8</a>
+          <a class="btn btn--secondary" href="/docs/v0.8/index.html">See the v0.8 docs</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="container prose">
+      <h2>Pre-requisites</h2>
+      <p>Stack8 is bundled in a simple zip containing all modules and resources for an easy startup. Virtually nothing more is required other than an IDE and the S8 stack that you can download above.</p>
+
+      <h2>Annotations</h2>
+      <p>Object persistency relies on annotating object classes — the most robust approach so far. <code>RepoS8Object</code> access to objects is exclusively made through the call of methods on the flow, as well as all subsequent actions (saving, reverting, etc.).</p>
+      <div class="code-block"><pre><code data-snippet="/snippets/BootMethodSnippet00.java" data-lang="java"></code></pre></div>
+
+      <p>Access to objects is exclusively made through the call of methods on the flow, as well as all subsequent actions (saving, reverting, etc.).</p>
+      <div class="code-block"><pre><code data-snippet="/snippets/AlphaXeMainBoot.java" data-lang="java"></code></pre></div>
+
+      <div class="code-block"><pre><code data-snippet="/snippets/mix.java" data-lang="java"></code></pre></div>
+      <div class="code-block"><pre><code data-snippet="/snippets/S8Snippet03.java" data-lang="java"></code></pre></div>
+    </div>
+  </section>
 </body>
 
 </html>

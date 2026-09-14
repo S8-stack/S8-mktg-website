@@ -1,287 +1,235 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
-	<title>S8 Plans</title>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link rel="icon" type="image/x-icon" href="/favicon.png">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="aero/boot.css" />
-	<script type="module">
-		import { boot } from './aero/WebPageV2.js';
-		window.boot = boot;
-	</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>S8 — Plans</title>
+  <meta name="description" content="Self-hosted and cloud plans for every stage of S8 development.">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body onload="boot()">
-	<div id="aero-page">
-		<header theme="dark" logo="logos/S8-logo-v4-256px.png">
-			<nav>
-				<menu to="/index.html">Home</menu>
-				<menu to="/get-started.html">Get Started</menu>
-				<menu to="/plans.html" selected>Plans</menu>
-				<menu to="/core.html">Core</menu>
-				<menu to="/packages.html">Packages</menu>
-				<menu to="/extensions.html">Extensions</menu>
-			</nav>
-			<social>
-				<a to="https://www.linkedin.com/company/s8-stack" pic="/assets/social/linkedin-icon-256px.png"></a>
-				<a to="https://x.com/Stack8Official" pic="/assets/social/x-icon-256px.png"></a>
-			</social>
-		</header>
-		<slide theme="dark" , backgroundColor="#030832">
-			<h1>A Solution for Every Stage</h1>
-			<h2>We provide a wide range of plans to help covering all your development phases.</h2>
-			<p>We divide the plans in two groups. The self hosted plans provide a very fine grain control over the
-				costs, which might interest organizations at any stage. The very production ready nature of the stack
-				makes it possible to envision data center level with limited dev-ops overhead, at record low costs.
-			</p>
-			<p>
-				Cloud solutions provide a different angle of attack: rely on top level hardware (We mean, really top
-				level) and
-				top tier datacenters location to have your app delivering with virtually zero overhead on your side.
-			</p>
-		</slide>
-		<square-grid theme="light" backgroundColor="white">
-			<card type="light" size="large-vertical" theme="light"
-				backgroundImage="/assets/plans/background-plan01.png">
-				<hgroup>self hosted</hgroup>
-				<h1>Sandbox</h1>
-				<h2>Learn and test (non-commercial)</h2>
-				<p isMobileHideable="true">Enjoy fast learning curve with the ease of local install enabling
-					fast iteration on your projects.
-				</p>
-				<a icon="/icons/left-circled-arrow.svg" href="#sandbox-details">Learn more...</a>
-				<p> Includes: </p>
-				<ul>
-					<li>Basic core stack</li>
-					<li>Features packages</li>
-					<li><b>Unlimited</b> nb of DB accesses</li>
-					<li><b>Unlimited</b> nb of HTTP requests</li>
-					<li><b>Unlimited</b> nb of installs</li>
-				</ul>
-				<h1>Free</h1>
-			</card>
-			<card type="light" size="large-vertical" theme="light"
-				backgroundImage="/assets/plans/background-plan02.png">
-				<hgroup>self hosted</hgroup>
-				<h1>Start-up</h1>
-				<h2>Grow before paying anything</h2>
-				<p>For pre-revenues companies. Enables fast start for free.</p>
-				<a icon="/icons/left-circled-arrow.svg" href="#startup-details">Learn more...</a>
-				<p> Includes: </p>
-				<ul>
-					<li>Basic core stack</li>
-					<li>Features packages</li>
-					<li><b>Unlimited</b> nb of DB accesses</li>
-					<li><b>Unlimited</b> nb of requests</li>
-					<li><b>Unlimited</b> nb of installs</li>
-				</ul>
-				<h1>Free</h1>
-			</card>
-			<card type="light" size="large-vertical" theme="light"
-				backgroundImage="/assets/plans/background-plan03.png">
-				<hgroup>self hosted</hgroup>
-				<h1>Scale-up</h1>
-				<h2>High performance comes at low expenses</h2>
-				<p>For revenues generating companies.</p>
-				<p>Stay in control of your stack operating costs. And keep them low.</p>
-				<a icon="/icons/left-circled-arrow.svg" href="#scaleup-details">Learn more...</a>
-				<p> Includes: </p>
-				<ul>
-					<li>Basic core stack</li>
-					<li>Features packages</li>
-					<li><b>Unlimited</b> nb of DB accesses</li>
-					<li><b>Unlimited</b> nb of requests</li>
-					<li><b>Unlimited</b> nb of installs</li>
-				</ul>
-				<h1><b>$32</b> /core /month</h1>
-			</card>
-			<card type="dark" size="large-vertical" theme="dark" backgroundImage="/assets/plans/background-plan04.png">
-				<hgroup>cloud</hgroup>
-				<h1>N1 Unit</h1>
-				<h2>Up to 15k+ B2B SaaS users per unit</h2>
-				<p isMobileHideable="true">The go-to solution for early-stage Saas.
-				</p>
-				<a icon="/icons/left-circled-arrow.svg" href="#n1-details">Learn more...</a>
-				<ul>
-					<li>All Scale-up Plan features</li>
-					<li>Dedicated top level hardware</li>
-					<li>High-end <b>10x</b> cores 4.2GHz+ CPU</li>
-					<li><b>32 GB</b> RAM</li>
-					<li><b>1 TB</b> SSD</li>
-					<li><b>Unlimited</b> nb of DBs accesses</li>
-					<li><b>Unlimited</b> nb of HTTPS requests</li>
-					<li><b>1 Gb/s</b> unmetered bandwidth</li>
-				</ul>
-				<h1><b>$160</b> /unit /month</h1>
-			</card>
-			<card type="light" size="large-vertical" theme="dark" backgroundImage="/assets/plans/background-plan05.png">
-				<hgroup>cloud</hgroup>
-				<h1>N2 Unit</h1>
-				<h2>Up to 25k+ B2B SaaS users per unit</h2>
-				<p isMobileHideable="true">The go-to solution for medium intensity Saas.
-				</p>
-				<a icon="/icons/left-circled-arrow.svg" href="#n2-details">Learn more...</a>
-				<ul>
-					<li>All Scale-up Plan features</li>
-					<li>Dedicated top level hardware</li>
-					<li>High-end <b>12x</b> cores 3.2GHz+ CPU</li>
-					<li><b>64 GB</b> RAM</li>
-					<li><b>2 TB</b> SSD</li>
-					<li><b>Unlimited</b> nb of DBs accesses</li>
-					<li><b>Unlimited</b> nb of HTTPS requests</li>
-					<li><b>1 Gb/s</b> unmetered bandwidth</li>
-				</ul>
-				<h1><b>$420</b> /unit /month</h1>
-			</card>
-			<card type="dark" size="large-vertical" theme="dark" backgroundImage="/assets/plans/background-plan06.png">
-				<hgroup>cloud</hgroup>
-				<h1>N3 Unit</h1>
-				<h2>Up to 50k+ B2B SaaS users per unit</h2>
-				<p isMobileHideable="true">The go-to solution for medium intensity Saas.
-				</p>
-				<a icon="/icons/left-circled-arrow.svg" href="#n3-details">Learn more...</a>
-				<ul>
-					<li>All Scale-up Plan features</li>
-					<li>Dedicated top level hardware</li>
-					<li>High-end <b>24x</b> cores 3.2GHz+ CPU</li>
-					<li><b>128 GB</b> RAM</li>
-					<li><b>4 TB</b> SSD</li>
-					<li><b>Unlimited</b> nb of DBs accesses</li>
-					<li><b>Unlimited</b> nb of HTTPS requests</li>
-					<li><b>2 Gb/s</b> unmetered bandwidth</li>
-				</ul>
-				<h1><b>$620</b> /unit /month</h1>
-			</card>
-		</square-grid>
-		<text-block type="legal" theme="light" backgroundColor="white" numbering="1.2.3">
-			<svg path="/legal/images/contract-2.svg" width="128" height="128"></svg>
-			<p>
-				All offers presented on this page are subject to the terms and conditions defined in the license contract.
-				Please check full-length license by following the link below:
-			</p>
-			<links>
-				<a icon="/legal/images/contract-2.svg" href="/license/license.html" type="marketing" color="doc" >See Stack8 License</a>
-			</links>
-		</text-block>
-		<text-block id="sandbox-details" type="std" backgroundColor="white">
-			<svg path="/assets/plans/images/bucket.svg" width="128" height="128"></svg>
-			<h1>Sandbox</h1>
-			<h2>Learn and test</h2>
-			<p>For personal projects, simple curiosity, benchmarking, prefigurating your decacorn solution, and so
-				much more, S8 provides you a fast and easy to master production-ready environment for free.
-			</p>
-			<h2>Eligibility</h2>
-			<p>This plan can only be used in a situation where no commercial usage -whether direct or indircte- is made
-				of the stack. If in pre-commercial mode, please conside Start-Up Plan.
-			</p>
-		</text-block>
-		<text-block id="startup-details" type="std" backgroundColor="white">
-			<svg path="/assets/plans/images/plant.svg" width="128" height="128"></svg>
-			<h1>Start-Up</h1>
-			<h2>Grow before paying anything</h2>
-			<p>S8 wants to promote daring projects. Because we know that great projects need
-				time to emerge, we make S8 free for the pioneering phase.
-			</p>
-			<p>Outpace the competition with out-of-the-box stack for free. We designed S8 so we can give the opportunity
-				for start-ups building ambitious things not to have to think about the costs first.
-			</p>
-			<h2>Eligibility</h2>
-			<p>This plan can only be used in a situation where the company using the S8 stack -or kind of commercial
-				entity- is generating less than $10k revenues per year.
-			</p>
-		</text-block>
-		<text-block id="scaleup-details" type="std" backgroundColor="white">
-			<svg path="/assets/plans/images/shuttle.svg" width="128" height="128"></svg>
-			<h1>Scale-up</h1>
-			<h2>High performance comes at low expenses</h2>
-			<p>The self hosted plans provide a very fine grain control over the
-				costs, which might interest organizations at any stage. The very production ready nature of the stack
-				makes it possible to envision data center level with limited dev-ops overhead, at record low costs.
-			</p>
-		</text-block>
-		<text-block id="n1-details" type="std" backgroundColor="white">
-			<svg path="/assets/plans/images/n1.svg" width="128" height="128"></svg>
-			<h1>N1 Unit</h1>
-			<h2>Up to 15k+ B2B SaaS users per unit</h2>
-			<p></p>
-			<h2>Features</h2>
-			<p>This plan includes:</p>
-			<ul>
-				<li>All Scale-up Plan features</li>
-				<li>Dedicated top level hardware</li>
-				<li>High-end <b>10x</b> cores 4.2GHz+ CPU</li>
-				<li><b>32 GB</b> RAM</li>
-				<li><b>1 TB</b> SSD</li>
-				<li><b>Unlimited</b> nb of DBs accesses</li>
-				<li><b>Unlimited</b> nb of HTTPS requests</li>
-				<li><b>1 Gb/s</b> unmetered bandwidth</li>
-			</ul>
-		</text-block>
-		<text-block id="n2-details" type="std" backgroundColor="white">
-			<svg path="/assets/plans/images/n2.svg" width="128" height="128"></svg>
-			<h1>N2 Unit</h1>
-			<h2>Up to 25k+ B2B SaaS users per unit</h2>
-			<p>The go-to solution for medium intensity Saas.
-			</p>
-			<h2>Hardware</h2>
-			<p>This plan relies on dedicated top level hardware. The server uses SoC (System on Chip)
-				which enables highest achievable RAM to CPU bandwidth.
-			</p>
-			<p>Specifications of the unit:</p>
-			<ul>
-				<li>High-end <b>12x</b> cores 3.2GHz+ CPU</li>
-				<li><b>64 GB</b> RAM</li>
-				<li><b>2 TB</b> SSD</li>
-				<li><b>1 Gb/s</b> unmetered bandwidth</li>
-			</ul>
-			<h2>Features</h2>
-			<p>This plan includes:</p>
-			<ul>
-				<li>All Scale-up Plan features</li>
-				<li><b>Unlimited</b> nb of DBs accesses</li>
-				<li><b>Unlimited</b> nb of HTTPS requests</li>
-			</ul>
-			<h2>Pricing</h2>
-			<p>The pricing for the above plan is <b>$420</b> /unit /month.</p>
-			<p>Availibility depends of the current expansion plan and is subject to implementation plan.
-				Contact us for detailed informations.</p>
-		</text-block>
-		<text-block id="n3-details" type="std" backgroundColor="white">
-			<svg path="/assets/plans/images/n3.svg" width="128" height="128"></svg>
-			<h1>N3 Unit</h1>
-			<h2>Up to 50k+ B2B SaaS users per unit</h2>
-			<p isMobileHideable="true">The go-to solution for medium intensity Saas.
-			</p>
-			<a icon="/icons/left-circled-arrow.svg" href="#n3-details">Learn more...</a>
-			<h2>Hardware</h2>
-			<p>This plan relies on dedicated top level hardware. The server uses SoC (System on Chip)
-				which enables highest achievable RAM to CPU bandwidth.
-			</p>
-			<p>Specifications of the unit:</p>
-			<ul>
-				<li>Dedicated top level hardware</li>
-				<li>High-end <b>24x</b> cores 3.2GHz+ CPU</li>
-				<li><b>128 GB</b> RAM</li>
-				<li><b>4 TB</b> SSD</li>
-				<li><b>2 Gb/s</b> unmetered bandwidth</li>
-			</ul>
-			<h2>Features</h2>
-			<p>This plan includes:</p>
-			<ul>
-				<li>All Scale-up Plan features</li>
-				<li><b>Unlimited</b> nb of DBs accesses</li>
-				<li><b>Unlimited</b> nb of HTTPS requests</li>
-			</ul>
-			<h2>Pricing</h2>
-			<p>The pricing for the above plan is <b>$620</b> /unit /month.</p>
-			<p>Availibility depends of the current expansion plan and is subject to implementation plan.
-				Contact us for detailed informations.</p>
-		</text-block>
-		<footer path="footer.html"></footer>
-	</div>
+<body data-page="plans">
+  <script src="/js/site.js"></script>
+
+  <section class="hero hero--compact">
+    <div class="hero-overlay" style="background:linear-gradient(135deg,#030832 0%,#0f172a 60%,#1e3a8a 100%)"></div>
+    <div class="hero-container container">
+      <div class="hero-grid">
+        <h1 class="hero-title reveal">A solution for every stage</h1>
+        <p class="hero-desc reveal">We provide a wide range of plans covering all your development phases — from local sandbox to dedicated cloud units.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing" id="self-hosted">
+    <div class="container">
+      <div class="pricing-header reveal">
+        <div class="section-badge">Self hosted</div>
+        <h2 class="pricing-title">Stay in control of the stack</h2>
+        <p class="pricing-desc">Self-hosted plans provide very fine-grain control over costs. The production-ready nature of the stack makes data-center scale possible with limited devops overhead.</p>
+      </div>
+      <div class="pricing-grid-6">
+        <article class="pricing-card reveal">
+          <div class="pricing-card-type">Self hosted</div>
+          <h3 class="pricing-card-title">Sandbox</h3>
+          <p class="pricing-card-sub">Learn and test (non-commercial)</p>
+          <p class="pricing-card-price-label">Free</p>
+          <p class="pricing-card-price-sub">Unlimited installs, DB accesses and HTTP requests</p>
+          <ul>
+            <li>Basic core stack</li>
+            <li>Features packages</li>
+            <li><b>Unlimited</b> number of DB accesses</li>
+            <li><b>Unlimited</b> number of HTTP requests</li>
+            <li><b>Unlimited</b> number of installs</li>
+          </ul>
+          <a class="pricing-card-btn pricing-card-btn--secondary" href="#sandbox-details">Learn more</a>
+        </article>
+        <article class="pricing-card pricing-card--popular reveal">
+          <div class="pricing-card-badge">Pioneering phase</div>
+          <div class="pricing-card-type">Self hosted</div>
+          <h3 class="pricing-card-title">Start-up</h3>
+          <p class="pricing-card-sub">Grow before paying anything</p>
+          <p class="pricing-card-price-label">Free</p>
+          <p class="pricing-card-price-sub">For pre-revenue companies</p>
+          <ul>
+            <li>Basic core stack</li>
+            <li>Features packages</li>
+            <li><b>Unlimited</b> number of DB accesses</li>
+            <li><b>Unlimited</b> number of requests</li>
+            <li><b>Unlimited</b> number of installs</li>
+          </ul>
+          <a class="pricing-card-btn pricing-card-btn--primary" href="#startup-details">Learn more</a>
+        </article>
+        <article class="pricing-card reveal">
+          <div class="pricing-card-type">Self hosted</div>
+          <h3 class="pricing-card-title">Scale-up</h3>
+          <p class="pricing-card-sub">High performance at low expenses</p>
+          <p class="pricing-card-price-label"><b>$32</b> / core / month</p>
+          <p class="pricing-card-price-sub">For revenue-generating companies</p>
+          <ul>
+            <li>Basic core stack</li>
+            <li>Features packages</li>
+            <li><b>Unlimited</b> number of DB accesses</li>
+            <li><b>Unlimited</b> number of requests</li>
+            <li><b>Unlimited</b> number of installs</li>
+          </ul>
+          <a class="pricing-card-btn pricing-card-btn--secondary" href="#scaleup-details">Learn more</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing page--muted" id="cloud">
+    <div class="container">
+      <div class="pricing-header reveal">
+        <div class="section-badge section-badge--orange">Cloud</div>
+        <h2 class="section-title">Top-level hardware, zero overhead</h2>
+        <p class="section-desc">Cloud solutions rely on top-tier datacenter locations so your app delivers with virtually zero overhead on your side.</p>
+      </div>
+      <div class="pricing-grid-6">
+        <article class="pricing-card reveal">
+          <div class="pricing-card-type">Cloud</div>
+          <h3 class="pricing-card-title">N1 Unit</h3>
+          <p class="pricing-card-sub">Up to 15k+ B2B SaaS users per unit</p>
+          <p class="pricing-card-price-label"><b>$160</b> / unit / month</p>
+          <ul>
+            <li>All Scale-up plan features</li>
+            <li>Dedicated top-level hardware</li>
+            <li>High-end <b>10×</b> cores 4.2GHz+</li>
+            <li><b>32 GB</b> RAM · <b>1 TB</b> SSD</li>
+            <li><b>1 Gb/s</b> unmetered bandwidth</li>
+          </ul>
+          <a class="pricing-card-btn pricing-card-btn--secondary" href="#n1-details">Learn more</a>
+        </article>
+        <article class="pricing-card reveal">
+          <div class="pricing-card-type">Cloud</div>
+          <h3 class="pricing-card-title">N2 Unit</h3>
+          <p class="pricing-card-sub">Up to 25k+ B2B SaaS users per unit</p>
+          <p class="pricing-card-price-label"><b>$420</b> / unit / month</p>
+          <ul>
+            <li>All Scale-up plan features</li>
+            <li>Dedicated top-level hardware</li>
+            <li>High-end <b>12×</b> cores 3.2GHz+</li>
+            <li><b>64 GB</b> RAM · <b>2 TB</b> SSD</li>
+            <li><b>1 Gb/s</b> unmetered bandwidth</li>
+          </ul>
+          <a class="pricing-card-btn pricing-card-btn--secondary" href="#n2-details">Learn more</a>
+        </article>
+        <article class="pricing-card reveal">
+          <div class="pricing-card-type">Cloud</div>
+          <h3 class="pricing-card-title">N3 Unit</h3>
+          <p class="pricing-card-sub">Up to 50k+ B2B SaaS users per unit</p>
+          <p class="pricing-card-price-label"><b>$620</b> / unit / month</p>
+          <ul>
+            <li>All Scale-up plan features</li>
+            <li>Dedicated top-level hardware</li>
+            <li>High-end <b>24×</b> cores 3.2GHz+</li>
+            <li><b>128 GB</b> RAM · <b>4 TB</b> SSD</li>
+            <li><b>2 Gb/s</b> unmetered bandwidth</li>
+          </ul>
+          <a class="pricing-card-btn pricing-card-btn--secondary" href="#n3-details">Learn more</a>
+        </article>
+      </div>
+      <div class="pricing-footer">
+        <p class="pricing-note">All offers are subject to the <a href="/license/license.html">Stack8 license</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <article class="article" id="sandbox-details">
+    <div class="container prose">
+      <img class="prose-icon" src="/assets/plans/images/bucket.svg" alt="">
+      <h1>Sandbox</h1>
+      <h2>Learn and test</h2>
+      <p>For personal projects, simple curiosity, benchmarking, prefigurating your decacorn solution, and so much more, S8 provides you a fast and easy to master production-ready environment for free.</p>
+      <h2>Eligibility</h2>
+      <p>This plan can only be used in a situation where no commercial usage — whether direct or indirect — is made of the stack. If in pre-commercial mode, please consider the Start-up plan.</p>
+    </div>
+  </article>
+
+  <article class="article" id="startup-details">
+    <div class="container prose">
+      <img class="prose-icon" src="/assets/plans/images/plant.svg" alt="">
+      <h1>Start-up</h1>
+      <h2>Grow before paying anything</h2>
+      <p>S8 wants to promote daring projects. Because we know that great projects need time to emerge, we make S8 free for the pioneering phase.</p>
+      <p>Outpace the competition with an out-of-the-box stack for free. We designed S8 so start-ups building ambitious things do not have to think about the costs first.</p>
+      <h2>Eligibility</h2>
+      <p>This plan can only be used in a situation where the company using the S8 stack — or kind of commercial entity — is generating less than $10k revenues per year.</p>
+    </div>
+  </article>
+
+  <article class="article" id="scaleup-details">
+    <div class="container prose">
+      <img class="prose-icon" src="/assets/plans/images/shuttle.svg" alt="">
+      <h1>Scale-up</h1>
+      <h2>High performance comes at low expenses</h2>
+      <p>The self-hosted plans provide very fine-grain control over the costs, which might interest organizations at any stage. The production-ready nature of the stack makes it possible to envision data-center level with limited devops overhead, at record-low costs.</p>
+    </div>
+  </article>
+
+  <article class="article" id="n1-details">
+    <div class="container prose">
+      <img class="prose-icon" src="/assets/plans/images/n1.svg" alt="">
+      <h1>N1 Unit</h1>
+      <h2>Up to 15k+ B2B SaaS users per unit</h2>
+      <h2>Features</h2>
+      <ul>
+        <li>All Scale-up plan features</li>
+        <li>Dedicated top-level hardware</li>
+        <li>High-end <b>10×</b> cores 4.2GHz+ CPU</li>
+        <li><b>32 GB</b> RAM</li>
+        <li><b>1 TB</b> SSD</li>
+        <li><b>Unlimited</b> number of DB accesses</li>
+        <li><b>Unlimited</b> number of HTTPS requests</li>
+        <li><b>1 Gb/s</b> unmetered bandwidth</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="article" id="n2-details">
+    <div class="container prose">
+      <img class="prose-icon" src="/assets/plans/images/n2.svg" alt="">
+      <h1>N2 Unit</h1>
+      <h2>Up to 25k+ B2B SaaS users per unit</h2>
+      <p>The go-to solution for medium intensity SaaS.</p>
+      <h2>Hardware</h2>
+      <p>This plan relies on dedicated top-level hardware. The server uses SoC (System on Chip) which enables the highest achievable RAM to CPU bandwidth.</p>
+      <ul>
+        <li>High-end <b>12×</b> cores 3.2GHz+ CPU</li>
+        <li><b>64 GB</b> RAM</li>
+        <li><b>2 TB</b> SSD</li>
+        <li><b>1 Gb/s</b> unmetered bandwidth</li>
+      </ul>
+      <h2>Pricing</h2>
+      <p>The pricing for the above plan is <b>$420</b> / unit / month. Availability depends on the current expansion plan and is subject to an implementation plan. Contact us for detailed information.</p>
+    </div>
+  </article>
+
+  <article class="article" id="n3-details">
+    <div class="container prose">
+      <img class="prose-icon" src="/assets/plans/images/n3.svg" alt="">
+      <h1>N3 Unit</h1>
+      <h2>Up to 50k+ B2B SaaS users per unit</h2>
+      <p>The go-to solution for higher intensity SaaS.</p>
+      <h2>Hardware</h2>
+      <p>This plan relies on dedicated top-level hardware. The server uses SoC (System on Chip) which enables the highest achievable RAM to CPU bandwidth.</p>
+      <ul>
+        <li>Dedicated top-level hardware</li>
+        <li>High-end <b>24×</b> cores 3.2GHz+ CPU</li>
+        <li><b>128 GB</b> RAM</li>
+        <li><b>4 TB</b> SSD</li>
+        <li><b>2 Gb/s</b> unmetered bandwidth</li>
+      </ul>
+      <h2>Pricing</h2>
+      <p>The pricing for the above plan is <b>$620</b> / unit / month. Availability depends on the current expansion plan and is subject to an implementation plan. Contact us for detailed information.</p>
+    </div>
+  </article>
 </body>
 
 </html>
