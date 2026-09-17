@@ -225,13 +225,30 @@ code, kbd { font-family: var(--mono); font-size: 0.9em; }
 }
 
 /* ---------- Home ---------- */
+.home-sky {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(90% 42% at 50% 100%, rgba(140, 42, 8, 0.42) 0%, rgba(140, 42, 8, 0) 58%),
+    linear-gradient(
+      180deg,
+      #010208 0%,
+      #03070e 10%,
+      #06111c 22%,
+      #0a1c30 38%,
+      #12243a 50%,
+      #1c2430 60%,
+      #2e2218 72%,
+      #4a2410 84%,
+      #3a1408 92%,
+      #0b0d10 100%
+    );
+}
+
 .hero {
   padding: 72px 0 24px;
-  background:
-    radial-gradient(1100px 420px at 90% -20%, rgba(95, 160, 74, 0.18), transparent 58%),
-    radial-gradient(900px 380px at 0% 0%, rgba(196, 54, 168, 0.12), transparent 55%),
-    radial-gradient(700px 300px at 40% 120%, rgba(59, 90, 255, 0.10), transparent 50%),
-    var(--bg);
+  background: transparent;
 }
 
 .hero h1 {
@@ -269,6 +286,15 @@ code, kbd { font-family: var(--mono); font-size: 0.9em; }
   padding: 12px 0 64px;
 }
 
+.home-sky .download-card,
+.home-sky .codebox {
+  background: rgba(12, 14, 18, 0.72);
+  backdrop-filter: blur(14px);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+.home-sky .codebox-bar {
+  background: rgba(16, 18, 24, 0.55);
+}
 .download-card {
   background: var(--surface);
   border: 1px solid var(--line);
