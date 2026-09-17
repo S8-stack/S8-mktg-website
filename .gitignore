@@ -24,3 +24,6 @@ replay_pid*
 
 #MAC OS X stuff
 *.DS_Store
+
+# Over Cloudflare Workers' 25 MiB asset limit; unused by the site
+*.mov
