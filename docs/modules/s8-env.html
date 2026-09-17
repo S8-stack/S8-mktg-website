@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>S8Env and modes — S8 Docs</title>
+  <meta name="description" content="S8Env.LOCAL, S8Mode DEV/PROD, and /etc/s8-conf.properties.">
+  <link rel="canonical" href="https://stack8.tech/docs/modules/s8-env.html">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Open+Sans:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <div class="docs-shell">
+    <aside class="docs-nav" data-docs-nav></aside>
+    <div class="docs-main" id="content">
+      <div class="docs-wide">
+        <article>
+<p class="crumb"><a href="/docs/">Docs</a> / <a href="/docs/modules/">Modules</a> / S8Env</p>
+<h1>S8Env</h1>
+<div class="badge-row"><span class="badge badge-api">com.s8.meta.env.environment</span></div>
+<p>Global environment, loaded from <code>/etc/s8-conf.properties</code> as <code>S8Env.LOCAL</code>.</p>
+<h2 id="conf">Machine config</h2>
+<div class="codebox">
+  <div class="codebox-bar">
+    <span class="filename">/etc/s8-conf.properties</span>
+    <button class="copy" type="button" data-copy>Copy</button>
+  </div>
+  <pre data-lang="properties"><code class="lang-properties">JAVA_HOME = /Library/Java/JavaVirtualMachines/temurin-25.jdk/Contents/Home
+dev.stack = /Users/you/qx/git
+prod.stack = /Users/you/stack
+</code></pre>
+</div>
+<h2 id="mode">S8Mode</h2>
+<ul>
+  <li><code>DEV</code> — <code>isJar() == false</code>, sources under <code>dev.stack</code>.</li>
+  <li><code>PROD</code> — <code>isJar() == true</code>, jars under <code>prod.stack</code>.</li>
+  <li><code>UNDEFINED</code> — not yet resolved.</li>
+</ul>
+<p><code>S8Env.getRootPath(mode)</code>, <code>getDevRootPath()</code>, <code>getProdRootPath()</code> are the path helpers the rest of the stack uses.</p>
+<p><code>S8ModuleUtilities.retrieveS8Counterpart(Module, verbose)</code> reflects the static <code>MODULE</code> field declared by <code>@S8ModuleDescriptor</code>.</p>
+<div class="note"><strong>Registry</strong> <code>S8Modules.CENTER</code> exists; lookup methods are currently commented out. The live pattern is <code>SomeClass.MODULE</code>.</div>
+        </article>
+        <nav class="toc" data-toc></nav>
+      </div>
+    </div>
+  </div>
+  <div id="site-footer"></div>
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>

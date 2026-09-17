@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>S8SyncFlow — S8 Docs</title>
+  <meta name="description" content="S8SyncFlow is the main orchestration flow of the S8 stack. Fresh, short-lived, virtual-threaded.">
+  <link rel="canonical" href="https://stack8.tech/docs/api/s8-sync-flow.html">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Open+Sans:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <div class="docs-shell">
+    <aside class="docs-nav" data-docs-nav></aside>
+    <div class="docs-main" id="content">
+      <div class="docs-wide">
+        <article>
+<p class="crumb"><a href="/docs/">Docs</a> / <a href="/docs/api/">API</a> / S8SyncFlow</p>
+<h1>S8SyncFlow</h1>
+<div class="badge-row">
+  <span class="badge badge-api">com.s8.meta.api.flow</span>
+  <span class="badge">interface</span>
+</div>
+<p>The main orchestration flow of the S8 stack. A flow lives for one request or one script. Fresh flows are provided continuously by the system.</p>
+<div class="warn">
+  <strong>Do not reuse, store, or cache a flow.</strong>
+  Anything other than live use during the current request or script is unsupported.
+</div>
+<p>Flows always run inside virtual threads. Write plain Java; it will run safely at high performance.</p>
+<h2 id="constants">Constants</h2>
+<dl class="deflist">
+  <dt>CREATE_SPACE_IF_NOT_PRESENT</dt><dd><span class="sig">static final long · Bool64.BIT02</span></dd>
+  <dt>SAVE_IMMEDIATELY_AFTER</dt><dd><span class="sig">static final long · Bool64.BIT03</span></dd>
+  <dt>SHOULD_NOT_OVERRIDE</dt><dd><span class="sig">static final long · Bool64.BIT04</span></dd>
+  <dt>HEAD_VERSION</dt><dd>HEAD tag for a repository. <span class="sig">static final long HEAD_VERSION = -0x62L</span></dd>
+</dl>
+<h2 id="identity">Identity</h2>
+<dl class="deflist">
+  <dt>getMe()</dt><dd>Return the flow owner. <span class="sig">S8User getMe()</span></dd>
+  <dt>setMe(user)</dt><dd>Define the flow owner. <span class="sig">void setMe(S8User user)</span></dd>
+  <dt>getMySpaceId()</dt><dd>Personal space id of the current user, or <code>null</code>. <span class="sig">default String getMySpaceId()</span></dd>
+</dl>
+<h2 id="gateways">Gateways</h2>
+<dl class="deflist">
+  <dt>front()</dt><dd>Web front when present. <span class="sig">S8FrontSession front()</span></dd>
+  <dt>tables()</dt><dd>Flash persistency. <span class="sig">TablesDB tables()</span></dd>
+  <dt>spaces()</dt><dd>Object-graph spaces. <span class="sig">SpacesDB spaces()</span></dd>
+  <dt>repositories()</dt><dd>Git-like object repositories. <span class="sig">RepositoriesDB repositories()</span></dd>
+  <dt>mail()</dt><dd>Mail manager. <span class="sig">MailManager mail() throws S8FlowException</span></dd>
+  <dt>delegate()</dt><dd>Offload heavy work (profiles FX0–FX7, IO, WEB). <span class="sig">DelegatedRunner delegate()</span></dd>
+</dl>
+<h2 id="io">I/O on the flow</h2>
+<dl class="deflist">
+  <dt>sendResponse(request)</dt><dd>Send an external response. <span class="sig">void sendResponse(SendExtResponseS8Request) throws S8FlowException</span></dd>
+  <dt>deliver(load, generator)</dt><dd>Deliver a generated web resource. <span class="sig">void deliver(int load, S8WebResourceGenerator) throws S8FlowException</span></dd>
+  <dt>refresh()</dt><dd>Push the current front delta to the browser. Call after mutating outbound fields. Inbound lambdas call it for you. <span class="sig">void refresh() throws S8FlowException</span></dd>
+</dl>
+<h2 id="example">Example</h2>
+<div class="codebox">
+  <div class="codebox-bar">
+    <span class="filename">boot.java</span>
+    <button class="copy" type="button" data-copy>Copy</button>
+  </div>
+  <pre data-lang="java"><code class="lang-java">@Override
+public void boot(S8SyncFlow flow) throws Exception {
+  flow.setMe(currentUser);
+  HomeScreen screen = new HomeScreen(flow.front());
+  screen.vertex.expose(0);
+  flow.refresh();
+}
+</code></pre>
+</div>
+<div class="intent"><strong>Intent</strong> If a feature of the stack exists, it is reached from the flow — not from a second client library.</div>
+        </article>
+        <nav class="toc" data-toc></nav>
+      </div>
+    </div>
+  </div>
+  <div id="site-footer"></div>
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>

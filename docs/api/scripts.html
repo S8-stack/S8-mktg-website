@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scripts — S8 Docs</title>
+  <meta name="description" content="S8Script and S8ScriptRunner — devops against a live flow.">
+  <link rel="canonical" href="https://stack8.tech/docs/api/scripts.html">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Open+Sans:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <div class="docs-shell">
+    <aside class="docs-nav" data-docs-nav></aside>
+    <div class="docs-main" id="content">
+      <div class="docs-wide">
+        <article>
+<p class="crumb"><a href="/docs/">Docs</a> / <a href="/docs/api/">API</a> / Scripts</p>
+<h1 class="plain">Scripts</h1>
+<div class="badge-row"><span class="badge badge-api">com.s8.meta.api.script</span></div>
+<p>Scripts are for devops: correct a database entry by hand, seed a service with presets, run a one-shot migration. They receive the same <code>S8SyncFlow</code> as a web request, without a front.</p>
+<h2 id="types">Types</h2>
+<dl class="deflist">
+  <dt>S8Script.run(flow)</dt><dd><span class="sig">void run(S8SyncFlow flow) throws S8FlowException</span></dd>
+  <dt>S8ScriptRunner.run(user, script)</dt><dd>Execute as a given user.</dd>
+  <dt>S8ScriptRunnerFactory.createScriptRunner(configPathname, bootLayerOrigin)</dt><dd>Loaded as <code>S8.SCRIPT_RUNNER_FACTORY</code>.</dd>
+</dl>
+<h2 id="example">Example</h2>
+<div class="codebox">
+  <div class="codebox-bar">
+    <span class="filename">seed.java</span>
+    <button class="copy" type="button" data-copy>Copy</button>
+  </div>
+  <pre data-lang="java"><code class="lang-java">S8ScriptRunner runner = S8.SCRIPT_RUNNER_FACTORY.createScriptRunner(
+    "/path/to/config.xml", LaunchServer.class);
+runner.run(adminUser, flow -> {
+  flow.tables().getRow("users", "u-1");
+});
+</code></pre>
+</div>
+<div class="intent"><strong>Intent</strong> Prefer a script over a throwaway SQL console. The types, annotations, and access control are the same as production.</div>
+        </article>
+        <nav class="toc" data-toc></nav>
+      </div>
+    </div>
+  </div>
+  <div id="site-footer"></div>
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>

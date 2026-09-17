@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>S8 Security — stack8.tech</title>
+  <meta name="description" content="How to report a vulnerability in the S8 stack.">
+  <link rel="canonical" href="https://stack8.tech/security/">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Open+Sans:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <main id="content">
+    <div class="page-hero">
+      <div class="wrap">
+        <h1>Security</h1>
+        <p>Zero dependencies is a security posture, not a slogan. Still, software has bugs. Tell us.</p>
+      </div>
+    </div>
+    <article class="wrap prose">
+      <h2>Reporting a vulnerability</h2>
+      <p>Please do not open a public issue for a suspected vulnerability. Email <a href="mailto:contact@alphaventor.com">contact@alphaventor.com</a> with steps to reproduce, affected modules, and impact. We will acknowledge the report and work a fix before any disclosure.</p>
+      <h2>What we already take off the table</h2>
+      <ul>
+        <li>No nested third-party module graph under the core stack.</li>
+        <li>HTTP/2 and TLS in the default server path, with a restrictive inner policy.</li>
+        <li>Flows are short-lived. Do not cache them; the runtime will not either.</li>
+      </ul>
+    </article>
+  </main>
+  <div id="site-footer"></div>
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>

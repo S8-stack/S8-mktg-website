@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>S8StackBuilder — S8 Docs</title>
+  <meta name="description" content="Walk the module DAG and compile with FORCE_REBUILD or LAZY_BUILD.">
+  <link rel="canonical" href="https://stack8.tech/docs/build/s8-stack-builder.html">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Open+Sans:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <div class="docs-shell">
+    <aside class="docs-nav" data-docs-nav></aside>
+    <div class="docs-main" id="content">
+      <div class="docs-wide">
+        <article>
+<p class="crumb"><a href="/docs/">Docs</a> / <a href="/docs/build/">Build</a> / S8StackBuilder</p>
+<h1>S8StackBuilder</h1>
+<div class="badge-row"><span class="badge badge-api">com.s8.meta.build.S8StackBuilder</span></div>
+<p>Top-level builder. You pass a context and one or more required target names. It queues those modules plus their dependencies and builds until the graph is stable (or 8192 steps, which is treated as a circular-dependency error).</p>
+<h2 id="constructor">Constructor</h2>
+<dl class="deflist">
+  <dt>S8StackBuilder(context, requiredTargetNames…)</dt>
+  <dd><span class="sig">S8StackBuilder(S8BuildContext context, String... requiredTargetNames)</span></dd>
+  <dt>build()</dt>
+  <dd>Run the queue. <span class="sig">void build() throws IOException, S8CmdException, S8BuildException</span></dd>
+</dl>
+<h2 id="policy">BuildPolicy</h2>
+<ul>
+  <li><code>FORCE_REBUILD</code> — build if the module has DEV sources and has not been built in this run.</li>
+  <li><code>LAZY_BUILD</code> — build only if the prod classes folder is missing.</li>
+</ul>
+<p>A module is buildable when every dependency the policy requires is already built (or already has prod classes — binary-only deps are allowed).</p>
+<h2 id="example">Example</h2>
+<div class="codebox">
+  <div class="codebox-bar">
+    <span class="filename">BuildAll.java</span>
+    <button class="copy" type="button" data-copy>Copy</button>
+  </div>
+  <pre data-lang="java"><code class="lang-java">S8BuildContext context = new S8BuildContext(BuildPolicy.FORCE_REBUILD);
+new S8StackBuilder(context, "S8-pkgs-ui-aloe").build();
+</code></pre>
+</div>
+<p><code>BashGenerator</code> can then write <code>PROD/TARGET/TARGET_exec.sh</code>:</p>
+<pre><code>java --module-path "$MODULE_PATH" --module "$MAIN_MODULE/$MAIN_CLASS" "$1"</code></pre>
+        </article>
+        <nav class="toc" data-toc></nav>
+      </div>
+    </div>
+  </div>
+  <div id="site-footer"></div>
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>

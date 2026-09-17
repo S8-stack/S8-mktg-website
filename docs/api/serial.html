@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Serial and bytes — S8 Docs</title>
+  <meta name="description" content="S8Serializable, S8SerialPrototype, ByteInflow / ByteOutflow — the binary protocol.">
+  <link rel="canonical" href="https://stack8.tech/docs/api/serial.html">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Open+Sans:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <div class="docs-shell">
+    <aside class="docs-nav" data-docs-nav></aside>
+    <div class="docs-main" id="content">
+      <div class="docs-wide">
+        <article>
+<p class="crumb"><a href="/docs/">Docs</a> / <a href="/docs/api/">API</a> / Serial</p>
+<h1 class="plain">Serial &amp; bytes</h1>
+<div class="badge-row">
+  <span class="badge badge-api">com.s8.meta.api.serial</span>
+  <span class="badge">com.s8.meta.api.bytes</span>
+</div>
+<p>Vertices publish through a typed binary protocol. You implement <code>S8Serializable</code> when you have a value object that must cross the wire with a known prototype.</p>
+<h2 id="serializable">S8Serializable</h2>
+<dl class="deflist">
+  <dt>serialize(outflow)</dt><dd>Write this value.</dd>
+  <dt>getSerialPrototype()</dt><dd>The prototype that can read it back.</dd>
+  <dt>bytecount()</dt><dd>Encoded size.</dd>
+  <dt>deepClone()</dt><dd>Structural clone.</dd>
+</dl>
+<h2 id="prototype">S8SerialPrototype</h2>
+<p><code>deserialize(inflow, bytecount)</code>, <code>hasDelta</code>, <code>getSerialType()</code>, <code>getFrontType()</code>. Prototypes are how polymorphic values pick a factory.</p>
+<h2 id="bytes">ByteInflow / ByteOutflow</h2>
+<p>Typed binary codec: UInt7x, Bool8 codes, arrays and strings length-prefixed with UInt32, and so on. <code>Bool64</code> exposes bit constants <code>BIT00…</code> used as request flags. <code>MemoryFootprint</code> accounts instance/ref/entry/byte cost.</p>
+<div class="intent"><strong>Intent</strong> You rarely call the codec directly. You feel it as compact deltas on the front and as versionable object graphs in repositories.</div>
+        </article>
+        <nav class="toc" data-toc></nav>
+      </div>
+    </div>
+  </div>
+  <div id="site-footer"></div>
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>

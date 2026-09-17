@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>S8 API overview — S8 Docs</title>
+  <meta name="description" content="Map of the S8 public API in com.s8.meta.api.">
+  <link rel="canonical" href="https://stack8.tech/docs/api/">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Open+Sans:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <div class="docs-shell">
+    <aside class="docs-nav" data-docs-nav></aside>
+    <div class="docs-main" id="content">
+      <div class="docs-wide">
+        <article>
+<p class="crumb"><a href="/docs/">Docs</a> / API</p>
+<h1 class="plain">API overview</h1>
+<div class="badge-row">
+  <span class="badge badge-api">com.s8.meta.api</span>
+  <span class="badge">module S8-meta-API</span>
+</div>
+<p>All application code talks to S8 through <code>com.s8.meta.api</code>. It is an API-only module: interfaces, annotations, and request types. Implementations arrive via <code>ServiceLoader</code>.</p>
+<div class="note">
+  <strong>Current names</strong>
+  Live sources use <code>S8SyncFlow</code>, <code>S8.WEB_SERVER_FACTORY</code>, and <code>com.s8.meta.api.front</code>. Older comments may still say <code>S8AsyncFlow</code> or <code>S8.FACTORY</code>. Prefer the signatures on these pages.
+</div>
+<h2 id="packages">Packages</h2>
+<dl class="deflist">
+  <dt><a href="/docs/api/s8.html">com.s8.meta.api</a></dt>
+  <dd>Façade <code>S8</code> holding the SPI factories.</dd>
+  <dt><a href="/docs/api/server.html">com.s8.meta.api.server</a></dt>
+  <dd>Web server factory, server, boot method, parameters.</dd>
+  <dt><a href="/docs/api/s8-sync-flow.html">com.s8.meta.api.flow</a></dt>
+  <dd>The orchestration flow, user, exceptions.</dd>
+  <dt><a href="/docs/api/front.html">com.s8.meta.api.front</a></dt>
+  <dd>Remote UI graph: session, objects, vertices, inbound/outbound.</dd>
+  <dt><a href="/docs/api/tables.html">com.s8.meta.api.flow.table</a></dt>
+  <dd>Flash key/value tables of <code>RowS8Object</code>.</dd>
+  <dt><a href="/docs/api/spaces.html">com.s8.meta.api.flow.space</a></dt>
+  <dd>Object-graph spaces.</dd>
+  <dt><a href="/docs/api/repositories.html">com.s8.meta.api.flow.repository</a></dt>
+  <dd>Git-like object repositories.</dd>
+  <dt><a href="/docs/api/mail.html">com.s8.meta.api.flow.mail</a></dt>
+  <dd>Outbound mail through the flow.</dd>
+  <dt><a href="/docs/api/annotations.html">com.s8.meta.api.annotations</a></dt>
+  <dd><code>@S8ObjectType</code>, <code>@S8Field</code>, <code>@S8Method</code>, <code>@S8RowType</code>.</dd>
+  <dt><a href="/docs/api/serial.html">serial / bytes</a></dt>
+  <dd>Binary protocol, prototypes, typed inflows/outflows.</dd>
+  <dt><a href="/docs/api/scripts.html">com.s8.meta.api.script</a></dt>
+  <dd>Dev-ops scripts against a live flow.</dd>
+</dl>
+<h2 id="typical-flow">Typical call shape</h2>
+<div class="codebox">
+  <div class="codebox-bar">
+    <span class="filename">shape.txt</span>
+    <button class="copy" type="button" data-copy>Copy</button>
+  </div>
+  <pre data-lang="java"><code class="lang-java">// boot
+S8.WEB_SERVER_FACTORY.createWebServer(config, BootClass, params ->
+    params.addBootMethod("/", flow -> { /* live S8SyncFlow */ }));
+
+// inside boot / inbound handler
+flow.front();
+flow.tables();
+flow.spaces();
+flow.repositories();
+flow.refresh();
+</code></pre>
+</div>
+<p>See <a href="/learn/">Your first app</a> for a walkthrough.</p>
+        </article>
+        <nav class="toc" data-toc></nav>
+      </div>
+    </div>
+  </div>
+  <div id="site-footer"></div>
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>

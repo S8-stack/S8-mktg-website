@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TablesDB — S8 Docs</title>
+  <meta name="description" content="Flash persistency: create a table, put a row, get a row, select rows.">
+  <link rel="canonical" href="https://stack8.tech/docs/api/tables.html">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Open+Sans:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <div class="docs-shell">
+    <aside class="docs-nav" data-docs-nav></aside>
+    <div class="docs-main" id="content">
+      <div class="docs-wide">
+        <article>
+<p class="crumb"><a href="/docs/">Docs</a> / <a href="/docs/api/">API</a> / TablesDB</p>
+<h1>TablesDB</h1>
+<div class="badge-row"><span class="badge badge-api">com.s8.meta.api.flow.table</span></div>
+<p>Flash persistency. Tables hold <code>RowS8Object</code> rows addressed by a string key. Table ids match <code>[a-zA-Z0-9\-_]+</code>.</p>
+<h2 id="methods">Instance methods</h2>
+<dl class="deflist">
+  <dt>createTable(request)</dt><dd><span class="sig">CreateTableS8Response createTable(CreateTableS8Request)</span></dd>
+  <dt>getRow(request)</dt><dd><span class="sig">GetRowS8Response getRow(GetRowS8Request)</span></dd>
+  <dt>getRow(tableId, rowKey)</dt><dd>Convenience. <span class="sig">default GetRowS8Response getRow(String, String)</span></dd>
+  <dt>putRow(request)</dt><dd><span class="sig">PutRowS8Response putRow(PutRowS8Request)</span></dd>
+  <dt>selectRows(request)</dt><dd>Filter with <code>S8Filter&lt;T&gt;</code>. <span class="sig">&lt;T extends RowS8Object&gt; SelectRowsS8Response&lt;T&gt; selectRows(SelectRowsS8Request&lt;T&gt;)</span></dd>
+</dl>
+<h2 id="row">RowS8Object</h2>
+<p>Abstract row. Final <code>S8_key</code>. Annotate the class with <code>@S8RowType(name=…)</code>. Row type names are a storage contract: evolve by introducing a new type and migrating, not by silently reshaping the old one.</p>
+<h2 id="example">Example</h2>
+<div class="codebox">
+  <div class="codebox-bar">
+    <span class="filename">users.java</span>
+    <button class="copy" type="button" data-copy>Copy</button>
+  </div>
+  <pre data-lang="java"><code class="lang-java">@S8RowType(name = "user-v1")
+public class UserRow extends RowS8Object {
+  public String email;
+  public UserRow(String id) { super(id); }
+}
+
+TablesDB db = flow.tables();
+db.createTable(new CreateTableS8Request("users", true));
+UserRow row = new UserRow("u-42");
+row.email = "ada@stack8.tech";
+db.putRow(new PutRowS8Request("users", row, true, true));
+GetRowS8Response got = db.getRow("users", "u-42");
+if (got.status == GetRowS8Response.Status.OK) {
+  UserRow u = (UserRow) got.record;
+}
+</code></pre>
+</div>
+<div class="intent"><strong>Intent</strong> Use tables when you want key/value speed with typed Java objects and optional in-process filters — not when you need a versioned graph (that is spaces / repositories).</div>
+        </article>
+        <nav class="toc" data-toc></nav>
+      </div>
+    </div>
+  </div>
+  <div id="site-footer"></div>
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>

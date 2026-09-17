@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Module system — S8 Docs</title>
+  <meta name="description" content="S8-meta-env: sibling modules under a stack root, DEV vs PROD overlay.">
+  <link rel="canonical" href="https://stack8.tech/docs/modules/">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Open+Sans:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <div class="docs-shell">
+    <aside class="docs-nav" data-docs-nav></aside>
+    <div class="docs-main" id="content">
+      <div class="docs-wide">
+        <article>
+<p class="crumb"><a href="/docs/">Docs</a> / Modules</p>
+<h1 class="plain">Module system</h1>
+<div class="badge-row"><span class="badge badge-api">S8-meta-env</span></div>
+<p>S8 modules do not nest. They are siblings under a stack root. The overlay is which root you are standing on: a git checkout (DEV) or a built tree of jars (PROD).</p>
+<h2 id="layout">Layout</h2>
+<p>Typical checkout at <code>{dev.stack}/{target}/</code>:</p>
+<table class="params">
+  <thead><tr><th>Path</th><th>Role</th></tr></thead>
+  <tbody>
+    <tr><td><code>sources/</code></td><td>Java sources and <code>module-info.java</code></td></tr>
+    <tr><td><code>build.properties</code></td><td>Identity and dependencies</td></tr>
+    <tr><td><code>web-sources/</code></td><td>Front JS/CSS (optional)</td></tr>
+    <tr><td><code>static-assets/</code></td><td>Static/service assets (optional)</td></tr>
+    <tr><td><code>demos/</code>, <code>tools/</code>, <code>dev-ops/</code></td><td>Extra Java folded in at compile</td></tr>
+    <tr><td><code>guidelines/</code></td><td>Copied to prod when present</td></tr>
+    <tr><td><code>forge/</code></td><td>Build scratch, cleaned each build</td></tr>
+  </tbody>
+</table>
+<h2 id="wiring">Required wiring</h2>
+<ol>
+  <li>A root class with <code>public static final S8Module MODULE</code>.</li>
+  <li><code>module-info.java</code> annotated <code>@S8ModuleDescriptor(def = RootClass.class)</code>.</li>
+  <li><a href="/docs/build/properties.html"><code>build.properties</code></a>.</li>
+</ol>
+<p>Runtime resolution: <code>S8Module.getMode()</code> looks at whether the code source path sits under the prod root or the dev root. Web sources resolve to <code>web-sources</code> in DEV and <code>web-classes</code> in PROD.</p>
+<p>Continue with <a href="/docs/modules/s8-module.html">S8Module</a> and <a href="/docs/modules/s8-env.html">S8Env</a>.</p>
+        </article>
+        <nav class="toc" data-toc></nav>
+      </div>
+    </div>
+  </div>
+  <div id="site-footer"></div>
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>

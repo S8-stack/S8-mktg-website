@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Build system — S8 Docs</title>
+  <meta name="description" content="S8-meta-build compiles the DAG of modules into the prod stack.">
+  <link rel="canonical" href="https://stack8.tech/docs/build/">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Open+Sans:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <div class="docs-shell">
+    <aside class="docs-nav" data-docs-nav></aside>
+    <div class="docs-main" id="content">
+      <div class="docs-wide">
+        <article>
+<p class="crumb"><a href="/docs/">Docs</a> / Build</p>
+<h1 class="plain">Build system</h1>
+<div class="badge-row"><span class="badge badge-api">S8-meta-build</span></div>
+<p>Developers work under <code>dev.stack</code>. <code>S8StackBuilder</code> walks the dependency DAG, compiles each module with <code>javac --module-path</code> against already-built jars on <code>prod.stack</code>, packages <code>{target}.jar</code>, and mirrors web/static assets into prod.</p>
+<h2 id="pipeline">Per-module pipeline</h2>
+<ol>
+  <li>Working dir = <code>{dev}/{target}</code>.</li>
+  <li>Clean <code>forge/</code>; create <code>forge/java</code>, <code>forge/classes</code>.</li>
+  <li>Copy <code>sources</code> (and optional <code>demos</code>, <code>tools</code>, <code>dev-ops</code>) into <code>forge/java/{module.java}/</code>.</li>
+  <li>Compile: <code>javac --module-path {prod jars of deps} -d forge/classes --module-source-path forge/java --module {module.java}</code>.</li>
+  <li>Write <code>MANIFEST.MF</code> (<code>Build-Mode: prod</code>, optional <code>Main-Class</code>, <code>Class-Path</code>).</li>
+  <li>Jar into <code>{prod}/{target}/classes/{target}.jar</code>.</li>
+  <li>Copy <code>build.properties</code>, <code>sources/</code>, optional <code>guidelines/</code>, <code>web-sources/</code> → <code>web-classes/</code>, <code>static-assets/</code>.</li>
+</ol>
+<p>See <a href="/docs/build/properties.html">build.properties</a> and <a href="/docs/build/s8-stack-builder.html">S8StackBuilder</a>.</p>
+        </article>
+        <nav class="toc" data-toc></nav>
+      </div>
+    </div>
+  </div>
+  <div id="site-footer"></div>
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>

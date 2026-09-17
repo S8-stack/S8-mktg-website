@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Annotations — S8 Docs</title>
+  <meta name="description" content="S8ObjectType, S8Field, S8Method, S8RowType, S8Serial — how types are declared to the stack.">
+  <link rel="canonical" href="https://stack8.tech/docs/api/annotations.html">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Open+Sans:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <div class="docs-shell">
+    <aside class="docs-nav" data-docs-nav></aside>
+    <div class="docs-main" id="content">
+      <div class="docs-wide">
+        <article>
+<p class="crumb"><a href="/docs/">Docs</a> / <a href="/docs/api/">API</a> / Annotations</p>
+<h1 class="plain">Annotations</h1>
+<div class="badge-row"><span class="badge badge-api">com.s8.meta.api.annotations</span></div>
+<p>S8 discovers structure from annotations on your types. This is the persistency and front contract.</p>
+<h2 id="catalog">Catalog</h2>
+<table class="params">
+  <thead><tr><th>Annotation</th><th>Target</th><th>Members</th></tr></thead>
+  <tbody>
+    <tr><td><code>@S8ObjectType</code></td><td>TYPE</td><td><code>name()</code>, <code>sub()</code></td></tr>
+    <tr><td><code>@S8Field</code></td><td>FIELD</td><td><code>name()</code>, <code>export()</code></td></tr>
+    <tr><td><code>@S8Getter</code> / <code>@S8Setter</code></td><td>METHOD / FIELD</td><td><code>name()</code> (getter also <code>export</code>)</td></tr>
+    <tr><td><code>@S8Method</code></td><td>METHOD</td><td><code>name()</code>, <code>flow()</code>, <code>props()</code>, <code>mask()</code></td></tr>
+    <tr><td><code>@S8Param</code></td><td>PARAMETER</td><td><code>name()</code>, <code>flow()</code>, <code>props()</code>, <code>mask()</code></td></tr>
+    <tr><td><code>@S8RowType</code></td><td>TYPE</td><td><code>name()</code> — fixed storage; evolve via a new type</td></tr>
+    <tr><td><code>@S8Serial</code></td><td>FIELD</td><td>marker</td></tr>
+    <tr><td><code>@S8SerialType</code></td><td>TYPE</td><td><code>name()</code>, <code>sub()</code></td></tr>
+  </tbody>
+</table>
+<div class="intent"><strong>Intent</strong> The name you put in the annotation is the wire name. Keep it stable. Rename Java identifiers freely; do not rename wire names without a migration.</div>
+        </article>
+        <nav class="toc" data-toc></nav>
+      </div>
+    </div>
+  </div>
+  <div id="site-footer"></div>
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>

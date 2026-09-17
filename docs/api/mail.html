@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mail — S8 Docs</title>
+  <meta name="description" content="Send HTML mail from an S8SyncFlow through MailManager and S8MailComposer.">
+  <link rel="canonical" href="https://stack8.tech/docs/api/mail.html">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Open+Sans:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <div class="docs-shell">
+    <aside class="docs-nav" data-docs-nav></aside>
+    <div class="docs-main" id="content">
+      <div class="docs-wide">
+        <article>
+<p class="crumb"><a href="/docs/">Docs</a> / <a href="/docs/api/">API</a> / Mail</p>
+<h1 class="plain">Mail</h1>
+<div class="badge-row"><span class="badge badge-api">com.s8.meta.api.flow.mail</span></div>
+<p>Outbound mail is a flow feature, not a sidecar SMTP client you wire yourself.</p>
+<h2 id="manager">MailManager</h2>
+<dl class="deflist">
+  <dt>sendMail(request)</dt>
+  <dd><span class="sig">SendMailS8Response sendMail(SendMailS8Request)</span></dd>
+</dl>
+<p><code>SendMailS8Request</code> takes <code>(boolean isOutOfFlow, S8MailComposing)</code>. The composing lambda receives an <code>S8MailComposer</code> with fluent HTML helpers: <code>setDisplayedSender</code>, <code>setRecipient</code>, <code>setSubject</code>, <code>html_appendBaseElement</code>.</p>
+<h2 id="example">Example</h2>
+<div class="codebox">
+  <div class="codebox-bar">
+    <span class="filename">mail.java</span>
+    <button class="copy" type="button" data-copy>Copy</button>
+  </div>
+  <pre data-lang="java"><code class="lang-java">flow.mail().sendMail(new SendMailS8Request(false, composer -> {
+  composer.setDisplayedSender("App")
+      .setRecipient("user@example.com")
+      .setSubject("Welcome")
+      .html_appendBaseElement("p", null, null, "Hello from S8");
+}));
+</code></pre>
+</div>
+        </article>
+        <nav class="toc" data-toc></nav>
+      </div>
+    </div>
+  </div>
+  <div id="site-footer"></div>
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>

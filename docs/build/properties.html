@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>build.properties — S8 Docs</title>
+  <meta name="description" content="Keys parsed by S8ModuleBuildProps: module.java, dependencies, main, author, module.web.">
+  <link rel="canonical" href="https://stack8.tech/docs/build/properties.html">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Open+Sans:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <div class="docs-shell">
+    <aside class="docs-nav" data-docs-nav></aside>
+    <div class="docs-main" id="content">
+      <div class="docs-wide">
+        <article>
+<p class="crumb"><a href="/docs/">Docs</a> / <a href="/docs/build/">Build</a> / build.properties</p>
+<h1>build.properties</h1>
+<div class="badge-row"><span class="badge badge-api">S8ModuleBuildProps</span></div>
+<p>Parsed by <code>S8ModuleBuildProps.load(S8Mode mode, String targetName)</code>. The file lives at <code>STACK/TARGET/build.properties</code>.</p>
+<h2 id="keys">Keys</h2>
+<table class="params">
+  <thead><tr><th>Key</th><th>Required</th><th>Meaning</th></tr></thead>
+  <tbody>
+    <tr><td><code>module.java</code></td><td>yes</td><td>JPMS name (<code>com.s8....</code>). Used as <code>--module</code>.</td></tr>
+    <tr><td><code>dependencies</code></td><td>no</td><td>Comma-separated <strong>target folder names</strong> (e.g. <code>S8-meta-env</code>), not Java names. Split on <code> *, *</code>.</td></tr>
+    <tr><td><code>module.web</code></td><td>no</td><td>Web/logical name. Defaults to the target name.</td></tr>
+    <tr><td><code>main</code></td><td>no</td><td>Fully qualified main class → <code>Main-Class</code> and bash launcher.</td></tr>
+    <tr><td><code>author</code></td><td>no</td><td><code>Created-By</code> in the manifest.</td></tr>
+    <tr><td><code>target</code></td><td>convention</td><td><strong>Not read by the loader.</strong> Target is the directory name passed to <code>load()</code>.</td></tr>
+  </tbody>
+</table>
+<div class="warn"><strong>Trap</strong> Many files comment “dependencies (by JAVA name)”. The values are target folder names. Aloe’s comment is the correct one.</div>
+<h2 id="examples">Examples</h2>
+<h3>Leaf</h3>
+<div class="codebox">
+  <div class="codebox-bar">
+    <span class="filename">S8-meta-env/build.properties</span>
+    <button class="copy" type="button" data-copy>Copy</button>
+  </div>
+  <pre data-lang="properties"><code class="lang-properties">module.java = com.s8.meta.env
+#dependencies = <none>
+target = S8-meta-env
+</code></pre>
+</div>
+<h3>Typical IO module</h3>
+<div class="codebox">
+  <div class="codebox-bar">
+    <span class="filename">S8-base-io-JSON/build.properties</span>
+    <button class="copy" type="button" data-copy>Copy</button>
+  </div>
+  <pre data-lang="properties"><code class="lang-properties">module.java = com.s8.base.io.json
+dependencies = \
+  S8-meta-env, \
+  S8-meta-API
+target = S8-base-io-JSON
+</code></pre>
+</div>
+<h3>App with a main</h3>
+<div class="codebox">
+  <div class="codebox-bar">
+    <span class="filename">S8-pkgs-ui-aloe/build.properties</span>
+    <button class="copy" type="button" data-copy>Copy</button>
+  </div>
+  <pre data-lang="properties"><code class="lang-properties">module.java = com.s8.pkgs.ui.aloe
+dependencies = \
+  S8-meta-env, S8-meta-API, \
+  S8-pkgs-ui-carbide, S8-pkgs-io-SVG
+target = S8-pkgs-ui-aloe
+main = com.s8.pkgs.ui.aloe.LaunchServer
+</code></pre>
+</div>
+        </article>
+        <nav class="toc" data-toc></nav>
+      </div>
+    </div>
+  </div>
+  <div id="site-footer"></div>
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>

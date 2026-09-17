@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What is S8 — S8 Docs</title>
+  <meta name="description" content="S8 is a unified JAVA stack: server, front, databases, and orchestration already assembled.">
+  <link rel="canonical" href="https://stack8.tech/docs/">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Open+Sans:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <div class="docs-shell">
+    <aside class="docs-nav" data-docs-nav></aside>
+    <div class="docs-main" id="content">
+      <div class="docs-wide">
+        <article>
+<p class="crumb"><a href="/docs/">Docs</a></p>
+<h1 class="plain">What is S8</h1>
+<div class="badge-row">
+  <span class="badge badge-api">S8 stack</span>
+  <span class="badge">v0.8</span>
+  <span class="badge">JAVA</span>
+</div>
+<p>S8 (Stack8) is a unified JAVA stack. The web server, the front, the databases, and the orchestration are already supplied and tightly assembled. You do not pick a servlet container, then a front framework, then a database product, then an integration layer. You write against one API.</p>
+<p>The stack abstracts the low-level webapp machinery: HTTP/2 and TLS, request mapping, the thread model, databases, and the front/back API.</p>
+<div class="intent">
+  <strong>Mission</strong>
+  Collapse the distance between an idea and a running product. S8 exists so a small team can ship rich SaaS in one language and one process — Spring Boot, four steps ahead.
+</div>
+<h2 id="how-to-read">How to read these docs</h2>
+<p>These pages are written for humans <em>and</em> for AI coding agents. Signatures, intents, and stub examples sit next to each other on purpose. Agents should start at <a href="/llms.txt"><code>/llms.txt</code></a>.</p>
+<h2 id="three-modules">Three modules describe the whole stack</h2>
+<ul>
+  <li><a href="/docs/api/"><strong>S8-meta-API</strong></a> — everything you need to code against S8.</li>
+  <li><a href="/docs/modules/"><strong>S8-meta-env</strong></a> — the module overlay (DEV vs PROD, <code>MODULE</code>, web sources).</li>
+  <li><a href="/docs/build/"><strong>S8-meta-build</strong></a> — how <code>build.properties</code> and <code>S8StackBuilder</code> compile the stack.</li>
+</ul>
+<h2 id="runtime-shape">Runtime shape</h2>
+<p>A typical process boots an <code>S8WebServer</code>, registers an <code>S8BootMethod</code> on <code>/</code>, and from then on every request is a fresh <a href="/docs/api/s8-sync-flow.html"><code>S8SyncFlow</code></a> running on a virtual thread. The flow is the gateway: <code>front()</code>, <code>tables()</code>, <code>spaces()</code>, <code>repositories()</code>, <code>mail()</code>, <code>delegate()</code>, <code>refresh()</code>.</p>
+        </article>
+        <nav class="toc" data-toc></nav>
+      </div>
+    </div>
+  </div>
+  <div id="site-footer"></div>
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>

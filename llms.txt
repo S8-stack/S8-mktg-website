@@ -1,0 +1,177 @@
+# S8
+
+> The unified JAVA stack. Server, front, databases, and orchestration — already assembled.
+
+S8 (Stack8) is a unified JAVA runtime and application stack. It abstracts the web server (HTTP/2, TLS), request mapping, the thread model, databases, and the front/back API so a small team can ship rich SaaS in one language and one process.
+
+Site: https://stack8.tech
+Docs: https://stack8.tech/docs/
+This file: https://stack8.tech/llms.txt
+
+If you are an AI coding agent, treat this file as canonical orientation, then follow the linked docs for signatures.
+
+## Mission
+
+Collapse the distance between an idea and a running product. S8 exists so you can ship rich SaaS in one language and one process — Spring Boot, four steps ahead.
+
+## Current names (do not use stale ones)
+
+- Module: `com.s8.meta.api` (not `com.s8.api`)
+- Flow: `S8SyncFlow` (not `S8AsyncFlow`)
+- Entry: `S8.WEB_SERVER_FACTORY` and `S8.SCRIPT_RUNNER_FACTORY` (not `S8.FACTORY`)
+- Front package: `com.s8.meta.api.front` (not `…web`)
+- Flows run on virtual threads. Write straight-line Java. Do not cache a flow.
+
+## How an app is structured
+
+```
+main
+  └─ S8.WEB_SERVER_FACTORY.createWebServer(configXml, BootClass, params ->
+         params.addBootMethod(S8BootMethod.MAIN_BOOT_PAGE, flow -> { ... }))
+  └─ server.start()
+
+boot(S8SyncFlow flow)          // virtual thread; live for this request only
+  ├─ S8FrontSession front = flow.front()
+  ├─ build S8FrontObject graph; outbound fields; inbound methods
+  ├─ vertex.expose(0)
+  ├─ flow.tables() / spaces() / repositories() / mail() / delegate()
+  └─ flow.refresh()
+```
+
+## Hello server
+
+```java
+import com.s8.meta.api.S8;
+import com.s8.meta.api.server.S8BootMethod;
+import com.s8.meta.api.server.S8WebServer;
+
+public class LaunchServer {
+  public static void main(String[] args) throws Exception {
+    S8WebServer server = S8.WEB_SERVER_FACTORY.createWebServer(
+        "/path/to/app-config.xml",
+        LaunchServer.class,
+        params -> params.addBootMethod(
+            S8BootMethod.MAIN_BOOT_PAGE, AppBoot.INSTANCE));
+    server.start();
+  }
+}
+```
+
+## Hello front
+
+```java
+public final class AppBoot implements S8BootMethod {
+  static final AppBoot INSTANCE = new AppBoot();
+  @Override
+  public void boot(S8SyncFlow flow) throws Exception {
+    HomeScreen screen = new HomeScreen(flow.front());
+    screen.setTitle("Hello S8");
+    screen.vertex.expose(0);
+    flow.refresh();
+  }
+}
+
+@S8ObjectType(name = "app.HomeScreen")
+class HomeScreen extends S8FrontObject {
+  HomeScreen(S8FrontSession front) {
+    super(front, "app.HomeScreen");
+  }
+  void setTitle(String title) {
+    vertex.outbound().setStringUTF8Field("title", title);
+  }
+}
+```
+
+Inbound functions receive `(S8SyncFlow flow, …)` and you call `flow.refresh()`.
+Inbound lambdas receive only the argument; the wrapper refreshes for you.
+
+## S8SyncFlow
+
+Interface `com.s8.meta.api.flow.S8SyncFlow`. Short-lived. Virtual-threaded.
+
+Constants: `CREATE_SPACE_IF_NOT_PRESENT`, `SAVE_IMMEDIATELY_AFTER`, `SHOULD_NOT_OVERRIDE`, `HEAD_VERSION = -0x62L`.
+
+Methods:
+- `S8User getMe()` / `void setMe(S8User)` / `String getMySpaceId()`
+- `S8FrontSession front()`
+- `TablesDB tables()`
+- `SpacesDB spaces()`
+- `RepositoriesDB repositories()`
+- `MailManager mail()`
+- `DelegatedRunner delegate()`
+- `void sendResponse(SendExtResponseS8Request)`
+- `void deliver(int load, S8WebResourceGenerator)`
+- `void refresh()`
+
+## Persistence
+
+Tables (`TablesDB`): flash key/value of `RowS8Object`, annotated `@S8RowType`. `createTable`, `getRow`, `putRow`, `selectRows`.
+
+Spaces (`SpacesDB`): object-graph shells. `createSpace`, `exposeSpace`, `accessSpace`. Nodes extend `SpaceS8Object`.
+
+Repositories (`RepositoriesDB`): git-like object repos. `createRepository`, `fork*`, `commitBranch`, `cloneBranch` (often at `HEAD_VERSION`). Nodes extend `RepoS8Object`.
+
+## Annotations
+
+`@S8ObjectType(name, sub)` `@S8Field(name, export)` `@S8Getter` `@S8Setter` `@S8Method` `@S8Param` `@S8RowType(name)` `@S8Serial` `@S8SerialType`.
+
+Wire names are the contract. Do not rename them without a migration.
+
+## Modules (S8-meta-env)
+
+Sibling folders under a stack root. Machine config `/etc/s8-conf.properties`:
+
+```
+JAVA_HOME = …
+dev.stack = /path/to/git
+prod.stack = /path/to/stack
+```
+
+Each module: `public static final S8Module MODULE`, `@S8ModuleDescriptor` on `module-info.java`, `build.properties`.
+
+`S8Mode`: DEV (sources) vs PROD (jars). Web sources: `web-sources` in DEV, `web-classes` in PROD.
+
+## Build (S8-meta-build)
+
+`build.properties` keys:
+- `module.java` (required) — JPMS name
+- `dependencies` — comma-separated **target folder names**, not Java names
+- `module.web`, `main`, `author` optional
+- `target=` is documentation; the loader uses the directory name
+
+```java
+S8BuildContext context = new S8BuildContext(BuildPolicy.FORCE_REBUILD);
+new S8StackBuilder(context, "S8-pkgs-ui-aloe").build();
+```
+
+Pipeline: forge copy → `javac --module-path` → jar into `prod/TARGET/classes/TARGET.jar` → copy web/static assets.
+
+Policies: `FORCE_REBUILD`, `LAZY_BUILD`. Circular graphs fail after 8192 steps.
+
+## Doc index
+
+- https://stack8.tech/docs/
+- https://stack8.tech/docs/api/
+- https://stack8.tech/docs/api/s8.html
+- https://stack8.tech/docs/api/s8-sync-flow.html
+- https://stack8.tech/docs/api/server.html
+- https://stack8.tech/docs/api/front.html
+- https://stack8.tech/docs/api/tables.html
+- https://stack8.tech/docs/api/spaces.html
+- https://stack8.tech/docs/api/repositories.html
+- https://stack8.tech/docs/api/mail.html
+- https://stack8.tech/docs/api/annotations.html
+- https://stack8.tech/docs/api/serial.html
+- https://stack8.tech/docs/api/scripts.html
+- https://stack8.tech/docs/modules/
+- https://stack8.tech/docs/modules/s8-module.html
+- https://stack8.tech/docs/modules/s8-env.html
+- https://stack8.tech/docs/build/
+- https://stack8.tech/docs/build/properties.html
+- https://stack8.tech/docs/build/s8-stack-builder.html
+- https://stack8.tech/learn/
+- https://stack8.tech/ecosystem/
+
+## Version
+
+Public current: S8 v0.8. Domain: stack8.tech. Copyright Pierre Convert / AlphaVentor.

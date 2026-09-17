@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SpacesDB — S8 Docs</title>
+  <meta name="description" content="Spaces are shells for object graphs: logical unit, storage unit, version unit.">
+  <link rel="canonical" href="https://stack8.tech/docs/api/spaces.html">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Open+Sans:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <div class="docs-shell">
+    <aside class="docs-nav" data-docs-nav></aside>
+    <div class="docs-main" id="content">
+      <div class="docs-wide">
+        <article>
+<p class="crumb"><a href="/docs/">Docs</a> / <a href="/docs/api/">API</a> / SpacesDB</p>
+<h1>SpacesDB</h1>
+<div class="badge-row"><span class="badge badge-api">com.s8.meta.api.flow.space</span></div>
+<p>A space is a shell around an object graph: logical unit, synchronization unit, storage unit, version unit, encapsulation. Unpinned leaves are transient; nodes that extend <code>SpaceS8Object</code> are the graph the runtime tracks.</p>
+<h2 id="methods">Instance methods</h2>
+<dl class="deflist">
+  <dt>createSpace(request)</dt><dd>Create with an id and an exposure array. <span class="sig">CreateSpaceS8Response createSpace(CreateSpaceS8Request)</span></dd>
+  <dt>exposeSpace(request)</dt><dd>Change what a space exposes. <span class="sig">ExposeSpaceS8Response exposeSpace(ExposeSpaceS8Request)</span></dd>
+  <dt>accessSpace(request)</dt><dd>Open a space; on OK, <code>objects</code> is the exposure. <span class="sig">AccessSpaceS8Response accessSpace(AccessSpaceS8Request)</span></dd>
+</dl>
+<h2 id="objects">SpaceS8Object / SpaceS8Vertex</h2>
+<p>Base space object holds <code>S8_vertex</code>. Report field updates with <code>reportFieldUpdate</code> / <code>reportChange(fieldName)</code> so the graph can dirty-track.</p>
+<h2 id="example">Example</h2>
+<div class="codebox">
+  <div class="codebox-bar">
+    <span class="filename">space.java</span>
+    <button class="copy" type="button" data-copy>Copy</button>
+  </div>
+  <pre data-lang="java"><code class="lang-java">SpacesDB spaces = flow.spaces();
+spaces.createSpace(new CreateSpaceS8Request(
+    "space/ada", new SpaceS8Object[]{ root }));
+AccessSpaceS8Response res =
+    spaces.accessSpace(new AccessSpaceS8Request("space/ada", true));
+if (res.status == AccessSpaceS8Response.Status.OK) {
+  Object[] exposed = res.objects;
+}
+</code></pre>
+</div>
+<div class="intent"><strong>Intent</strong> One space ≈ one project, one user workspace, one document. Keep the graph together; do not explode it into unrelated tables.</div>
+        </article>
+        <nav class="toc" data-toc></nav>
+      </div>
+    </div>
+  </div>
+  <div id="site-footer"></div>
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>

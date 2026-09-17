@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>S8 — Build the entire product in Java</title>
+  <meta name="description" content="S8 is the unified JAVA stack: web server, front, databases, and orchestration already assembled. One language, one process, one API.">
+  <link rel="canonical" href="https://stack8.tech/">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta property="og:title" content="S8 — Build the entire product in Java">
+  <meta property="og:description" content="The unified JAVA stack. Server, front, databases, and orchestration — already assembled.">
+  <meta property="og:url" content="https://stack8.tech/">
+  <meta property="og:image" content="https://stack8.tech/assets/brand/s8-2048.png">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#5fa04a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Open+Sans:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "S8",
+    "alternateName": "Stack8",
+    "url": "https://stack8.tech",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "macOS, Linux, Windows",
+    "description": "A unified JAVA stack that ships the web server, the front, the databases, and the orchestration already wired together.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main id="content">
+    <section class="hero">
+      <div class="wrap">
+        <h1>Build the entire product in Java</h1>
+        <p class="lead">
+          S8 is a free, unified JAVA runtime and application stack.
+          It lets a small team create servers, rich fronts, embedded databases,
+          and the orchestration that binds them — without assembling a zoo of frameworks.
+        </p>
+        <p class="mission">
+          <strong>Mission.</strong>
+          Collapse the distance between an idea and a running product.
+          S8 exists so you can ship rich SaaS in one language and one process —
+          Spring Boot, four steps ahead.
+        </p>
+      </div>
+    </section>
+
+    <div class="wrap home-split">
+      <aside class="download-card" id="download">
+        <h2>Download S8</h2>
+        <p>Get the stack for macOS, Linux, or Windows and boot a production server in under a second.</p>
+        <div class="actions">
+          <a class="btn-download" href="/download/">
+            <span class="label">Get S8</span>
+            <span class="ver">v0.8</span>
+          </a>
+          <a class="other-dl" href="/download/">Other Downloads</a>
+        </div>
+        <div class="home-meta">
+          <span class="pill">JAVA core</span>
+          <span class="pill">Zero dependencies</span>
+          <span class="pill">Boot &lt; 1s</span>
+        </div>
+      </aside>
+
+      <div class="codebox">
+        <div class="codebox-bar" data-tabs>
+          <button class="tab is-active" type="button" data-panel="server">Server</button>
+          <button class="tab" type="button" data-panel="front">Front</button>
+          <button class="tab" type="button" data-panel="tables">Tables</button>
+          <button class="tab" type="button" data-panel="spaces">Spaces</button>
+          <button class="tab" type="button" data-panel="build">Build</button>
+          <button class="copy" type="button" data-copy>Copy</button>
+        </div>
+        <pre data-panel="server" data-lang="java"><code class="lang-java">// LaunchServer.java
+import com.s8.meta.api.S8;
+import com.s8.meta.api.server.S8BootMethod;
+import com.s8.meta.api.server.S8WebServer;
+
+public class LaunchServer {
+  public static void main(String[] args) throws Exception {
+    S8WebServer server = S8.WEB_SERVER_FACTORY.createWebServer(
+        "/path/to/app-config.xml",
+        LaunchServer.class,
+        params -> params.addBootMethod(
+            S8BootMethod.MAIN_BOOT_PAGE, AppBoot.INSTANCE));
+    server.start();
+  }
+}
+
+// run on the S8 module path
+</code></pre>
+        <pre data-panel="front" hidden data-lang="java"><code class="lang-java">// AppBoot.java — the front is a remote screen
+import com.s8.meta.api.annotations.S8ObjectType;
+import com.s8.meta.api.flow.S8SyncFlow;
+import com.s8.meta.api.front.S8FrontObject;
+import com.s8.meta.api.front.S8FrontSession;
+import com.s8.meta.api.server.S8BootMethod;
+
+public final class AppBoot implements S8BootMethod {
+  static final AppBoot INSTANCE = new AppBoot();
+
+  @Override
+  public void boot(S8SyncFlow flow) throws Exception {
+    S8FrontSession front = flow.front();
+    HomeScreen screen = new HomeScreen(front);
+    screen.setTitle("Hello S8");
+    screen.vertex.expose(0);
+    flow.refresh();
+  }
+}
+
+@S8ObjectType(name = "app.HomeScreen")
+class HomeScreen extends S8FrontObject {
+  HomeScreen(S8FrontSession front) {
+    super(front, "app.HomeScreen");
+  }
+  void setTitle(String title) {
+    vertex.outbound().setStringUTF8Field("title", title);
+  }
+}
+</code></pre>
+        <pre data-panel="tables" hidden data-lang="java"><code class="lang-java">// Flash persistency — annotate a row, put it, get it
+@S8RowType(name = "user-v1")
+public class UserRow extends RowS8Object {
+  public String email;
+  public UserRow(String id) { super(id); }
+}
+
+TablesDB db = flow.tables();
+db.createTable(new CreateTableS8Request("users", true));
+
+UserRow row = new UserRow("u-42");
+row.email = "ada@stack8.tech";
+db.putRow(new PutRowS8Request("users", row, true, true));
+
+GetRowS8Response got = db.getRow("users", "u-42");
+</code></pre>
+        <pre data-panel="spaces" hidden data-lang="java"><code class="lang-java">// Spaces hold object graphs — logical, stored, versioned
+SpacesDB spaces = flow.spaces();
+spaces.createSpace(new CreateSpaceS8Request(
+    "space/ada", new SpaceS8Object[]{ root }));
+
+AccessSpaceS8Response res =
+    spaces.accessSpace(new AccessSpaceS8Request("space/ada", true));
+
+if (res.status == AccessSpaceS8Response.Status.OK) {
+  Object[] exposed = res.objects;
+}
+
+flow.refresh();
+</code></pre>
+        <pre data-panel="build" hidden data-lang="properties"><code class="lang-properties"># build.properties — identity of an S8 module
+module.java = com.s8.pkgs.ui.aloe
+
+# dependencies are target folder names under the stack root
+dependencies = \
+  S8-meta-env, \
+  S8-meta-API, \
+  S8-pkgs-ui-carbide
+
+target = S8-pkgs-ui-aloe
+main = com.s8.pkgs.ui.aloe.LaunchServer
+</code></pre>
+      </div>
+    </div>
+
+    <section class="band band-muted">
+      <div class="wrap">
+        <h2>A stack, not a kit</h2>
+        <p class="section-lead">
+          S8 abstracts the parts every serious web product rediscovers:
+          HTTP/2 and TLS, request mapping, the thread model, databases, and the front/back API.
+          You write against one flow.
+        </p>
+        <div class="grid-4">
+          <article class="card">
+            <div class="kicker">01 · Simple</div>
+            <h3>One language, whole app</h3>
+            <p>JAVA core for back, front, and storage. No second runtime, no hand-written REST contract to keep in sync.</p>
+          </article>
+          <article class="card">
+            <div class="kicker">02 · Secure</div>
+            <h3>Zero dependencies</h3>
+            <p>The stack is rebuilt in-house. There is no nested open-source supply chain sitting under your product.</p>
+          </article>
+          <article class="card">
+            <div class="kicker">03 · Small</div>
+            <h3>A small-surface API</h3>
+            <p>The number of things you need to know to start is astonishingly low — even when the product is not.</p>
+          </article>
+          <article class="card">
+            <div class="kicker">04 · Synced</div>
+            <h3>Virtual threads, plain code</h3>
+            <p><code>S8SyncFlow</code> runs on virtual threads. Write straight-line Java; the runtime keeps it safe and fast.</p>
+          </article>
+          <article class="card">
+            <div class="kicker">05 · Storage</div>
+            <h3>Databases in the flow</h3>
+            <p>Tables, spaces, and git-like repositories are reached with methods on the flow, not a second product.</p>
+          </article>
+          <article class="card">
+            <div class="kicker">06 · Structured</div>
+            <h3>Object graphs, versioned</h3>
+            <p>Spaces and repositories are shells: logical units, storage units, and version units for large object graphs.</p>
+          </article>
+          <article class="card">
+            <div class="kicker">07 · Screen</div>
+            <h3>Front as a remote screen</h3>
+            <p>Create UI objects on the server. They are transmitted and rendered in the browser — like a local toolkit.</p>
+          </article>
+          <article class="card">
+            <div class="kicker">08 · Scalable</div>
+            <h3>Lake of nodes</h3>
+            <p>Run a cluster of S8 instances for resilience, load balancing, and backup at the level you actually need.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap">
+        <h2>Get started in three steps</h2>
+        <p class="section-lead">The loop is short on purpose. Edit, boot, look at the real app. The server comes up in less than a second on most machines.</p>
+        <div class="steps">
+          <article>
+            <div class="step-n">1</div>
+            <h3>Install the stack</h3>
+            <p>Download v0.8 and point <code>/etc/s8-conf.properties</code> at your JAVA_HOME and stack roots.</p>
+            <p><a href="/download/">Download S8 →</a></p>
+          </article>
+          <article>
+            <div class="step-n">2</div>
+            <h3>Boot a server</h3>
+            <p>Call <code>S8.WEB_SERVER_FACTORY</code>, register a boot method, and <code>start()</code>.</p>
+            <p><a href="/learn/">Follow the tutorial →</a></p>
+          </article>
+          <article>
+            <div class="step-n">3</div>
+            <h3>Code against the flow</h3>
+            <p>Use <code>flow.front()</code>, <code>tables()</code>, <code>spaces()</code>, and <code>repositories()</code> from one place.</p>
+            <p><a href="/docs/api/s8-sync-flow.html">Read S8SyncFlow →</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band-muted">
+      <div class="wrap">
+        <h2>Documentation for humans and AI</h2>
+        <p class="section-lead">
+          A new stack needs a strong doc. The S8 API is condensed in <code>S8-meta-API</code>.
+          The module overlay lives in <code>S8-meta-env</code>. The builder is <code>S8-meta-build</code>.
+          Pages are written for people; <a href="/llms.txt">llms.txt</a> is written for agents.
+        </p>
+        <div class="grid-3">
+          <article class="card">
+            <div class="kicker">API</div>
+            <h3>Code against S8</h3>
+            <p>MDN-style reference for the flow, the front, tables, spaces, repositories, mail, and annotations.</p>
+            <p><a href="/docs/api/">Open the API →</a></p>
+          </article>
+          <article class="card">
+            <div class="kicker">Modules</div>
+            <h3>The overlay</h3>
+            <p>How sibling modules under a stack root resolve DEV vs PROD, web sources, and the static <code>MODULE</code> field.</p>
+            <p><a href="/docs/modules/">Module system →</a></p>
+          </article>
+          <article class="card">
+            <div class="kicker">Build</div>
+            <h3>build.properties</h3>
+            <p>How <code>S8StackBuilder</code> walks the DAG, compiles with <code>javac --module-path</code>, and jars into prod.</p>
+            <p><a href="/docs/build/">Build system →</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>S8 — S8 Docs</title>
+  <meta name="description" content="S8 is the static ServiceLoader façade for the web server and script runner factories.">
+  <link rel="canonical" href="https://stack8.tech/docs/api/s8.html">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Open+Sans:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <div class="docs-shell">
+    <aside class="docs-nav" data-docs-nav></aside>
+    <div class="docs-main" id="content">
+      <div class="docs-wide">
+        <article>
+<p class="crumb"><a href="/docs/">Docs</a> / <a href="/docs/api/">API</a> / S8</p>
+<h1>S8</h1>
+<div class="badge-row">
+  <span class="badge badge-api">com.s8.meta.api.S8</span>
+  <span class="badge">SPI façade</span>
+</div>
+<p><code>S8</code> is the static entry into the stack. It does not construct servers itself. It loads the first <code>S8WebServerFactory</code> and <code>S8ScriptRunnerFactory</code> on the module path.</p>
+<h2 id="static-fields">Static fields</h2>
+<dl class="deflist">
+  <dt>WEB_SERVER_FACTORY</dt>
+  <dd>Loaded <code>S8WebServerFactory</code>. <span class="sig">public final static S8WebServerFactory WEB_SERVER_FACTORY</span></dd>
+  <dt>SCRIPT_RUNNER_FACTORY</dt>
+  <dd>Loaded <code>S8ScriptRunnerFactory</code>. <span class="sig">public final static S8ScriptRunnerFactory SCRIPT_RUNNER_FACTORY</span></dd>
+</dl>
+<h2 id="failure">Failure mode</h2>
+<p>If no implementation is on the module path, static initialization throws <code>IllegalStateException</code>. Put the implementation module on the module path (Xenon for the web server, Krypton for scripts).</p>
+<h2 id="example">Example</h2>
+<div class="codebox">
+  <div class="codebox-bar">
+    <span class="filename">usage.java</span>
+    <button class="copy" type="button" data-copy>Copy</button>
+  </div>
+  <pre data-lang="java"><code class="lang-java">S8WebServer server = S8.WEB_SERVER_FACTORY.createWebServer(
+    "/path/to/app-config.xml",
+    LaunchServer.class,
+    params -> params.addBootMethod(S8BootMethod.MAIN_BOOT_PAGE, AppBoot.INSTANCE));
+server.start();
+</code></pre>
+</div>
+<div class="intent"><strong>Intent</strong> Keep application code free of implementation types. Depend on <code>com.s8.meta.api</code>; let the runtime plug the server underneath.</div>
+        </article>
+        <nav class="toc" data-toc></nav>
+      </div>
+    </div>
+  </div>
+  <div id="site-footer"></div>
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>

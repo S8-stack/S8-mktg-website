@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Learn S8 — Your first app</title>
+  <meta name="description" content="Boot an S8 server, expose a front object, and talk to tables from S8SyncFlow.">
+  <link rel="canonical" href="https://stack8.tech/learn/">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Open+Sans:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <main id="content">
+    <div class="page-hero">
+      <div class="wrap">
+        <h1>Your first S8 app</h1>
+        <p>Launch a server, paint a remote screen, and persist a row. This is the whole loop.</p>
+      </div>
+    </div>
+    <article class="wrap prose">
+      <h2>What you will build</h2>
+      <p>A boot method that creates a <code>HomeScreen</code> on the front and writes a welcome row into a table. No extra web framework. No ORM. No REST layer to keep honest.</p>
+
+      <h2>1. Launch the server</h2>
+      <p>The SPI façade is <code>S8</code>. Implementations are loaded with <code>ServiceLoader</code> — keep the implementation module on the module path.</p>
+      <div class="codebox">
+        <div class="codebox-bar">
+          <span class="filename">LaunchServer.java</span>
+          <button class="copy" type="button" data-copy>Copy</button>
+        </div>
+        <pre data-lang="java"><code class="lang-java">import com.s8.meta.api.S8;
+import com.s8.meta.api.server.S8BootMethod;
+import com.s8.meta.api.server.S8WebServer;
+
+public class LaunchServer {
+  public static void main(String[] args) throws Exception {
+    S8WebServer server = S8.WEB_SERVER_FACTORY.createWebServer(
+        "/path/to/app-config.xml",
+        LaunchServer.class,
+        params -> params.addBootMethod(
+            S8BootMethod.MAIN_BOOT_PAGE, AppBoot.INSTANCE));
+    server.start();
+  }
+}
+</code></pre>
+      </div>
+
+      <h2>2. Boot on the flow</h2>
+      <p>Every request and every script receives a fresh <a href="/docs/api/s8-sync-flow.html"><code>S8SyncFlow</code></a>. Do not store it. Do not cache it. Write ordinary Java; the flow already runs on a virtual thread.</p>
+      <div class="codebox">
+        <div class="codebox-bar">
+          <span class="filename">AppBoot.java</span>
+          <button class="copy" type="button" data-copy>Copy</button>
+        </div>
+        <pre data-lang="java"><code class="lang-java">public final class AppBoot implements S8BootMethod {
+  static final AppBoot INSTANCE = new AppBoot();
+
+  @Override
+  public void boot(S8SyncFlow flow) throws Exception {
+    HomeScreen screen = new HomeScreen(flow.front());
+    screen.setTitle("Hello S8");
+    screen.vertex.expose(0);
+
+    UserRow row = new UserRow("welcome");
+    row.email = "ada@stack8.tech";
+    flow.tables().putRow(new PutRowS8Request("users", row, true, true));
+
+    flow.refresh();
+  }
+}
+</code></pre>
+      </div>
+
+      <h2>3. Declare a front object</h2>
+      <p>Subclass <code>S8FrontObject</code>. The type name you pass to <code>super</code> is the name the browser side will bind. Outbound fields push state to the screen; inbound methods receive events from it.</p>
+      <div class="codebox">
+        <div class="codebox-bar">
+          <span class="filename">HomeScreen.java</span>
+          <button class="copy" type="button" data-copy>Copy</button>
+        </div>
+        <pre data-lang="java"><code class="lang-java">@S8ObjectType(name = "app.HomeScreen")
+public class HomeScreen extends S8FrontObject {
+  public HomeScreen(S8FrontSession front) {
+    super(front, "app.HomeScreen");
+    vertex.inbound().setVoidMethodLambda("onReady", () -> {
+      // operate, then S8 refreshes the front for you
+    });
+  }
+
+  public void setTitle(String title) {
+    vertex.outbound().setStringUTF8Field("title", title);
+  }
+}
+</code></pre>
+      </div>
+
+      <div class="intent">
+        <strong>Intent</strong>
+        Treat the browser as a remote display attached to your process. If you would call a setter on a Swing or JavaFX widget, call it on the vertex outbound instead.
+      </div>
+
+      <h2>Next</h2>
+      <ul>
+        <li><a href="/docs/api/s8-sync-flow.html">S8SyncFlow</a> — the gateway to every stack feature</li>
+        <li><a href="/docs/api/front.html">Front</a> — session, objects, inbound / outbound</li>
+        <li><a href="/docs/api/tables.html">TablesDB</a> — flash persistency</li>
+        <li><a href="/docs/build/properties.html">build.properties</a> — declare the module so the builder can see it</li>
+      </ul>
+    </article>
+  </main>
+  <div id="site-footer"></div>
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>

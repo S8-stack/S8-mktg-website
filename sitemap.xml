@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://stack8.tech/</loc></url>
+  <url><loc>https://stack8.tech/download/</loc></url>
+  <url><loc>https://stack8.tech/learn/</loc></url>
+  <url><loc>https://stack8.tech/docs/</loc></url>
+  <url><loc>https://stack8.tech/docs/api/</loc></url>
+  <url><loc>https://stack8.tech/docs/api/s8.html</loc></url>
+  <url><loc>https://stack8.tech/docs/api/s8-sync-flow.html</loc></url>
+  <url><loc>https://stack8.tech/docs/api/server.html</loc></url>
+  <url><loc>https://stack8.tech/docs/api/front.html</loc></url>
+  <url><loc>https://stack8.tech/docs/api/tables.html</loc></url>
+  <url><loc>https://stack8.tech/docs/api/spaces.html</loc></url>
+  <url><loc>https://stack8.tech/docs/api/repositories.html</loc></url>
+  <url><loc>https://stack8.tech/docs/api/mail.html</loc></url>
+  <url><loc>https://stack8.tech/docs/api/annotations.html</loc></url>
+  <url><loc>https://stack8.tech/docs/api/serial.html</loc></url>
+  <url><loc>https://stack8.tech/docs/api/scripts.html</loc></url>
+  <url><loc>https://stack8.tech/docs/modules/</loc></url>
+  <url><loc>https://stack8.tech/docs/modules/s8-module.html</loc></url>
+  <url><loc>https://stack8.tech/docs/modules/s8-env.html</loc></url>
+  <url><loc>https://stack8.tech/docs/build/</loc></url>
+  <url><loc>https://stack8.tech/docs/build/properties.html</loc></url>
+  <url><loc>https://stack8.tech/docs/build/s8-stack-builder.html</loc></url>
+  <url><loc>https://stack8.tech/about/</loc></url>
+  <url><loc>https://stack8.tech/community/</loc></url>
+  <url><loc>https://stack8.tech/blog/</loc></url>
+  <url><loc>https://stack8.tech/security/</loc></url>
+  <url><loc>https://stack8.tech/ecosystem/</loc></url>
+  <url><loc>https://stack8.tech/llms.txt</loc></url>
+</urlset>

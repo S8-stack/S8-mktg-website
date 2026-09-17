@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>S8 Blog — stack8.tech</title>
+  <meta name="description" content="Release notes, design notes, and the occasional opinion from the S8 team.">
+  <link rel="canonical" href="https://stack8.tech/blog/">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Open+Sans:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <main id="content">
+    <div class="page-hero">
+      <div class="wrap">
+        <h1>Blog</h1>
+        <p>Release notes and design notes. The long essays will land here as the stack grows.</p>
+      </div>
+    </div>
+    <div class="wrap post-list">
+      <article class="post">
+        <time datetime="2026-09-17">17 September 2026</time>
+        <h2>S8 on stack8.tech</h2>
+        <p>The public site is rebuilt around a single idea: present the stack the way a runtime is presented. Download on the front page. Documentation that a human can read and an agent can ingest. The API, the module overlay, and the builder — in that order.</p>
+      </article>
+      <article class="post">
+        <time datetime="2025-01-01">2025</time>
+        <h2>Virtual threads, then SyncFlow</h2>
+        <p>The old async action-queue on the flow is gone. <code>S8SyncFlow</code> runs on virtual threads. You write straight-line Java; the stack still behaves at high concurrency. The gateway is the same: front, tables, spaces, repositories, mail.</p>
+      </article>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>

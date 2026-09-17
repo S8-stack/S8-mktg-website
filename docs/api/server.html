@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Server and boot — S8 Docs</title>
+  <meta name="description" content="S8WebServer, S8WebServerFactory, S8BootMethod — how an S8 process starts.">
+  <link rel="canonical" href="https://stack8.tech/docs/api/server.html">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Open+Sans:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <div class="docs-shell">
+    <aside class="docs-nav" data-docs-nav></aside>
+    <div class="docs-main" id="content">
+      <div class="docs-wide">
+        <article>
+<p class="crumb"><a href="/docs/">Docs</a> / <a href="/docs/api/">API</a> / Server</p>
+<h1 class="plain">Server &amp; boot</h1>
+<div class="badge-row"><span class="badge badge-api">com.s8.meta.api.server</span></div>
+<p>An S8 process is a web server plus the boot methods that paint the first screens. The factory builds the server from an XML config path, a boot-layer origin class (used to locate the module), and a parameter setter.</p>
+<h2 id="boot-method">S8BootMethod</h2>
+<p>A functional interface. The constant <code>MAIN_BOOT_PAGE</code> is <code>"/"</code>.</p>
+<dl class="deflist">
+  <dt>boot(flow)</dt>
+  <dd>Called with a fresh flow when that path is hit. <span class="sig">void boot(S8SyncFlow flow) throws Exception</span></dd>
+</dl>
+<h2 id="factory">S8WebServerFactory</h2>
+<p>Created for you as <code>S8.WEB_SERVER_FACTORY</code>.</p>
+<dl class="deflist">
+  <dt>createWebServer(configPathname, bootLayerOrigin, setup)</dt>
+  <dd>Build a server. <code>bootLayerOrigin</code> is typically <code>LaunchServer.class</code>.</dd>
+</dl>
+<h2 id="server">S8WebServer</h2>
+<dl class="deflist">
+  <dt>start()</dt>
+  <dd>Bind and run. <span class="sig">void start() throws Exception</span></dd>
+</dl>
+<h2 id="parameters">Parameters</h2>
+<p><code>S8WebServerParameters.addBootMethod(String path, S8BootMethod method)</code> registers a boot handler. Multiple paths are allowed; <code>/</code> is the home screen.</p>
+<h2 id="example">Example</h2>
+<div class="codebox">
+  <div class="codebox-bar">
+    <span class="filename">LaunchServer.java</span>
+    <button class="copy" type="button" data-copy>Copy</button>
+  </div>
+  <pre data-lang="java"><code class="lang-java">public class LaunchServer {
+  public static void main(String[] args) throws Exception {
+    S8WebServer server = S8.WEB_SERVER_FACTORY.createWebServer(
+        "/path/to/app-config.xml",
+        LaunchServer.class,
+        params -> params.addBootMethod(S8BootMethod.MAIN_BOOT_PAGE, AppBoot.INSTANCE));
+    server.start();
+  }
+}
+</code></pre>
+</div>
+<div class="intent"><strong>Intent</strong> Boot methods replace both a router and a first-paint controller. After boot, inbound front methods keep the app alive.</div>
+        </article>
+        <nav class="toc" data-toc></nav>
+      </div>
+    </div>
+  </div>
+  <div id="site-footer"></div>
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>

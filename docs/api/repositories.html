@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RepositoriesDB — S8 Docs</title>
+  <meta name="description" content="Git-like object repositories: branches, commits, forks, clones of RepoS8Object graphs.">
+  <link rel="canonical" href="https://stack8.tech/docs/api/repositories.html">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Open+Sans:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <div class="docs-shell">
+    <aside class="docs-nav" data-docs-nav></aside>
+    <div class="docs-main" id="content">
+      <div class="docs-wide">
+        <article>
+<p class="crumb"><a href="/docs/">Docs</a> / <a href="/docs/api/">API</a> / RepositoriesDB</p>
+<h1>RepositoriesDB</h1>
+<div class="badge-row"><span class="badge badge-api">com.s8.meta.api.flow.repository</span></div>
+<p>Repository DB behaves like a git-saved codebase, but with plain objects instead of files. Addresses, branches, versions, authors, comments.</p>
+<h2 id="methods">Instance methods</h2>
+<dl class="deflist">
+  <dt>createRepository</dt><dd>Name, address, branch, initial objects, commit message.</dd>
+  <dt>getRepository / getBranch</dt><dd>Metadata: <code>S8RepositoryMetadata</code>, <code>S8BranchMetadata</code>.</dd>
+  <dt>forkRepository / forkBranch</dt><dd>Fork the object graph the way you would fork a repo.</dd>
+  <dt>commitBranch</dt><dd>Commit a new version of the graph.</dd>
+  <dt>cloneBranch</dt><dd>Clone at a version, often <code>S8SyncFlow.HEAD_VERSION</code>.</dd>
+  <dt>deleteRepository</dt><dd>Remove a repository.</dd>
+</dl>
+<h2 id="objects">RepoS8Object</h2>
+<p>Binds <code>_S8_vertex</code> via <code>RepoS8Vertex.FACTORY.createRepoS8Vertex(this)</code>. Use it as the node type of anything you want versioned like source.</p>
+<h2 id="example">Example</h2>
+<div class="codebox">
+  <div class="codebox-bar">
+    <span class="filename">repo.java</span>
+    <button class="copy" type="button" data-copy>Copy</button>
+  </div>
+  <pre data-lang="java"><code class="lang-java">RepositoriesDB repos = flow.repositories();
+repos.createRepository(new CreateRepositoryS8Request(
+    "MyRepo", "repo/ada/demo", "demo", "main",
+    new RepoS8Object[]{ root }, "initial commit"));
+CloneBranchS8Response clone = repos.cloneBranch(
+    new CloneBranchS8Request("repo/ada/demo", "main"));
+</code></pre>
+</div>
+<div class="intent"><strong>Intent</strong> When the data <em>is</em> the product — CAD, a document, a model — put it in a repository so history, fork, and clone are native.</div>
+        </article>
+        <nav class="toc" data-toc></nav>
+      </div>
+    </div>
+  </div>
+  <div id="site-footer"></div>
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>

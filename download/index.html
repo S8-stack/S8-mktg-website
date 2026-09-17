@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Download S8 — stack8.tech</title>
+  <meta name="description" content="Download S8 v0.8 for macOS, Linux, and Windows. The unified JAVA stack.">
+  <link rel="canonical" href="https://stack8.tech/download/">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Open+Sans:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <main id="content">
+    <div class="page-hero">
+      <div class="wrap">
+        <h1>Download S8</h1>
+        <p>Get the stack, point it at a JDK, and boot. Current release is <strong>v0.8</strong>.</p>
+      </div>
+    </div>
+    <div class="wrap" style="padding: 36px 0 72px;">
+      <p style="margin: 0 0 24px;">
+        <a class="btn-download" href="#current">
+          <span class="label">Get S8</span>
+          <span class="ver">v0.8 · recommended</span>
+        </a>
+      </p>
+
+      <div class="os-grid" id="current">
+        <article class="os-card">
+          <h3>macOS</h3>
+          <a class="btn btn-primary" href="#channel">Apple Silicon (.tar.gz)</a>
+          <a class="btn btn-ghost" href="#channel">Intel (.tar.gz)</a>
+        </article>
+        <article class="os-card">
+          <h3>Linux</h3>
+          <a class="btn btn-primary" href="#channel">x64 (.tar.gz)</a>
+          <a class="btn btn-ghost" href="#channel">arm64 (.tar.gz)</a>
+        </article>
+        <article class="os-card">
+          <h3>Windows</h3>
+          <a class="btn btn-primary" href="#channel">x64 (.zip)</a>
+          <a class="btn btn-ghost" href="#channel">arm64 (.zip)</a>
+        </article>
+      </div>
+
+      <p class="placeholder-note" id="channel">
+        Planned archive names: <code>s8-v0.8-macos-arm64.tar.gz</code>,
+        <code>s8-v0.8-linux-x64.tar.gz</code>, <code>s8-v0.8-win-x64.zip</code>, and the matching arm64/Intel variants.
+        Objects will be served from the S8 distribution channel; checksums and a changelog ship with each archive.
+        Direct object-store mapping is the next wiring step.
+      </p>
+
+      <div class="prose" style="padding-top: 8px;">
+        <h2>After you download</h2>
+        <p>S8 reads machine configuration from <code>/etc/s8-conf.properties</code>:</p>
+        <div class="codebox">
+          <div class="codebox-bar">
+            <span class="filename">/etc/s8-conf.properties</span>
+            <button class="copy" type="button" data-copy>Copy</button>
+          </div>
+          <pre data-lang="properties"><code class="lang-properties">JAVA_HOME = /Library/Java/JavaVirtualMachines/temurin-25.jdk/Contents/Home
+dev.stack = /Users/you/qx/git
+prod.stack = /Users/you/stack
+</code></pre>
+        </div>
+        <p>Then follow <a href="/learn/">Your first app</a> or read how <a href="/docs/build/properties.html">build.properties</a> identifies a module.</p>
+      </div>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>

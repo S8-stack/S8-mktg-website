@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>S8Module — S8 Docs</title>
+  <meta name="description" content="Runtime façade for an S8 module: target, mode, web sources, codebase.">
+  <link rel="canonical" href="https://stack8.tech/docs/modules/s8-module.html">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Open+Sans:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <div class="docs-shell">
+    <aside class="docs-nav" data-docs-nav></aside>
+    <div class="docs-main" id="content">
+      <div class="docs-wide">
+        <article>
+<p class="crumb"><a href="/docs/">Docs</a> / <a href="/docs/modules/">Modules</a> / S8Module</p>
+<h1>S8Module</h1>
+<div class="badge-row"><span class="badge badge-api">com.s8.meta.env.modular.S8Module</span></div>
+<p>Runtime façade. Constructed once as a static <code>MODULE</code> field on the module's root class. The constructor runs an <code>S8ModuleParamsSetter</code> so you can declare web sources, static assets, and Bohr type registries.</p>
+<h2 id="constructor">Constructor</h2>
+<dl class="deflist">
+  <dt>S8Module(target, rootClass, setter)</dt>
+  <dd><code>target</code> is the folder name under the stack root, e.g. <code>"S8-pkgs-ui-carbide"</code>.</dd>
+</dl>
+<h2 id="parameters">S8ModuleParameters</h2>
+<dl class="deflist">
+  <dt>setVersion</dt><dd>Module version string.</dd>
+  <dt>declareWebSources()</dt><dd>Enable <code>web-sources</code> / <code>web-classes</code> resolution.</dd>
+  <dt>setWebAssets / setSvcAssets</dt><dd>Asset roots.</dd>
+  <dt>addRowClasses / addSpaceClasses / addRepoClasses</dt><dd>Populate <code>S8Codebase</code> for Bohr DB.</dd>
+</dl>
+<h2 id="example">Example</h2>
+<div class="codebox">
+  <div class="codebox-bar">
+    <span class="filename">S8PkgsUiCarbide.java</span>
+    <button class="copy" type="button" data-copy>Copy</button>
+  </div>
+  <pre data-lang="java"><code class="lang-java">public class S8PkgsUiCarbide {
+  public final static S8Module MODULE = new S8Module(
+      "S8-pkgs-ui-carbide",
+      S8PkgsUiCarbide.class,
+      params -> {
+        params.declareWebSources();
+      });
+}
+</code></pre>
+</div>
+<div class="codebox">
+  <div class="codebox-bar">
+    <span class="filename">module-info.java</span>
+    <button class="copy" type="button" data-copy>Copy</button>
+  </div>
+  <pre data-lang="java"><code class="lang-java">@S8ModuleDescriptor(def = S8PkgsUiCarbide.class)
+module com.s8.pkgs.ui.carbide {
+  exports com.s8.pkgs.ui.carbide;
+  requires transitive com.s8.meta.env;
+  requires transitive com.s8.meta.api;
+}
+</code></pre>
+</div>
+<div class="intent"><strong>Intent</strong> The Java module and the S8 module are cousins. JPMS exports types; <code>S8Module</code> knows where the files live on disk in DEV and PROD.</div>
+        </article>
+        <nav class="toc" data-toc></nav>
+      </div>
+    </div>
+  </div>
+  <div id="site-footer"></div>
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>
