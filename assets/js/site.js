@@ -105,8 +105,7 @@
       <header class="site-header">
         <div class="wrap inner">
           <a class="brand" href="/">
-            <img src="/assets/brand/s8-256.png" width="36" height="36" alt="">
-            S8
+            <img src="/assets/brand/s8-logo.png" width="44" height="44" alt="S8">
           </a>
           <nav class="nav" data-nav>${links}</nav>
           <div class="nav-extra" data-nav-extra>
@@ -124,7 +123,7 @@
         <div class="wrap footer-grid">
           <div>
             <div class="foot-brand">
-              <img src="/assets/brand/s8-256.png" width="32" height="32" alt="">
+              <img src="/assets/brand/s8-logo.png" width="36" height="36" alt="S8">
               S8
             </div>
             <p>The unified JAVA stack. Server, front, databases, and orchestration — already assembled.</p>
@@ -199,6 +198,14 @@
   }
 
   function mountChrome() {
+    if (!document.querySelector('link[rel="apple-touch-icon"]')) {
+      const apple = document.createElement("link");
+      apple.rel = "apple-touch-icon";
+      apple.href = "/apple-touch-icon.png";
+      document.head.appendChild(apple);
+    }
+    const fav = document.querySelector('link[rel="icon"]');
+    if (fav) fav.href = "/favicon.png?v=2";
     const headerHost = document.getElementById("site-header");
     const footerHost = document.getElementById("site-footer");
     if (headerHost) headerHost.outerHTML = headerHTML();
