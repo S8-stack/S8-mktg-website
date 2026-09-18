@@ -198,6 +198,8 @@
   }
 
   function mountSiteBg() {
+    if (normalize(location.pathname) !== "/") return;
+    document.body.classList.add("home");
     if (document.querySelector(".site-bg")) return;
     const wrap = document.createElement("div");
     wrap.className = "site-bg";

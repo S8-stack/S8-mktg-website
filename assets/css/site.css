@@ -14,6 +14,7 @@
   --line: #2a313a;
   --line-soft: #1e232a;
   --bg: #0b0d10;
+  --page-bg: #0d1a12;
   --surface: #12151b;
   --header-h: 64px;
   --docs-nav-w: 268px;
@@ -30,8 +31,12 @@
 
 html {
   color-scheme: dark;
-  background: var(--bg);
+  background: var(--page-bg);
   scroll-behavior: smooth;
+}
+
+html:has(body.home) {
+  background: var(--bg);
 }
 
 *,
@@ -44,10 +49,14 @@ body {
   font-size: 16px;
   line-height: 1.6;
   color: var(--ink-2);
-  background: transparent;
+  background: var(--page-bg);
   min-height: 100vh;
   position: relative;
   isolation: isolate;
+}
+
+body.home {
+  background: transparent;
 }
 
 .site-bg {
@@ -564,11 +573,14 @@ code, kbd { font-family: var(--mono); font-size: 0.9em; }
 
 /* ---------- Footer ---------- */
 .site-footer {
-  background: rgba(7, 8, 10, 0.62);
+  background: #08130e;
   color: #c8cdd2;
   padding: 48px 0 28px;
   margin-top: 0;
   border-top: 1px solid var(--line);
+}
+body.home .site-footer {
+  background: rgba(7, 8, 10, 0.62);
 }
 .site-footer a { color: #eee; text-decoration: none; }
 .site-footer a:hover { color: #fff; text-decoration: underline; }
