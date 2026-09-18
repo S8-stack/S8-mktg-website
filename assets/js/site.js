@@ -197,7 +197,40 @@
     }
   }
 
+  function mountSiteBg() {
+    if (document.querySelector(".site-bg")) return;
+    const wrap = document.createElement("div");
+    wrap.className = "site-bg";
+    wrap.setAttribute("aria-hidden", "true");
+    wrap.innerHTML =
+      '<img class="site-bg-img" alt="" decoding="async" src="/assets/wallpapers/dream-of-paradise.jpg">' +
+      '<div class="site-bg-veil"></div>';
+    document.body.prepend(wrap);
+
+    const img = wrap.querySelector(".site-bg-img");
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const scrollTimeline =
+      typeof CSS !== "undefined" && CSS.supports && CSS.supports("animation-timeline: scroll()");
+
+    const update = () => {
+      if (reduce.matches || scrollTimeline) return;
+      const viewH = window.innerHeight;
+      const imgH = img.getBoundingClientRect().height;
+      const maxShift = Math.max(0, imgH - viewH);
+      const maxScroll = document.documentElement.scrollHeight - viewH;
+      const p = maxScroll <= 0 ? 0 : Math.min(1, Math.max(0, window.scrollY / maxScroll));
+      img.style.transform = `translate3d(-50%, ${-maxShift * p}px, 0)`;
+    };
+
+    img.addEventListener("load", update);
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    reduce.addEventListener("change", update);
+    update();
+  }
+
   function mountChrome() {
+    mountSiteBg();
     if (!document.querySelector('link[rel="apple-touch-icon"]')) {
       const apple = document.createElement("link");
       apple.rel = "apple-touch-icon";
