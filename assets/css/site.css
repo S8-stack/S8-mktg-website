@@ -53,7 +53,7 @@ body {
 .site-bg {
   position: fixed;
   inset: 0;
-  z-index: 0;
+  z-index: -1;
   overflow: hidden;
   pointer-events: none;
 }
@@ -89,9 +89,19 @@ body {
 
 .site-header,
 main,
+.docs-shell,
 .site-footer {
   position: relative;
   z-index: 1;
+}
+
+.card,
+.codebox,
+.download-card,
+.os-card,
+.post {
+  position: relative;
+  z-index: 2;
 }
 
 img { max-width: 100%; height: auto; }
@@ -638,6 +648,7 @@ code, kbd { font-family: var(--mono); font-size: 0.9em; }
   background: #0e1116;
   position: sticky;
   top: var(--header-h);
+  z-index: 2;
   height: calc(100vh - var(--header-h));
   overflow: auto;
   padding: 16px 12px 48px;
@@ -765,7 +776,14 @@ code, kbd { font-family: var(--mono); font-size: 0.9em; }
 .toc {
   position: sticky;
   top: calc(var(--header-h) + 16px);
+  z-index: 2;
+  align-self: start;
   font-size: 0.85rem;
+  background: rgba(14, 17, 22, 0.92);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 14px 16px;
 }
 .toc strong { display: block; margin-bottom: 8px; color: var(--ink); }
 .toc a { display: block; color: var(--muted); text-decoration: none; padding: 3px 0; }
