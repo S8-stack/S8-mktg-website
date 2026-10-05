@@ -13,7 +13,7 @@ HEAD = """<!DOCTYPE html>
   <title>@@TITLE@@ — S8 Docs</title>
   <meta name="description" content="@@DESC@@">
   <link rel="canonical" href="https://stack8.tech@@CANONICAL@@">
-  <meta property="og:image" content="https://stack8.tech/assets/brand/s8-og.jpg">
+  <meta property="og:image" content="https://stack8.tech/og.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -21,7 +21,7 @@ HEAD = """<!DOCTYPE html>
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="S8 — Build the entire product in Java">
   <meta name="twitter:description" content="The unified JAVA stack. Server, front, databases, and orchestration — already assembled.">
-  <meta name="twitter:image" content="https://stack8.tech/assets/brand/s8-og.jpg">
+  <meta name="twitter:image" content="https://stack8.tech/og.jpg">
   <meta name="twitter:image:alt" content="S8">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
