@@ -580,7 +580,7 @@ code, kbd { font-family: var(--mono); font-size: 0.9em; }
   object-position: center;
   position: absolute;
   inset: 0;
-  filter: brightness(0.34) saturate(1.35) contrast(1.12);
+  filter: brightness(0.48) saturate(1.35) contrast(1.12);
 }
 
 .square-grid-card-content {
