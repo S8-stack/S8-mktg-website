@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Open+Sans:wght@400;600;700;800&display=swap">
-  <link rel="stylesheet" href="/assets/css/site.css?v=8">
+  <link rel="stylesheet" href="/assets/css/site.css?v=10">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -187,7 +187,7 @@ main = com.s8.pkgs.ui.aloe.LaunchServer
     </div>
     </div>
 
-    <section class="band band-muted">
+    <section class="band stack-principles">
       <div class="wrap">
         <h2>A stack, not a kit</h2>
         <p class="section-lead">
@@ -195,48 +195,100 @@ main = com.s8.pkgs.ui.aloe.LaunchServer
           HTTP/2 and TLS, request mapping, the thread model, databases, and the front/back API.
           You write against one flow.
         </p>
-        <div class="grid-4">
-          <article class="card">
-            <div class="kicker">01 · Simple</div>
-            <h3>One language, whole app</h3>
-            <p>JAVA core for back, front, and storage. No second runtime, no hand-written REST contract to keep in sync.</p>
-          </article>
-          <article class="card">
-            <div class="kicker">02 · Secure</div>
-            <h3>Zero dependencies</h3>
-            <p>The stack is rebuilt in-house. There is no nested open-source supply chain sitting under your product.</p>
-          </article>
-          <article class="card">
-            <div class="kicker">03 · Small</div>
-            <h3>A small-surface API</h3>
-            <p>The number of things you need to know to start is astonishingly low — even when the product is not.</p>
-          </article>
-          <article class="card">
-            <div class="kicker">04 · Synced</div>
-            <h3>Virtual threads, plain code</h3>
-            <p><code>S8SyncFlow</code> runs on virtual threads. Write straight-line Java; the runtime keeps it safe and fast.</p>
-          </article>
-          <article class="card">
-            <div class="kicker">05 · Storage</div>
-            <h3>Databases in the flow</h3>
-            <p>Tables, spaces, and git-like repositories are reached with methods on the flow, not a second product.</p>
-          </article>
-          <article class="card">
-            <div class="kicker">06 · Structured</div>
-            <h3>Object graphs, versioned</h3>
-            <p>Spaces and repositories are shells: logical units, storage units, and version units for large object graphs.</p>
-          </article>
-          <article class="card">
-            <div class="kicker">07 · Screen</div>
-            <h3>Front as a remote screen</h3>
-            <p>Create UI objects on the server. They are transmitted and rendered in the browser — like a local toolkit.</p>
-          </article>
-          <article class="card">
-            <div class="kicker">08 · Scalable</div>
-            <h3>Lake of nodes</h3>
-            <p>Run a cluster of S8 instances for resilience, load balancing, and backup at the level you actually need.</p>
-          </article>
-        </div>
+      </div>
+      <div class="square-grid-deck">
+        <article class="square-grid-card" theme="dark" size="std">
+          <img src="/assets/principles/tile00.png" alt="" width="256" height="256">
+          <div class="square-grid-card-content">
+            <h3>Simple</h3>
+            <h4>Less is More</h4>
+            <p class="square-grid-mobile-hideable">JAVA Core to code the entire app (back, front, db). A unified API to code and deploy. Launched in no time</p>
+            <a class="square-grid-card-link" href="/learn/">
+              <span class="square-grid-card-link-pic" aria-hidden="true"><svg clip-rule="evenodd" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1.5" viewBox="0 0 33 32" width="24" height="24"><g fill="none"><g stroke-width="2.5"><circle cx="16.913" cy="16" r="14.498"></circle><path d="m9.614 16h13"></path><path d="m18.549 20.864 4.864-4.864-4.864-4.864"></path></g></g></svg></span>
+              <span class="square-grid-card-link-text">Learn more...</span>
+            </a>
+          </div>
+        </article>
+        <article class="square-grid-card" theme="dark" size="std">
+          <img src="/assets/principles/tile01.png" alt="" width="256" height="256">
+          <div class="square-grid-card-content">
+            <h3>Secure</h3>
+            <h4>Paranoid mode enabled</h4>
+            <p class="square-grid-mobile-hideable">Zero dependencies means bullet-proof defense against vicious open source vulnerabilities insertion in foundations libraries. And the basics: encryption...</p>
+            <a class="square-grid-card-link" href="/security/">
+              <span class="square-grid-card-link-pic" aria-hidden="true"><svg clip-rule="evenodd" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1.5" viewBox="0 0 33 32" width="24" height="24"><g fill="none"><g stroke-width="2.5"><circle cx="16.913" cy="16" r="14.498"></circle><path d="m9.614 16h13"></path><path d="m18.549 20.864 4.864-4.864-4.864-4.864"></path></g></g></svg></span>
+              <span class="square-grid-card-link-text">Learn more...</span>
+            </a>
+          </div>
+        </article>
+        <article class="square-grid-card" theme="dark" size="std">
+          <img src="/assets/principles/tile02.png" alt="" width="256" height="256">
+          <div class="square-grid-card-content">
+            <h3>Small</h3>
+            <h4>Small-Surface API</h4>
+            <p class="square-grid-mobile-hideable">The number of things you need to know to start coding on the S8 Stack is astonishingly low! Even if you start a top tier complexity project. So you can build features instead of doing IT stuff</p>
+            <a class="square-grid-card-link" href="/docs/api/">
+              <span class="square-grid-card-link-pic" aria-hidden="true"><svg clip-rule="evenodd" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1.5" viewBox="0 0 33 32" width="24" height="24"><g fill="none"><g stroke-width="2.5"><circle cx="16.913" cy="16" r="14.498"></circle><path d="m9.614 16h13"></path><path d="m18.549 20.864 4.864-4.864-4.864-4.864"></path></g></g></svg></span>
+              <span class="square-grid-card-link-text">Learn more...</span>
+            </a>
+          </div>
+        </article>
+        <article class="square-grid-card" theme="dark" size="std">
+          <img src="/assets/principles/tile03.png" alt="" width="256" height="256">
+          <div class="square-grid-card-content">
+            <h3>Synced</h3>
+            <h4>High concurrency architecture</h4>
+            <p class="square-grid-mobile-hideable">Because scaling to high volume requires to think asynchronous since day 1, we have done it for you under the hood (you don't even have to know what a light thread is).</p>
+          </div>
+        </article>
+        <article class="square-grid-card" theme="dark" size="std">
+          <img src="/assets/principles/tile04.png" alt="" width="256" height="256">
+          <div class="square-grid-card-content">
+            <h3>Storage</h3>
+            <h4>Embedded DB and caching</h4>
+            <p class="square-grid-mobile-hideable">Annotated your objects and we provide under the hood the most efficient caching and databases accesses.</p>
+            <a class="square-grid-card-link" href="/docs/api/tables.html">
+              <span class="square-grid-card-link-pic" aria-hidden="true"><svg clip-rule="evenodd" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1.5" viewBox="0 0 33 32" width="24" height="24"><g fill="none"><g stroke-width="2.5"><circle cx="16.913" cy="16" r="14.498"></circle><path d="m9.614 16h13"></path><path d="m18.549 20.864 4.864-4.864-4.864-4.864"></path></g></g></svg></span>
+              <span class="square-grid-card-link-text">Learn more...</span>
+            </a>
+          </div>
+        </article>
+        <article class="square-grid-card" theme="dark" size="std">
+          <img src="/assets/principles/tile05.png" alt="" width="256" height="256">
+          <div class="square-grid-card-content">
+            <h3>Structured</h3>
+            <h4>Graph DB, native version</h4>
+            <p class="square-grid-mobile-hideable">Handle large objects in db with arbitrary graph shapes. Attach resources directly to objects, leveraging S8 full binary architecture. Go back in time on natively versioned data.</p>
+            <a class="square-grid-card-link" href="/docs/api/spaces.html">
+              <span class="square-grid-card-link-pic" aria-hidden="true"><svg clip-rule="evenodd" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1.5" viewBox="0 0 33 32" width="24" height="24"><g fill="none"><g stroke-width="2.5"><circle cx="16.913" cy="16" r="14.498"></circle><path d="m9.614 16h13"></path><path d="m18.549 20.864 4.864-4.864-4.864-4.864"></path></g></g></svg></span>
+              <span class="square-grid-card-link-text">Learn more...</span>
+            </a>
+          </div>
+        </article>
+        <article class="square-grid-card" theme="dark" size="std">
+          <img src="/assets/principles/tile06.png" alt="" width="256" height="256">
+          <div class="square-grid-card-content">
+            <h3>Screen</h3>
+            <h4>Your front as a remote screen</h4>
+            <p class="square-grid-mobile-hideable">Handle directly your front components from the back. Use standards to create new ones with extension mechanisms.</p>
+            <a class="square-grid-card-link" href="/docs/api/front.html">
+              <span class="square-grid-card-link-pic" aria-hidden="true"><svg clip-rule="evenodd" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1.5" viewBox="0 0 33 32" width="24" height="24"><g fill="none"><g stroke-width="2.5"><circle cx="16.913" cy="16" r="14.498"></circle><path d="m9.614 16h13"></path><path d="m18.549 20.864 4.864-4.864-4.864-4.864"></path></g></g></svg></span>
+              <span class="square-grid-card-link-text">Learn more...</span>
+            </a>
+          </div>
+        </article>
+        <article class="square-grid-card" theme="dark" size="std">
+          <img src="/assets/principles/tile07.png" alt="" width="256" height="256">
+          <div class="square-grid-card-content">
+            <h3>Scalable</h3>
+            <h4>Lake of nodes</h4>
+            <p class="square-grid-mobile-hideable">Use cluster of S8 instances to achieve resilience, load balancing and back-up at arbitrary level.</p>
+            <a class="square-grid-card-link" href="/docs/">
+              <span class="square-grid-card-link-pic" aria-hidden="true"><svg clip-rule="evenodd" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1.5" viewBox="0 0 33 32" width="24" height="24"><g fill="none"><g stroke-width="2.5"><circle cx="16.913" cy="16" r="14.498"></circle><path d="m9.614 16h13"></path><path d="m18.549 20.864 4.864-4.864-4.864-4.864"></path></g></g></svg></span>
+              <span class="square-grid-card-link-text">Learn more...</span>
+            </a>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -300,6 +352,6 @@ main = com.s8.pkgs.ui.aloe.LaunchServer
   </main>
 
   <div id="site-footer"></div>
-  <script src="/assets/js/site.js?v=8"></script>
+  <script src="/assets/js/site.js?v=10"></script>
 </body>
 </html>
