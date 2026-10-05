@@ -174,4 +174,4 @@ Policies: `FORCE_REBUILD`, `LAZY_BUILD`. Circular graphs fail after 8192 steps.
 
 ## Version
 
-Public current: S8 v0.8. Domain: stack8.tech. Copyright Pierre Convert / AlphaVentor.
+Public current: S8 v1.2.0. Download: https://download.stack8.tech/S8-1.2.0.zip. Domain: stack8.tech. Copyright Pierre Convert / AlphaVentor.

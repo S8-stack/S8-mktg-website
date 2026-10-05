@@ -13,11 +13,18 @@ HEAD = """<!DOCTYPE html>
   <title>@@TITLE@@ — S8 Docs</title>
   <meta name="description" content="@@DESC@@">
   <link rel="canonical" href="https://stack8.tech@@CANONICAL@@">
+  <meta property="og:image" content="https://stack8.tech/assets/brand/s8-cover.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="1024">
+  <meta property="og:image:alt" content="S8">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://stack8.tech/assets/brand/s8-cover.jpg">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Open+Sans:wght@400;600;700;800&display=swap">
-  <link rel="stylesheet" href="/assets/css/site.css?v=6">
+  <link rel="stylesheet" href="/assets/css/site.css?v=7">
 </head>
 <body>
   <div id="site-header"></div>
@@ -33,7 +40,7 @@ HEAD = """<!DOCTYPE html>
     </div>
   </div>
   <div id="site-footer"></div>
-  <script src="/assets/js/site.js?v=6"></script>
+  <script src="/assets/js/site.js?v=7"></script>
 </body>
 </html>
 """
@@ -75,7 +82,7 @@ emit(
 <h1 class="plain">What is S8</h1>
 <div class="badge-row">
   <span class="badge badge-api">S8 stack</span>
-  <span class="badge">v0.8</span>
+  <span class="badge">v1.2.0</span>
   <span class="badge">JAVA</span>
 </div>
 <p>S8 (Stack8) is a unified JAVA stack. The web server, the front, the databases, and the orchestration are already supplied and tightly assembled. You do not pick a servlet container, then a front framework, then a database product, then an integration layer. You write against one API.</p>

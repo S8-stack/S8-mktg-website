@@ -1,5 +1,5 @@
 (() => {
-  const VERSION = "v0.8";
+  const VERSION = "v1.2.0";
 
   const NAV = [
     { href: "/about/", label: "About" },

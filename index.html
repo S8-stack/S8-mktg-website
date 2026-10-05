@@ -12,13 +12,19 @@
   <meta property="og:title" content="S8 — Build the entire product in Java">
   <meta property="og:description" content="The unified JAVA stack. Server, front, databases, and orchestration — already assembled.">
   <meta property="og:url" content="https://stack8.tech/">
-  <meta property="og:image" content="https://stack8.tech/assets/brand/s8-logo-2048.png">
+  <meta property="og:image" content="https://stack8.tech/assets/brand/s8-cover.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="1024">
+  <meta property="og:image:alt" content="S8">
   <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://stack8.tech/assets/brand/s8-cover.jpg">
   <meta name="theme-color" content="#0b0d10">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Open+Sans:wght@400;600;700;800&display=swap">
-  <link rel="stylesheet" href="/assets/css/site.css?v=6">
+  <link rel="stylesheet" href="/assets/css/site.css?v=7">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -29,6 +35,8 @@
     "applicationCategory": "DeveloperApplication",
     "operatingSystem": "macOS, Linux, Windows",
     "description": "A unified JAVA stack that ships the web server, the front, the databases, and the orchestration already wired together.",
+    "softwareVersion": "1.2.0",
+    "downloadUrl": "https://download.stack8.tech/S8-1.2.0.zip",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
   }
   </script>
@@ -60,11 +68,11 @@
         <h2>Download S8</h2>
         <p>Get the stack for macOS, Linux, or Windows and boot a production server in under a second.</p>
         <div class="actions">
-          <a class="btn-download" href="/download/">
+          <a class="btn-download" href="https://download.stack8.tech/S8-1.2.0.zip">
             <span class="label">Get S8</span>
-            <span class="ver">v0.8</span>
+            <span class="ver">v1.2.0</span>
           </a>
-          <a class="other-dl" href="/download/">Other Downloads</a>
+          <a class="other-dl" href="/download/">Install notes</a>
         </div>
         <div class="home-meta">
           <span class="pill">JAVA core</span>
@@ -237,7 +245,7 @@ main = com.s8.pkgs.ui.aloe.LaunchServer
           <article>
             <div class="step-n">1</div>
             <h3>Install the stack</h3>
-            <p>Download v0.8 and point <code>/etc/s8-conf.properties</code> at your JAVA_HOME and stack roots.</p>
+            <p>Download v1.2.0 and point <code>/etc/s8-conf.properties</code> at your JAVA_HOME and stack roots.</p>
             <p><a href="/download/">Download S8 →</a></p>
           </article>
           <article>
@@ -289,6 +297,6 @@ main = com.s8.pkgs.ui.aloe.LaunchServer
   </main>
 
   <div id="site-footer"></div>
-  <script src="/assets/js/site.js?v=6"></script>
+  <script src="/assets/js/site.js?v=7"></script>
 </body>
 </html>
