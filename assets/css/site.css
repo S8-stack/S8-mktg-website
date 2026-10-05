@@ -605,14 +605,14 @@ code, kbd { font-family: var(--mono); font-size: 0.9em; }
   font-weight: 800;
 }
 
-.square-grid-card[data-tile="0"] .s-hl { color: #fbe8eb; }
-.square-grid-card[data-tile="1"] .s-hl { color: #e0d5e8; }
-.square-grid-card[data-tile="2"] .s-hl { color: #e2f2f9; }
-.square-grid-card[data-tile="3"] .s-hl { color: #d1edf0; }
-.square-grid-card[data-tile="4"] .s-hl { color: #b6f7d0; }
-.square-grid-card[data-tile="5"] .s-hl { color: #e3e5ff; }
-.square-grid-card[data-tile="6"] .s-hl { color: #fbedcc; }
-.square-grid-card[data-tile="7"] .s-hl { color: #fdd6cf; }
+.square-grid-card[data-tile="0"] .s-hl { color: #ee586f; }
+.square-grid-card[data-tile="1"] .s-hl { color: #b058ee; }
+.square-grid-card[data-tile="2"] .s-hl { color: #58c1ee; }
+.square-grid-card[data-tile="3"] .s-hl { color: #58dfee; }
+.square-grid-card[data-tile="4"] .s-hl { color: #58ee94; }
+.square-grid-card[data-tile="5"] .s-hl { color: #5862ee; }
+.square-grid-card[data-tile="6"] .s-hl { color: #eec158; }
+.square-grid-card[data-tile="7"] .s-hl { color: #ee6f58; }
 
 .square-grid-card h4 {
   font-size: 18px;
