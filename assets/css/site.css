@@ -304,8 +304,24 @@ code, kbd { font-family: var(--mono); font-size: 0.9em; }
   background: transparent;
 }
 
+.hero-title {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin: 0 0 20px;
+}
+
+.hero-logo {
+  width: clamp(7.5rem, 16vw, 13.5rem);
+  height: auto;
+  max-width: none;
+  flex-shrink: 0;
+  display: block;
+  border-radius: 0;
+}
+
 .hero h1 {
-  margin: 0 0 16px;
+  margin: 0;
   font-size: clamp(2.4rem, 5vw, 3.6rem);
   line-height: 1.08;
   letter-spacing: -0.035em;
@@ -878,6 +894,8 @@ body.home .site-footer {
   .docs-main { padding: 20px 18px 64px; }
   .wrap { width: min(var(--max), calc(100% - 32px)); }
   .hero { padding-top: 40px; }
+  .hero-title { gap: 18px; }
+  .hero-logo { width: 5.75rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
