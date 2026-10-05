@@ -549,7 +549,7 @@ code, kbd { font-family: var(--mono); font-size: 0.9em; }
 .stack-principles .square-grid-deck {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 24px;
+  gap: 40px;
   width: 100%;
 }
 
@@ -590,14 +590,31 @@ code, kbd { font-family: var(--mono); font-size: 0.9em; }
 }
 
 .square-grid-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-size: 24px;
   padding: 2px 0;
-  margin: 8px 0 4px 8px;
+  margin: 8px 8px 4px;
   width: fit-content;
   font-weight: 700;
   letter-spacing: 0;
   line-height: normal;
   color: var(--ink);
+}
+
+.square-grid-card-n {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  text-shadow: none;
 }
 
 .square-grid-card h4 {
@@ -608,7 +625,7 @@ code, kbd { font-family: var(--mono); font-size: 0.9em; }
   font-weight: 700;
   letter-spacing: 0;
   line-height: normal;
-  color: var(--ink);
+  color: var(--green-ink);
 }
 
 .square-grid-card p {
@@ -616,34 +633,39 @@ code, kbd { font-family: var(--mono); font-size: 0.9em; }
   padding: 0;
   margin: 4px 16px 4px 8px;
   width: fit-content;
-  line-height: normal;
-  color: var(--ink-2);
+  line-height: 1.45;
+  color: var(--muted);
 }
 
 .square-grid-card[theme="dark"] {
   border-color: rgb(80, 80, 80);
 }
 
-.square-grid-card[theme="dark"] h3,
-.square-grid-card[theme="dark"] h4 {
+.square-grid-card[theme="dark"] h3 {
   color: #fff;
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.82);
 }
 
+.square-grid-card[theme="dark"] h4 {
+  color: var(--green-ink);
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
+}
+
 .square-grid-card[theme="dark"] p {
-  color: #fff;
-  text-shadow: 0 0 2px rgba(0, 0, 0, 0.82);
+  color: var(--muted);
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.85);
 }
 
 @media (max-width: 860px) {
   .stack-principles .square-grid-deck {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
+    gap: 24px;
   }
 }
 
 @media (max-width: 619px) {
   .square-grid-card h3 { font-size: 20px; }
+  .square-grid-card-n { width: 24px; height: 24px; flex-basis: 24px; font-size: 12px; }
   .square-grid-card h4 { font-size: 16px; font-weight: 400; }
   .square-grid-card p { font-size: 12px; }
   .square-grid-mobile-hideable { display: none; }
