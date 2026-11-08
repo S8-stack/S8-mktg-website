@@ -10,5 +10,9 @@
   Cache-Control: public, max-age=86400
   Content-Type: image/jpeg
 
+/schema.xsd
+  Cache-Control: public, max-age=86400
+  Content-Type: application/xml
+
 /assets/*
   Cache-Control: public, max-age=31536000, immutable

@@ -171,6 +171,7 @@ Policies: `FORCE_REBUILD`, `LAZY_BUILD`. Circular graphs fail after 8192 steps.
 - https://stack8.tech/docs/build/s8-stack-builder.html
 - https://stack8.tech/learn/
 - https://stack8.tech/ecosystem/
+- https://stack8.tech/schema.xsd — XSD for server XML configs (`app-config.xml`)
 
 ## Version
 
